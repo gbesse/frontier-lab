@@ -27,6 +27,8 @@ L’atelier est disponible en français, anglais et espagnol : choisir **FR / EN
 
 Teachpack peut aussi détecter les clics sur macOS, sur demande : cocher l’option avant de partager un écran entier. La première autorisation « Surveillance des entrées » peut nécessiter un passage dans les réglages système. Cette alpha enregistre l’instant et la position des clics, pas le nom du bouton ni les frappes clavier ; un seul écran actif est pris en charge. La capture visuelle reste disponible si la permission est refusée.
 
+Pendant le suivi, le guide montre maintenant une capture de référence locale. Si des clics ont été enregistrés, des points indiquent leurs positions approximatives sur l’écran précédent ; ils ne désignent pas un bouton certain et ne déclenchent aucune action.
+
 Teachpack can optionally detect clicks on macOS: select the option before sharing a full display. The first Input Monitoring permission may require a trip to System Settings. This alpha stores click time and position, not the button's identity or keystrokes; it supports one active display. Screen capture still works if permission is denied.
 
 Teachpack también puede detectar clics en macOS de forma opcional: marca la opción antes de compartir toda la pantalla. El primer permiso de Supervisión de entrada puede requerir abrir los Ajustes del Sistema. Esta alfa guarda la hora y la posición de los clics, no la identidad del botón ni las teclas pulsadas; admite una sola pantalla activa. La captura de pantalla sigue funcionando si se deniega el permiso.

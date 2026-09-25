@@ -27,6 +27,8 @@ El taller está disponible en francés, inglés y español: elige **FR / EN / ES
 
 Teachpack también puede detectar clics en macOS si activas la opción antes de compartir toda la pantalla. El primer permiso de Supervisión de entrada puede requerir abrir Ajustes del Sistema. Esta alfa registra el momento y la posición del clic, no la identidad del control pulsado ni las teclas; admite una sola pantalla activa. La captura visual sigue disponible si se deniega el permiso.
 
+Durante el seguimiento en directo, la guía muestra ahora una captura de referencia guardada localmente. Si se grabaron clics, los puntos indican sus posiciones aproximadas en la pantalla anterior; no identifican un botón concreto ni ejecutan ninguna acción.
+
 Recorrido recomendado de cinco minutos:
 
 1. **Teachpack:** abre «Mostrar la pantalla», elige una ventana, realiza dos pasos visibles, detén la captura, selecciona las imágenes útiles y crea una guía. Comparte de nuevo la ventana para ver el reconocimiento en directo. La demostración de llamadas estructuradas sigue disponible en la sección técnica inferior.

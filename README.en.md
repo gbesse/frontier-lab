@@ -27,6 +27,8 @@ The studio supports French, English and Spanish: choose **FR / EN / ES** at the 
 
 Teachpack can also detect clicks on macOS if you opt in before sharing a full display. The first Input Monitoring permission may need to be granted in System Settings. This alpha records click time and position, not the clicked control's identity or keystrokes; one active display is supported. Screen capture remains available if permission is denied.
 
+During live follow, the guide now shows a locally stored reference screenshot. When clicks were recorded, dots indicate their approximate positions on the previous screen; they do not identify a particular button or trigger any action.
+
 Suggested five-minute tour:
 
 1. **Teachpack:** open “Show your screen”, select a window, perform two visible steps, stop, select useful frames and create a guide. Share the window again to see live recognition. The structured-tool demo remains in the technical section below.

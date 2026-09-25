@@ -98,6 +98,11 @@ try {
     timeout: 30000,
   });
   await page.locator('#visual-stop').click();
+  await page.waitForFunction(
+    () => document.querySelector('#visual-click-status').textContent.includes('Clicks detected: 1'),
+    null,
+    { timeout: 30000 },
+  );
   assert.match(await page.locator('#visual-click-status').innerText(), /Clicks detected: 1/);
   await page.locator('#visual-compile:not([disabled])').waitFor();
   const steps = page.locator('.visual-frame');
@@ -122,7 +127,12 @@ try {
   await page.locator('#language-select').selectOption('es');
   assert.match(await page.locator('#toast').innerText(), /Guía visual creada/);
   assert.match(await page.locator('#visual-follow-status').innerText(), /Guía visual creada/);
+  assert.equal(await page.locator('.follow-reference img').count(), 1);
+  assert.match(await page.locator('.follow-reference figcaption').innerText(), /referencia/);
   await page.screenshot({ path: join(output, '08-teachpack-visual.png'), fullPage: true });
+  await page.reload();
+  assert.equal(await page.locator('.follow-reference img').count(), 1);
+  assert.equal(await page.locator('#visual-follow').isEnabled(), true);
   await page.locator('#visual-follow').click();
   await page.waitForFunction(
     () => document.querySelector('#visual-follow-status').textContent.includes('Paso 2/2'),
@@ -133,8 +143,28 @@ try {
     await page.locator('#visual-follow-status .click-evidence').innerText(),
     /clic izquierdo/,
   );
+  assert.equal(await page.locator('.follow-reference .click-marker').count(), 1);
+  assert.match(
+    await page.locator('.follow-reference figcaption').innerText(),
+    /pantalla anterior/i,
+  );
+  assert.match(await page.locator('.follow-reference img').getAttribute('src'), /frame=0/);
+  assert.equal(
+    await page
+      .locator('.follow-reference img')
+      .evaluate((image) => image.complete && image.naturalWidth > 0),
+    true,
+  );
+  await page.screenshot({ path: join(output, '10-teachpack-click-reference.png'), fullPage: true });
+  await page.setViewportSize({ width: 390, height: 844 });
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+  await page.setViewportSize({ width: 1440, height: 1000 });
   await page.locator('#language-select').selectOption('fr');
   assert.match(await page.locator('#visual-follow-status').innerText(), /Étape 2\/2/);
+  assert.match(await page.locator('.follow-reference figcaption').innerText(), /Écran précédent/);
+  await page.locator('#language-select').selectOption('en');
+  assert.match(await page.locator('.follow-reference figcaption').innerText(), /Previous screen/);
+  await page.locator('#language-select').selectOption('fr');
   await page.evaluate(() => window.visualTestAdvance());
   await page.waitForFunction(
     () =>

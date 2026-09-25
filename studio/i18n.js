@@ -465,6 +465,21 @@ export const messageTranslations = {
     '{button} click at {x}%, {y}%',
     'clic {button} en {x} %, {y} %',
   ],
+  visualReferenceAlt: [
+    'Capture de référence {number}',
+    'Reference capture {number}',
+    'Captura de referencia {number}',
+  ],
+  visualReferenceScreen: [
+    'Écran de référence enregistré localement.',
+    'Reference screen stored locally.',
+    'Pantalla de referencia guardada localmente.',
+  ],
+  visualReferenceWithClicks: [
+    'Écran précédent ; les points montrent les positions approximatives des clics enregistrés, pas les boutons à activer.',
+    'Previous screen; dots show approximate recorded click positions, not buttons to activate.',
+    'Pantalla anterior; los puntos muestran posiciones aproximadas de los clics grabados, no botones que debas activar.',
+  ],
   demos: ['démonstrations', 'demonstrations', 'demostraciones'],
   stepsCompiled: ['étapes compilées', 'compiled steps', 'pasos compilados'],
   rehearsalsPassed: ['répétitions réussies', 'successful rehearsals', 'ensayos correctos'],

@@ -8,9 +8,15 @@ The local studio UI is available in French, English and Spanish via the **FR / E
 
 Optional click detection is available on macOS when sharing a full display with only one active display. Select the checkbox before recording; macOS may ask for Input Monitoring permission. Teachpack records left/right click time and normalized screen position, then shows clicks next to captured screens and in the exported guide. It does not capture keystrokes, identify a clicked control, or replay clicks. The listener sees clicks anywhere on the shared display while recording, so review the evidence before exporting.
 
+During live follow, the studio displays a locally stored reference screenshot. Recorded clicks appear as approximate dots on the previous step's screen. They are guidance only: no control is identified or activated.
+
 La détection facultative des clics fonctionne sur macOS si vous partagez l’écran entier et qu’un seul écran est actif. Cochez l’option avant d’enregistrer ; macOS peut demander l’autorisation « Surveillance des entrées ». Teachpack note l’instant et la position des clics gauche/droit, puis les affiche avec les captures et dans le guide exporté. Il n’enregistre pas les frappes clavier, n’identifie pas le contrôle cliqué et ne rejoue pas les clics. Le capteur observe tout l’écran partagé pendant l’enregistrement : vérifiez les données avant l’export.
 
+Pendant le suivi, l’atelier affiche une capture de référence stockée localement. Les clics enregistrés apparaissent comme des points approximatifs sur l’écran de l’étape précédente. Ils servent seulement de guide : aucun contrôle n’est identifié ni activé.
+
 La detección opcional de clics funciona en macOS al compartir toda la pantalla cuando solo hay una pantalla activa. Marca la opción antes de grabar; macOS puede solicitar el permiso de Supervisión de entrada. Teachpack registra el momento y la posición de los clics izquierdo y derecho y los muestra junto a las capturas y en la guía exportada. No registra teclas, no identifica el control pulsado ni reproduce los clics. El sensor observa toda la pantalla compartida durante la grabación: revisa los datos antes de exportar.
+
+Durante el seguimiento, el taller muestra una captura de referencia guardada localmente. Los clics grabados aparecen como puntos aproximados en la pantalla del paso anterior. Solo sirven de guía: no se identifica ni se activa ningún control.
 
 ## Show your screen
 

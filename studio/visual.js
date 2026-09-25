@@ -19,6 +19,7 @@ export function initVisualStudio({ api, getState, refresh, toast }) {
   let frames = getState().visualRecordings?.[0]?.frames ?? [];
   let recordingId = getState().visualRecordings?.[0]?.id ?? null;
   let guide = getState().visualSkills?.[0]?.skill ?? null;
+  let guideRecordingId = getState().visualSkills?.[0]?.recordingId ?? null;
   let followIndex = 0,
     lastPixels = null,
     lastSent = 0;
@@ -191,6 +192,37 @@ export function initVisualStudio({ api, getState, refresh, toast }) {
                 markers: step.markers.join(' ; ') || tr('visualManual'),
               });
     target.append(div);
+    const recordingAvailable = getState().visualRecordings?.some(
+      (recording) => recording.id === guideRecordingId,
+    );
+    if (step && recordingAvailable) {
+      const referenceStep = followIndex > 0 ? guide.steps[followIndex - 1] : step;
+      const figure = document.createElement('figure');
+      figure.className = 'follow-reference';
+      const preview = document.createElement('div');
+      preview.className = 'follow-reference-preview';
+      const image = document.createElement('img');
+      image.loading = 'lazy';
+      image.alt = tr('visualReferenceAlt', { number: referenceStep.frameIndex + 1 });
+      image.src = `/api/teach/visual/image?id=${encodeURIComponent(guideRecordingId)}&frame=${referenceStep.frameIndex}&token=${getState().token}`;
+      preview.append(image);
+      for (const click of (followIndex > 0 ? (step.interactions ?? []) : []).slice(0, 10)) {
+        const marker = document.createElement('span');
+        marker.className = 'click-marker';
+        marker.style.left = `${click.x * 100}%`;
+        marker.style.top = `${click.y * 100}%`;
+        marker.setAttribute('aria-hidden', 'true');
+        preview.append(marker);
+      }
+      const caption = document.createElement('figcaption');
+      caption.textContent = tr(
+        followIndex > 0 && step.interactions?.length
+          ? 'visualReferenceWithClicks'
+          : 'visualReferenceScreen',
+      );
+      figure.append(preview, caption);
+      target.append(figure);
+    }
     if (step?.interactions?.length) {
       const clicks = document.createElement('p');
       clicks.className = 'click-evidence';
@@ -397,6 +429,7 @@ export function initVisualStudio({ api, getState, refresh, toast }) {
         labels: Object.fromEntries(labels),
       });
       guide = result.skill;
+      guideRecordingId = result.recordingId;
       await refresh();
       renderFollow({ created: true });
       toast({ i18nKey: 'visualGuideToast' });
