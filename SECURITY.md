@@ -14,4 +14,8 @@ This is an early local research alpha, not production-hardened SaaS.
 - Exit keeps source exports, notes and attachment content on disk. Extra fields are preserved in the source archive even when no active destination behavior exists. Never publish exported artifacts containing personal or confidential information. The migration manifest is not a signed attestation.
 - `.env`, `.local/`, `output/`, `node_modules/` and tarballs are excluded from Git. Package allowlists exclude studio state and generated artifacts. Never put credentials into fixtures, examples or logs.
 
-To report a vulnerability, contact the repository owner privately using a verified channel once a public repository exists. Do not attach real customer exports or keys to public issues. This local workspace does not establish a public security response SLA.
+To report a vulnerability privately, use [GitHub's private vulnerability reporting](https://github.com/gbesse/frontier-lab/security/advisories/new). Do not attach real customer exports or keys to public issues. This research alpha does not establish a security response SLA.
+
+Pour signaler une vulnérabilité de façon privée, utilisez le [signalement privé de GitHub](https://github.com/gbesse/frontier-lab/security/advisories/new). Ne joignez jamais d’exports clients réels ni de clés à une issue publique. Cette alpha de recherche ne garantit aucun délai de réponse de sécurité.
+
+Para informar de una vulnerabilidad de forma privada, usa el [canal privado de GitHub](https://github.com/gbesse/frontier-lab/security/advisories/new). No adjuntes exportaciones reales de clientes ni claves a incidencias públicas. Esta alfa de investigación no garantiza ningún plazo de respuesta de seguridad.
