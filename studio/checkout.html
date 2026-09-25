@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Maison Atelier · Devis</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font: 16px system-ui;
+        background: #f0eee5;
+        color: #2d342d;
+        margin: 0;
+      }
+      main {
+        max-width: 650px;
+        margin: 60px auto;
+        padding: 32px;
+      }
+      h1 {
+        font: 48px Georgia;
+        margin: 15px 0;
+      }
+      small {
+        letter-spacing: 3px;
+      }
+      form {
+        display: grid;
+        gap: 14px;
+        padding: 26px;
+        background: #fff;
+        border: 1px solid #d4d5c9;
+        border-radius: 12px;
+      }
+      input,
+      select,
+      button {
+        font: inherit;
+        padding: 14px;
+        border: 1px solid #b9c2b7;
+        border-radius: 5px;
+        width: 100%;
+      }
+      label {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      button {
+        background: #254f3f;
+        color: white;
+        cursor: pointer;
+      }
+      #result {
+        white-space: pre-wrap;
+      }
+      .tag {
+        font-size: 12px;
+        color: #657567;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <small>MAISON ATELIER / B2B</small>
+      <h1>Équipez votre atelier.</h1>
+      <p>Un devis pour les objets qui accompagnent votre travail.</p>
+      <p class="tag" id="mode"></p>
+      <form id="quote">
+        <div>
+          <label data-for="name">Nom de votre entreprise</label
+          ><input id="name" name="company" required />
+        </div>
+        <div>
+          <label data-for="email">Email professionnel</label
+          ><input id="email" name="mail" type="email" required />
+        </div>
+        <div>
+          <label data-for="sku">Produit</label
+          ><select id="sku" name="item">
+            <option value="lamp">Lampe atelier — 45 €</option>
+            <option value="chair">Chaise studio — 85 €</option>
+            <option value="desk">Bureau compact — 120 €</option>
+          </select>
+        </div>
+        <div>
+          <label data-for="quantity">Quantité</label
+          ><input id="quantity" name="qty" type="number" min="1" max="1000" value="1" required />
+        </div>
+        <button type="submit">Demander un devis</button>
+      </form>
+      <p id="result" role="status"></p>
+      <p class="tag">Site de test local · données synthétiques · aucun envoi ou achat réel</p>
+    </main>
+    <script>
+      const improved = new URLSearchParams(location.search).get('mode') === 'after';
+      const token = '__TOKEN__';
+      document.querySelector('#mode').textContent = improved
+        ? 'Version accessible + outil structuré'
+        : 'Version initiale : libellés visuels non associés';
+      if (improved)
+        document
+          .querySelectorAll('[data-for]')
+          .forEach((label) => (label.htmlFor = label.dataset.for));
+      async function requestQuote(task) {
+        const r = await fetch('/api/quote', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-Studio-Token': token },
+          body: JSON.stringify(task),
+        });
+        const receipt = await r.json();
+        if (!r.ok) throw Error(receipt.error);
+        document.querySelector('#result').textContent =
+          'Devis enregistré : ' + receipt.id + ' · ' + receipt.quantity + ' × ' + receipt.sku;
+        return receipt;
+      }
+      document.querySelector('form').onsubmit = async (e) => {
+        e.preventDefault();
+        try {
+          await requestQuote({
+            customerName: document.querySelector('#name').value,
+            email: document.querySelector('#email').value,
+            sku: document.querySelector('#sku').value,
+            quantity: Number(document.querySelector('#quantity').value),
+          });
+        } catch (e) {
+          document.querySelector('#result').textContent = e.message;
+        }
+      };
+      if (improved) {
+        window.checkoutTools = { requestQuote };
+        const context = document.modelContext ?? navigator.modelContext;
+        if (context?.registerTool) {
+          try {
+            context.registerTool({
+              name: 'request_quote',
+              description: 'Create a simulated B2B quote',
+              inputSchema: {
+                type: 'object',
+                properties: {
+                  customerName: { type: 'string' },
+                  email: { type: 'string' },
+                  sku: { type: 'string', enum: ['lamp', 'chair', 'desk'] },
+                  quantity: { type: 'integer', minimum: 1, maximum: 1000 },
+                },
+                required: ['customerName', 'email', 'sku', 'quantity'],
+              },
+              execute: async (args) => ({
+                content: [{ type: 'text', text: JSON.stringify(await requestQuote(args)) }],
+              }),
+            });
+          } catch (e) {
+            console.info('Experimental WebMCP registration unavailable');
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

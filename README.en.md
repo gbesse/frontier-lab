@@ -1,0 +1,71 @@
+# Frontier Lab
+
+English · [Español](README.es.md) · [Français](README.md)
+
+Four open-source projects in a **local alpha**, with an interactive studio to try them. Names and scope are provisional. This repository is not a hosted service, and its packages are not published on npm.
+
+| Project                | What works                                                                                                                                        | Explicit limit of this alpha                                                                                                        |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **Teachpack**          | Follows a shared window or screen, reads text locally and creates a reviewable visual guide; also compiles structured demonstrations into a skill | The visual guide recognizes screen states but does not control other applications                                                   |
+| **Branch**             | Simulates orders, stock reservations, customer credit and notifications, with forks and injected failures                                         | An explicit in-memory business model, not an automatic ERP clone or an arbitrary-code sandbox                                       |
+| **Exit**               | Turns a customer/job/attachment export into an editable standalone application                                                                    | Explicit mapping, local single-user app; original SaaS permissions and automations are not recreated                                |
+| **Agent Checkout Lab** | Tests a quote journey in Chromium and checks the data actually saved                                                                              | A `/api/quote` test contract and deterministic drivers, not a universal agent-compatibility score or proof of commercial conversion |
+
+## Try it
+
+Use Node.js 22+ and npm. On macOS, Teachpack uses Apple Vision for local screen-text recognition. Choose the window or display in the browser's sharing dialog; try Chrome if the in-app browser has no screen-sharing option. No account or API key is required.
+
+```sh
+npm ci
+npx playwright install chromium
+npm start
+```
+
+Open **http://127.0.0.1:4317**. The server listens on localhost only. Use `PORT=4320 npm start` for another port. Studio data and reports live in Git-ignored `.local/`. No real email, order or external service is involved.
+
+The studio supports French, English and Spanish: choose **FR / EN / ES** at the top right. The choice persists in your browser. Teachpack localizes its interface, follow-up messages and generated default steps, and prioritizes these languages in local OCR. Visible screen text and your own labels remain as written; they are not automatically translated.
+
+Teachpack can also detect clicks on macOS if you opt in before sharing a full display. The first Input Monitoring permission may need to be granted in System Settings. This alpha records click time and position, not the clicked control's identity or keystrokes; one active display is supported. Screen capture remains available if permission is denied.
+
+Suggested five-minute tour:
+
+1. **Teachpack:** open “Show your screen”, select a window, perform two visible steps, stop, select useful frames and create a guide. Share the window again to see live recognition. The structured-tool demo remains in the technical section below.
+2. **Branch:** run the five scenarios and inspect expected errors, effects already committed and absence of duplicates.
+3. **Exit:** inspect the sample export, generate and download the application. Extract it, enter the generated directory and run `npm start`. It starts on port 4318 without `npm install`.
+4. **Checkout:** run the semantic driver before and after the accessibility fix, then the structured driver. The expected results are fail/pass/pass. Missing labels deliberately block this semantic driver, not all possible agents.
+
+Teachpack captures and Exit exports stay on your disk in `.local/`; they may include sensitive visible content. Do not publish `.local/` or `output/`. Test-site quotes are in memory; test reports persist.
+
+## Verify
+
+```sh
+npm test               # business rules, learning, migration, API and persistence
+npm run demo           # skill, rehearsal and standalone app in output/
+npm run test:browser   # Chromium, studio, generated app, quotes, simulated sharing (Apple Vision on Mac)
+npm run pack:check     # pack, install and run each CLI outside the monorepo
+npm run format:check
+npm audit --audit-level=moderate
+```
+
+On Linux CI, install system libraries with `npx playwright install --with-deps chromium`. `pack:check` uses npm to install Playwright in a temporary directory; our package tarballs remain local. The GitHub workflow tests Node 22 and 24 on Linux; a macOS check of the Swift bridges can be run manually. None of these tests grants the system click-monitoring permission.
+
+## Four packages, one shared studio
+
+```text
+packages/teachpack/  → symbolic learning + CLI
+packages/branch/     → business simulator + CLI
+packages/exit/       → migration + standalone-app generator + CLI
+packages/checkout/   → browser + business-result verification + CLI
+studio/              → local studio and test site
+test/                → rules, integration and browser tests
+```
+
+Each package has its own README, MIT license, ESM exports and executable, and can be packed independently. Teachpack uses Branch for its rehearsal command. This monorepo supports cross-project experiments; it does not imply that four separate GitHub repositories already exist.
+
+Detailed references: [Teachpack](packages/teachpack/README.md), [Branch](packages/branch/README.md), [Exit](packages/exit/README.md), [Agent Checkout](packages/checkout/README.md). See [security and limits](SECURITY.md) and [contributing](CONTRIBUTING.md). Strategy and launch notes stay local and are not part of the public repository.
+
+## Status
+
+These are alpha implementations, not commercially validated products. Local validation has not used a real LLM provider. The optional model driver needs explicit configuration and may incur provider charges. Click detection has been tested with a simulated event; system permission and a real click still need a consenting macOS test before claiming end-to-end validation.
+
+MIT — see [LICENSE](LICENSE).

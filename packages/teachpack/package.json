@@ -1,0 +1,27 @@
+{
+  "name": "@gbesse/teachpack",
+  "version": "0.1.0",
+  "description": "Compile explicit workflow demonstrations into inspectable, permissioned skills.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./visual": "./src/visual.js"
+  },
+  "bin": {
+    "teachpack": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "@gbesse/branch-lab": "0.1.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

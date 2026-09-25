@@ -1,0 +1,21 @@
+{
+  "name": "@gbesse/exit-workflow",
+  "version": "0.1.0",
+  "description": "Auditable migration of an intervention workflow into a standalone application.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "exit-workflow": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

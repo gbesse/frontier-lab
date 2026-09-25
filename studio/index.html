@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Frontier — Product Lab</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <aside>
+      <a class="brand" href="#home"
+        ><b>f↗</b><span>frontier<small>PRODUCT LAB</small></span></a
+      >
+      <div class="nav-label">VOTRE ATELIER</div>
+      <nav>
+        <a href="#home">↗ <span>Vue d’ensemble</span></a
+        ><a href="#teach">01 <span>Teachpack</span></a
+        ><a href="#branch">02 <span>Branch</span></a
+        ><a href="#exit">03 <span>Exit</span></a
+        ><a href="#checkout">04 <span>Agent Checkout</span></a>
+      </nav>
+      <div class="aside-bottom">
+        <span class="dot"></span> Local · données synthétiques<small
+          >Quatre idées. Des preuves exécutables.<br />Alpha 0.1 / open source</small
+        >
+      </div>
+    </aside>
+    <main>
+      <header>
+        <span>EXPLORATIONS / <b id="page-name">VUE D’ENSEMBLE</b></span>
+        <div class="header-actions">
+          <label class="language-picker"
+            >Langue
+            <select id="language-select" aria-label="Langue / Language / Idioma">
+              <option value="fr">FR</option>
+              <option value="en">EN</option>
+              <option value="es">ES</option>
+            </select>
+          </label>
+          <span class="pill">● Aucun système de production connecté</span>
+        </div>
+      </header>
+      <section id="home" class="page">
+        <div class="hero">
+          <div>
+            <p class="eyebrow">LE LABORATOIRE DES PROCHAINS USAGES</p>
+            <h1>Le travail,<br />en version <em>suivante.</em></h1>
+            <p class="intro">
+              Apprendre d’une démonstration. Répéter sans risque.<br />Reprendre ses données. Ouvrir
+              le web aux agents.
+            </p>
+            <a class="button" href="#teach">Entrer dans l’atelier <span>↗</span></a>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit one"></div>
+            <div class="orbit two"></div>
+            <div class="orbit three"></div>
+            <span class="art-label">HUMAN KNOW-HOW<br />↓<br />EXECUTABLE SOFTWARE</span><b>f</b
+            ><span class="art-corner">EXP. 001—004</span>
+          </div>
+        </div>
+        <div class="section-title">
+          <h2>Quatre paris, déjà manipulables.</h2>
+          <span>CHOISISSEZ UNE EXPÉRIENCE ↘</span>
+        </div>
+        <div class="cards">
+          <a class="product" href="#teach"
+            ><span class="number">01 / TEACH</span>
+            <div class="glyph">↳</div>
+            <h3>Teachpack <span>↗</span></h3>
+            <p>Montrez un travail.<br />Rejouez la méthode, pas les clics.</p>
+            <footer>Démo → skill inspectable</footer></a
+          ><a class="product" href="#branch"
+            ><span class="number">02 / REHEARSE</span>
+            <div class="glyph">⑂</div>
+            <h3>Branch <span>↗</span></h3>
+            <p>Un terrain d’essai pour agents.<br />Voyez les conséquences avant d’agir.</p>
+            <footer>Simulation → preuve métier</footer></a
+          ><a class="product" href="#exit"
+            ><span class="number">03 / OWN</span>
+            <div class="glyph">⇱</div>
+            <h3>Exit <span>↗</span></h3>
+            <p>Votre workflow, chez vous.<br />Un export devient une application.</p>
+            <footer>Données → application autonome</footer></a
+          ><a class="product" href="#checkout"
+            ><span class="number">04 / CONNECT</span>
+            <div class="glyph">⌘</div>
+            <h3>Agent Checkout <span>↗</span></h3>
+            <p>
+              Votre site est-il utilisable par un agent ?<br />Testez le résultat, pas la promesse.
+            </p>
+            <footer>Navigateur → devis vérifié</footer></a
+          >
+        </div>
+        <div class="manifesto">
+          <b>La règle du laboratoire</b>
+          <p>
+            Chaque expérience produit une trace vérifiable. Les limites sont affichées. Rien ne
+            commande, n’envoie d’email ou ne modifie un service externe.
+          </p>
+        </div>
+      </section>
+      <section id="teach" class="page" hidden>
+        <p class="eyebrow">01 / TRANSMETTRE UN SAVOIR-FAIRE</p>
+        <h1>Montrez. <em>Transmettez.</em></h1>
+        <p class="intro">
+          Partagez une fenêtre ou votre écran : Teachpack suit les changements visibles, lit le
+          texte localement et transforme les écrans choisis en étapes vérifiables.
+        </p>
+        <div class="columns visual-workspace">
+          <article>
+            <div class="section-title">
+              <h2>1. Montrer son écran</h2>
+              <span>CAPTURE LOCALE</span>
+            </div>
+            <p>
+              Choisissez une fenêtre dans la boîte de partage du navigateur, puis réalisez votre
+              procédure. Teachpack prend une image quand l’écran change. Les images restent sur ce
+              Mac.
+            </p>
+            <div class="toolbar">
+              <button id="visual-start">Partager et enregistrer</button
+              ><button id="visual-stop" class="secondary" disabled>Arrêter</button
+              ><button id="visual-recover" class="secondary" hidden>
+                Terminer une capture interrompue
+              </button>
+            </div>
+            <label class="click-opt-in"
+              ><input id="visual-capture-clicks" type="checkbox" /> Détecter aussi les clics (macOS,
+              écran entier uniquement)</label
+            >
+            <p id="visual-click-status" class="muted" role="status">
+              Désactivé par défaut. Autorisation « Surveillance des entrées » demandée seulement si
+              vous cochez cette option.
+            </p>
+            <p class="muted">
+              Si activée, cette option observe les clics sur tout l’écran partagé, même hors de la
+              procédure. Elle n’enregistre ni frappes clavier ni nom du contrôle cliqué.
+            </p>
+            <video
+              id="visual-preview"
+              autoplay
+              muted
+              playsinline
+              aria-label="Aperçu de la fenêtre partagée"
+            ></video>
+            <p id="visual-status" role="status" class="muted">Aucun écran partagé.</p>
+          </article>
+          <article>
+            <div class="section-title">
+              <h2>2. Vérifier les étapes</h2>
+              <span>VOUS GARDEZ LA MAIN</span>
+            </div>
+            <p>
+              Cochez les écrans utiles et précisez ce que vous avez fait. Le texte nouveau sert de
+              repère pour suivre une autre exécution.
+            </p>
+            <label
+              >Nom de la procédure<input
+                id="visual-title"
+                value="Ma procédure à l’écran"
+                maxlength="120"
+            /></label>
+            <div id="visual-frames" class="visual-frames">
+              <p class="muted">Les écrans capturés apparaîtront ici.</p>
+            </div>
+            <div class="toolbar">
+              <button id="visual-compile" disabled>Créer le guide visuel →</button
+              ><button id="visual-download" class="secondary" disabled>Exporter JSON ↓</button>
+            </div>
+          </article>
+        </div>
+        <article class="visual-follow">
+          <div class="section-title">
+            <h2>3. Suivre une nouvelle exécution</h2>
+            <span>LECTURE EN DIRECT</span>
+          </div>
+          <p>
+            Repartagez la fenêtre. Teachpack compare le texte affiché aux repères du guide et avance
+            quand une étape est reconnue. Vous pouvez confirmer manuellement une étape sans repère
+            distinctif.
+          </p>
+          <div class="toolbar">
+            <button id="visual-follow" disabled>Suivre mon écran →</button
+            ><button id="visual-follow-stop" class="secondary" disabled>Arrêter le suivi</button
+            ><button id="visual-next" class="secondary" disabled>Étape suivante</button>
+          </div>
+          <div id="visual-follow-status" class="result"></div>
+        </article>
+        <details class="technical-demo">
+          <summary>Démo technique : apprendre à partir d’appels d’outils structurés</summary>
+          <div id="teach-metrics" class="metrics"></div>
+          <div class="columns">
+            <div>
+              <article>
+                <div class="section-title">
+                  <h2>Enregistrer une démonstration</h2>
+                  <span>01</span>
+                </div>
+                <div class="fields">
+                  <label>Client<select id="teach-customer"></select></label
+                  ><label>Produit<select id="teach-sku"></select></label
+                  ><label
+                    >Quantité<input id="teach-quantity" type="number" min="1" value="2"
+                  /></label>
+                </div>
+                <button id="teach-start">Commencer</button>
+                <div class="tool-steps">
+                  <button data-tool="create_order">1. Créer</button
+                  ><button data-tool="reserve_order">2. Réserver</button
+                  ><button data-tool="confirm_order">3. Confirmer</button
+                  ><button data-tool="queue_email">4. Notifier</button>
+                </div>
+                <p id="record-status" class="muted">
+                  Les notifications restent dans une boîte simulée.
+                </p>
+                <hr />
+                <button id="teach-examples" class="secondary">Charger 3 exemples variés</button>
+                <button id="teach-learn">Compiler le skill →</button>
+              </article>
+              <article>
+                <h2>Le test qui compte</h2>
+                <p>
+                  Un client jamais vu dans les démonstrations, quatre lampes, et une commande déjà
+                  présente : les identifiants doivent être recalculés.
+                </p>
+                <button id="teach-run">Tester le cas inédit</button>
+                <div id="teach-result" class="result"></div>
+              </article>
+            </div>
+            <article class="dark">
+              <div class="section-title">
+                <h2>Le savoir-faire, en clair.</h2>
+                <span>JSON / V1</span>
+              </div>
+              <p id="skill-summary">Pas encore de skill compilé.</p>
+              <pre id="skill-json">
+Vos démonstrations apparaîtront ici sous forme de paramètres, de références et de permissions explicites.</pre>
+              <button id="skill-download" class="light" disabled>Télécharger le skill ↓</button>
+            </article>
+          </div>
+        </details>
+      </section>
+      <section id="branch" class="page" hidden>
+        <p class="eyebrow">02 / APPRENDRE AVANT D’AGIR</p>
+        <h1>Et si l’agent <em>se trompait ?</em></h1>
+        <p class="intro">
+          Exécutez le skill dans un monde métier isolé. Chaque opération est atomique ; la procédure
+          entière ne l’est pas.
+        </p>
+        <div id="scenarios" class="scenario-grid">
+          <button data-variant="normal" class="selected">
+            ↗ Cas nominal<small>Commande et notification</small></button
+          ><button data-variant="stock">
+            ∅ Rupture de stock<small>Arrêt avant confirmation</small></button
+          ><button data-variant="credit">⊣ Plafond client<small>Création refusée</small></button
+          ><button data-variant="failure">
+            ϟ Service indisponible<small>Échec de notification</small></button
+          ><button data-variant="duplicate">
+            ⟳ Double exécution<small>Aucun double effet</small>
+          </button>
+        </div>
+        <button id="branch-run">Lancer la répétition →</button>
+        <div id="branch-checks" class="result"></div>
+        <div class="columns">
+          <article>
+            <h2>Ce qui a vraiment changé</h2>
+            <div id="branch-changes" class="scroll">
+              <p class="muted">Le diff d’état apparaîtra après la répétition.</p>
+            </div>
+          </article>
+          <article class="dark">
+            <h2>Journal des opérations</h2>
+            <div id="branch-events">
+              <p>Chaque tentative possède une empreinte avant / après.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section id="exit" class="page" hidden>
+        <p class="eyebrow">03 / REPRENDRE LA MAIN</p>
+        <h1>Vos données.<br /><em>Votre application.</em></h1>
+        <p class="intro">
+          Un périmètre volontairement précis : clients, interventions, notes et pièces jointes. Une
+          application locale sans abonnement ni dépendance npm.
+        </p>
+        <div class="columns">
+          <article>
+            <h2>1. L’export source</h2>
+            <div class="toolbar">
+              <button id="exit-example" class="secondary">Exemple interventions</button
+              ><label class="file-label"
+                >Importer un JSON<input id="exit-file" type="file" accept=".json,application/json"
+              /></label>
+            </div>
+            <textarea
+              id="exit-source"
+              class="code"
+              rows="18"
+              aria-label="Export source JSON"
+            ></textarea>
+            <details>
+              <summary>Correspondance des champs et statuts</summary>
+              <textarea
+                id="exit-mapping"
+                class="code"
+                rows="12"
+                aria-label="Mapping JSON"
+              ></textarea>
+            </details>
+            <button id="exit-inspect">Vérifier la migration →</button>
+          </article>
+          <article>
+            <h2>2. Rien ne disparaît en silence</h2>
+            <div id="exit-report">
+              <p class="muted">
+                Vérifiez les identifiants, les relations, les statuts, les pièces jointes et les
+                champs sans destination.
+              </p>
+            </div>
+            <label class="check"
+              ><input id="exit-accept" type="checkbox" /> J’accepte que les champs signalés restent
+              dans l’archive source, sans comportement dans l’application.</label
+            ><button id="exit-generate" disabled>Générer mon application ↓</button>
+            <div id="exit-artifact" class="result"></div>
+            <hr />
+            <p class="muted">
+              Application mono-utilisateur sur localhost. Les droits et automatisations du logiciel
+              d’origine ne sont pas recréés. L’export original et les empreintes de migration sont
+              conservés.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section id="checkout" class="page" hidden>
+        <p class="eyebrow">04 / RENDRE LE WEB ACTIONNABLE</p>
+        <h1>Un agent entre.<br />Un vrai devis <em>en sort ?</em></h1>
+        <p class="intro">
+          Un navigateur réel, un site de démonstration et une vérification indépendante du devis
+          enregistré.
+        </p>
+        <article>
+          <div class="fields">
+            <label
+              >Version du site<select id="checkout-mode">
+                <option value="before">Avant — champs sans labels associés</option>
+                <option value="after">Après — labels + outil structuré</option>
+              </select></label
+            ><label
+              >Pilote de test<select id="checkout-driver">
+                <option value="semantic">Navigation sémantique déterministe</option>
+                <option value="structured">Adaptateur structuré déterministe</option>
+              </select></label
+            >
+          </div>
+          <div class="toolbar">
+            <button id="checkout-run">Lancer dans Chromium →</button
+            ><a
+              id="checkout-open"
+              target="_blank"
+              rel="noopener"
+              href="/fixture/checkout?mode=before"
+              >Ouvrir le site témoin ↗</a
+            >
+          </div>
+          <p class="muted">
+            Ces pilotes ne sont pas des LLM. Ils isolent les obstacles d’interface. Le pilote modèle
+            optionnel est disponible en CLI, avec configuration explicite.
+          </p>
+        </article>
+        <div class="columns">
+          <article>
+            <h2>Avant / après, mesuré</h2>
+            <div id="checkout-history"><p class="muted">Lancez un test avant, puis après.</p></div>
+            <div id="checkout-fixes"></div>
+          </article>
+          <article class="dark">
+            <h2>La preuve métier</h2>
+            <pre id="checkout-proof">
+Un message « succès » ne suffit pas. Le test relit le devis depuis le serveur et compare client, email, produit et quantité.</pre>
+          </article>
+        </div>
+      </section>
+      <footer class="main-footer">
+        <span>FRONTIER / FOUR EXPERIMENTS, ONE WORKSHOP</span
+        ><span>Conçu pour être inspecté. Fait pour être essayé.</span>
+      </footer>
+    </main>
+    <div id="toast" role="status" hidden></div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

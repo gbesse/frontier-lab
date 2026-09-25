@@ -1,0 +1,16 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.local/
+output/
+*.tgz
+test-results/
+.DS_Store
+
+# Local planning notes: preserve on disk, exclude from the public source tree.
+/BUILD-PLAN.md
+/PILOTS.md
+/PISTE-FE-MCP-2026-09-24.md
+/PISTES-FRONTIERE-2026-09-24.md
+/PROPOSITIONS-CONSERVEES.md

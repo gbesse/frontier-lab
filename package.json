@@ -1,0 +1,27 @@
+{
+  "name": "frontier-lab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Four inspectable experiments in teaching, rehearsing, migrating and testing software workflows.",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node studio/server.js",
+    "test": "node --test test/*.test.js",
+    "test:browser": "node test/browser.mjs && node test/visual-browser.mjs",
+    "demo": "node scripts/demo.js",
+    "check": "npm test && npm run demo",
+    "pack:check": "node scripts/pack-check.js",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "playwright": "^1.55.0",
+    "prettier": "^3.9.9"
+  }
+}

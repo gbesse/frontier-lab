@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Exit · Votre atelier</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #f3f2ed;
+        color: #182d2a;
+        font: 16px system-ui;
+      }
+      header {
+        padding: 32px 6%;
+        background: #183b35;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      main {
+        max-width: 1080px;
+        margin: 40px auto;
+        padding: 0 24px;
+      }
+      h1 {
+        font-size: 36px;
+        margin: 8px 0;
+      }
+      small {
+        letter-spacing: 2px;
+      }
+      input,
+      select,
+      textarea,
+      button {
+        font: inherit;
+        padding: 12px;
+        border: 1px solid #bac6c0;
+        border-radius: 7px;
+      }
+      input {
+        width: 100%;
+        margin: 20px 0;
+      }
+      button {
+        cursor: pointer;
+        background: #dafa89;
+        color: #142c24;
+      }
+      article {
+        background: white;
+        border: 1px solid #d7ddd7;
+        border-radius: 12px;
+        padding: 24px;
+        margin: 14px 0;
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        gap: 14px;
+      }
+      textarea {
+        width: 100%;
+        min-height: 80px;
+      }
+      h2 {
+        margin: 0;
+        font-size: 20px;
+      }
+      .meta {
+        color: #64736c;
+      }
+      .files a {
+        margin-right: 15px;
+      }
+      #notice {
+        color: #9e3323;
+      }
+      button:disabled {
+        opacity: 0.5;
+      }
+      @media (max-width: 600px) {
+        article {
+          grid-template-columns: 1fr;
+        }
+        header {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <small>EXIT / LOGICIEL INDÉPENDANT</small>
+        <h1>Votre atelier.</h1>
+        <p>Vos interventions, vos données, chez vous.</p>
+      </div>
+      <button id="export">Exporter les données</button>
+    </header>
+    <main>
+      <p id="summary"></p>
+      <p class="meta">Application locale · aucune dépendance · aucun compte nécessaire</p>
+      <input
+        id="search"
+        placeholder="Rechercher une intervention ou un client…"
+        aria-label="Rechercher"
+      />
+      <p id="notice" role="status"></p>
+      <div id="tickets"></div>
+    </main>
+    <script>
+      const token = '__TOKEN__';
+      let data;
+      const $ = (s) => document.querySelector(s);
+      function el(tag, text, cls) {
+        const e = document.createElement(tag);
+        if (text !== undefined) e.textContent = text;
+        if (cls) e.className = cls;
+        return e;
+      }
+      async function load() {
+        data = await (await fetch('/api/data')).json();
+        render();
+      }
+      function render() {
+        const q = $('#search').value.toLowerCase();
+        $('#summary').textContent =
+          data.customers.length +
+          ' clients · ' +
+          data.tickets.length +
+          ' interventions · ' +
+          data.attachments.length +
+          ' pièces jointes';
+        $('#tickets').replaceChildren();
+        for (const t of data.tickets) {
+          const c = data.customers.find((c) => c.id === t.customerId);
+          if (!(t.title + ' ' + c.name + ' ' + t.notes).toLowerCase().includes(q)) continue;
+          const card = el('article'),
+            left = el('div'),
+            right = el('div');
+          left.append(el('h2', t.title), el('p', t.id + ' / ' + c.name, 'meta'));
+          const notes = el('textarea');
+          notes.value = t.notes;
+          notes.setAttribute('aria-label', 'Notes ' + t.id);
+          left.append(notes);
+          const files = el('p', undefined, 'files');
+          for (const a of data.attachments.filter((a) => a.ticketId === t.id)) {
+            const link = el('a', a.filename);
+            link.href = '/api/attachment?id=' + encodeURIComponent(a.id);
+            files.append(link);
+          }
+          left.append(files);
+          const status = el('select');
+          status.setAttribute('aria-label', 'Statut ' + t.id);
+          for (const [v, label] of [
+            ['open', 'À faire'],
+            ['scheduled', 'Planifiée'],
+            ['done', 'Terminée'],
+          ]) {
+            const o = el('option', label);
+            o.value = v;
+            o.selected = t.status === v;
+            status.append(o);
+          }
+          const save = el('button', 'Enregistrer');
+          save.style.marginTop = '15px';
+          save.onclick = async () => {
+            save.disabled = true;
+            try {
+              const r = await fetch('/api/ticket', {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json', 'X-Workspace-Token': token },
+                body: JSON.stringify({
+                  id: t.id,
+                  status: status.value,
+                  notes: notes.value,
+                  revision: data.revision,
+                }),
+              });
+              const j = await r.json();
+              if (!r.ok) throw Error(j.error);
+              $('#notice').textContent = 'Enregistré sur votre disque.';
+              await load();
+            } catch (e) {
+              $('#notice').textContent = e.message;
+              save.disabled = false;
+            }
+          };
+          right.append(status, save);
+          card.append(left, right);
+          $('#tickets').append(card);
+        }
+      }
+      $('#search').oninput = render;
+      $('#export').onclick = () => {
+        const url = URL.createObjectURL(
+          new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }),
+        );
+        const a = el('a');
+        a.href = url;
+        a.download = 'workspace.json';
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      };
+      load().catch((e) => ($('#notice').textContent = e.message));
+    </script>
+  </body>
+</html>

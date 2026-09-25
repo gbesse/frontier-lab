@@ -1,0 +1,24 @@
+{
+  "name": "@gbesse/agent-checkout-lab",
+  "version": "0.1.0",
+  "description": "Browser-based quote journey rehearsals with independent receipt verification.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "agent-checkout-lab": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "playwright": "^1.55.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

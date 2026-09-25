@@ -1,0 +1,21 @@
+{
+  "name": "@gbesse/branch-lab",
+  "version": "0.1.0",
+  "description": "Deterministic business rehearsals for agents: orders, stock and outbox.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "branch-lab": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}
