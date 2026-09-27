@@ -1,0 +1,12 @@
+[
+  {
+    "buyer": "buyer-a",
+    "lot": "alloy-demo-17",
+    "requirements": [{ "claimId": "recycledContent" }, { "claimId": "originCountry" }]
+  },
+  {
+    "buyer": "buyer-b",
+    "lot": "alloy-demo-17",
+    "requirements": [{ "claimId": "recycledContent" }, { "claimId": "originCountry" }]
+  }
+]

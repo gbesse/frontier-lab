@@ -1,0 +1,22 @@
+{
+  "name": "@gbesse/machine-data-lab",
+  "version": "0.1.0",
+  "description": "Local, authorization-aware normalization and quality checks for connected-machine exports.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "machine-data-lab": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

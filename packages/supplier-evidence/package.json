@@ -1,0 +1,22 @@
+{
+  "name": "@gbesse/supplier-evidence",
+  "version": "0.1.0",
+  "description": "Local supplier-side evidence reuse with scoped disclosure and file-integrity checks.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "supplier-evidence": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

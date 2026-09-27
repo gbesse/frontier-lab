@@ -1,0 +1,4 @@
+SYNTHETIC TEST CERTIFICATE
+Lot: alloy-demo-17
+Claim: recycled content 42 percent
+No real supplier, laboratory or product is represented.

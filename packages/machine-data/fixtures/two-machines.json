@@ -1,0 +1,42 @@
+{
+  "access": {
+    "recipient": "independent-repair-lab",
+    "purpose": "authorized maintenance trial",
+    "assets": ["press-7"],
+    "metrics": ["temperature", "pressure"],
+    "expiresAt": "2027-01-01T00:00:00Z"
+  },
+  "expectedCadenceMinutes": { "temperature": 60, "pressure": 60 },
+  "feeds": [
+    {
+      "source": "maker-a-export",
+      "assetField": "machine",
+      "timeField": "time",
+      "measurements": {
+        "temperature": { "field": "tempF", "unit": "F" },
+        "pressure": { "field": "pressureBar", "unit": "bar" }
+      },
+      "rows": [
+        { "machine": "press-7", "time": "2026-09-01T09:00:00Z", "tempF": 68, "pressureBar": 1.2 },
+        { "machine": "press-7", "time": "2026-09-01T10:00:00Z", "tempF": 69.8, "pressureBar": 1.1 }
+      ]
+    },
+    {
+      "source": "maker-b-service-export",
+      "assetField": "asset",
+      "timeField": "recordedAt",
+      "measurements": {
+        "temperature": { "field": "celsius", "unit": "C" },
+        "pressure": { "field": "pressureKpa", "unit": "kPa" }
+      },
+      "rows": [
+        {
+          "asset": "press-7",
+          "recordedAt": "2026-09-01T12:00:00Z",
+          "celsius": 22,
+          "pressureKpa": 115
+        }
+      ]
+    }
+  ]
+}

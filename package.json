@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Four inspectable experiments in teaching, rehearsing, migrating and testing software workflows.",
+  "description": "Seven inspectable local experiments across workflows, machine data, supplier evidence and app handover.",
   "workspaces": [
     "packages/*"
   ],

@@ -1,0 +1,22 @@
+{
+  "name": "@gbesse/handover-drill",
+  "version": "0.1.0",
+  "description": "Exercise a small application's restoration and business smoke test in a clean local copy.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "handover-drill": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

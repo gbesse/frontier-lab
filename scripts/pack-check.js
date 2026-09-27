@@ -8,7 +8,15 @@ import { demonstrations, heldOut, exitSource } from '../studio/fixtures.js';
 const exec = promisify(execFile),
   temp = await mkdtemp(join(tmpdir(), 'frontier-pack-')),
   tarballs = [];
-for (const name of ['branch', 'teachpack', 'exit', 'checkout']) {
+for (const name of [
+  'branch',
+  'teachpack',
+  'exit',
+  'checkout',
+  'machine-data',
+  'supplier-evidence',
+  'handover-drill',
+]) {
   const { stdout } = await exec('npm', ['pack', '--json', '--pack-destination', temp], {
     cwd: resolve('packages', name),
   });
@@ -62,4 +70,11 @@ assert.equal(rehearsal.ok, true);
 await run('exit-workflow', ['inspect', 'source.json']);
 await run('exit-workflow', ['generate', 'source.json', 'owned']);
 await run('agent-checkout-lab');
-console.log(`All four packages installed and CLIs executed outside the monorepo: ${consumer}`);
+const machine = JSON.parse((await run('machine-data-lab', ['demo', '--locale=en'])).stdout);
+assert.equal(machine.records.length, 6);
+const supplier = JSON.parse((await run('supplier-evidence', ['demo', '--locale=es'])).stdout);
+assert.equal(supplier[0].released.length, 2);
+assert.equal(supplier[1].unresolved[0].code, 'withheld');
+const handover = JSON.parse((await run('handover-drill', ['demo', '--locale=fr'])).stdout);
+assert.equal(handover.passed, true);
+console.log(`All seven packages installed and CLIs executed outside the monorepo: ${consumer}`);

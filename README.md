@@ -2,7 +2,7 @@
 
 [English](README.en.md) · [Español](README.es.md) · Français
 
-Quatre projets open source en **alpha locale**, avec un atelier interactif pour les essayer. Les noms et le périmètre sont provisoires. Ce dépôt n’est pas un service hébergé et ses packages ne sont pas publiés sur npm.
+Sept projets open source en **alpha locale** : quatre dans l’atelier interactif et trois nouveaux bancs d’essai en ligne de commande. Les noms et le périmètre sont provisoires. Ce dépôt n’est pas un service hébergé et ses packages ne sont pas publiés sur npm.
 
 | Projet                 | Ce qui fonctionne                                                                                                                                        | Limite explicite de cette alpha                                                                                                              |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -10,6 +10,20 @@ Quatre projets open source en **alpha locale**, avec un atelier interactif pour 
 | **Branch**             | Simule commandes, réservations de stock, crédit client et notifications, avec forks et injection de pannes                                               | Modèle métier explicite en mémoire ; pas un clone automatique d’un ERP ni un bac à sable pour du code arbitraire                             |
 | **Exit**               | Transforme un export clients/interventions/pièces jointes en application autonome modifiable                                                             | Mapping explicite, mono-utilisateur local ; pas de recréation automatique des permissions et automatisations du SaaS source                  |
 | **Agent Checkout Lab** | Teste un parcours de devis dans Chromium et vérifie les données enregistrées                                                                             | Contrat de test `/api/quote`, pilotes déterministes ; pas un score universel de compatibilité agents ni une preuve de conversion commerciale |
+
+Les trois nouveaux bancs sont indépendants de l’atelier ; leurs démos ne se connectent à aucun service externe :
+
+| Projet                | Première preuve exécutable                                                                                  | Limite explicite                                                                              |
+| --------------------- | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| **Machine Data Lab**  | Réconcilie deux exports synthétiques de machines, normalise les unités et signale les trous avec provenance | Le droit d’accès est déclaré, non vérifié ; pas d’accès aux fabricants ni de verdict Data Act |
+| **Supplier Evidence** | Réutilise des preuves synthétiques pour deux acheteurs avec contrôle du hash et divulgation ciblée          | Ne vérifie pas la véracité des déclarations ni la conformité d’un passeport produit           |
+| **Handover Drill**    | Copie une petite app, restaure un instantané et vérifie un résultat métier                                  | Code de confiance uniquement ; ne démontre pas la reprise en production                       |
+
+```sh
+node packages/machine-data/bin/cli.js demo --locale=fr
+node packages/supplier-evidence/bin/cli.js demo --locale=fr
+node packages/handover-drill/bin/cli.js demo --locale=fr
+```
 
 ## Essayer
 
@@ -55,20 +69,23 @@ npm audit --audit-level=moderate
 
 Sous Linux en CI, installer les bibliothèques système avec `npx playwright install --with-deps chromium`. `pack:check` utilise npm pour installer Playwright dans un répertoire temporaire ; les tarballs de nos packages restent locaux. Le workflow GitHub teste Node 22 et 24 sous Linux ; une vérification macOS des ponts Swift peut être lancée manuellement. Aucun de ces tests n’accorde l’autorisation système de surveillance des clics.
 
-## Quatre packages, un atelier partagé
+## Sept packages, dont quatre dans l’atelier partagé
 
 ```text
-packages/teachpack/  → apprentissage symbolique + CLI
-packages/branch/     → simulateur métier + CLI
-packages/exit/       → migration + générateur d’application + CLI
-packages/checkout/   → navigateur + vérification métier + CLI
-studio/             → atelier local et site témoin
-test/               → règles, intégration, tests navigateur
+packages/teachpack/         → apprentissage symbolique + CLI
+packages/branch/            → simulateur métier + CLI
+packages/exit/              → migration + générateur d’application + CLI
+packages/checkout/          → navigateur + vérification métier + CLI
+packages/machine-data/      → rapprochement d’exports de machines + CLI
+packages/supplier-evidence/ → partage ciblé de preuves fournisseurs + CLI
+packages/handover-drill/    → exercice de reprise d’application + CLI
+studio/                     → atelier local et site témoin
+test/                       → règles, intégration, tests navigateur
 ```
 
-Chaque package contient son README, sa licence MIT, ses exports ESM et son exécutable, et peut être empaqueté séparément. Teachpack utilise Branch pour sa commande de répétition. Le monorepo facilite les essais croisés, sans prétendre que quatre dépôts GitHub ont déjà été créés.
+Chaque package contient son README, sa licence MIT, ses exports ESM et son exécutable, et peut être empaqueté séparément. Teachpack utilise Branch pour sa commande de répétition. Le monorepo facilite les essais croisés, sans prétendre que sept dépôts GitHub distincts ont déjà été créés.
 
-Documentation détaillée : [Teachpack](packages/teachpack/README.md), [Branch](packages/branch/README.md), [Exit](packages/exit/README.md), [Agent Checkout](packages/checkout/README.md). Voir aussi [Sécurité et limites](SECURITY.md) et [Contribuer](CONTRIBUTING.md). Les notes de stratégie et de lancement restent locales et ne font pas partie du dépôt public.
+Documentation détaillée : [Teachpack](packages/teachpack/README.md), [Branch](packages/branch/README.md), [Exit](packages/exit/README.md), [Agent Checkout](packages/checkout/README.md), [Machine Data Lab](packages/machine-data/README.md), [Supplier Evidence](packages/supplier-evidence/README.md) et [Handover Drill](packages/handover-drill/README.md). Voir aussi [Sécurité et limites](SECURITY.md) et [Contribuer](CONTRIBUTING.md). Les notes de stratégie et de lancement restent locales et ne font pas partie du dépôt public.
 
 ## Statut
 

@@ -1,0 +1,4 @@
+SYNTHETIC ORIGIN STATEMENT
+Lot: alloy-demo-17
+Claim: origin country FR
+No real supplier, laboratory or product is represented.

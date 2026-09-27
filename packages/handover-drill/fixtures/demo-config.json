@@ -1,0 +1,11 @@
+{
+  "source": "fixtures/sample-app",
+  "files": ["package.json", "package-lock.json", "app.js", "restore.js", "snapshot.json"],
+  "install": ["npm", "ci", "--ignore-scripts", "--offline"],
+  "restore": ["node", "restore.js", "snapshot.json"],
+  "start": ["node", "app.js"],
+  "healthPath": "/health",
+  "businessPath": "/records",
+  "expectedBusiness": { "count": 2, "latest": "job-2", "secretPresent": false },
+  "timeoutMs": 5000
+}

@@ -1,0 +1,36 @@
+{
+  "supplier": "synthetic-alloy-lab",
+  "claims": [
+    {
+      "claimId": "recycledContent",
+      "lot": "alloy-demo-17",
+      "value": 42,
+      "unit": "%",
+      "evidenceId": "lab-17",
+      "audiences": ["buyer-a", "buyer-b"],
+      "validUntil": "2027-12-31T00:00:00Z"
+    },
+    {
+      "claimId": "originCountry",
+      "lot": "alloy-demo-17",
+      "value": "FR",
+      "evidenceId": "origin-17",
+      "audiences": ["buyer-a"],
+      "validUntil": "2027-12-31T00:00:00Z"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "lab-17",
+      "path": "lab-certificate.txt",
+      "sha256": "7b426c6d45f2af5b5280a75ebff77c1fe455bb49caa2b4663b18142fb94b63c2",
+      "validUntil": "2027-12-31T00:00:00Z"
+    },
+    {
+      "id": "origin-17",
+      "path": "origin-certificate.txt",
+      "sha256": "addbb9aa2a1f7389242249fa23cdbd5d630eeea80e7ea40a27217a0a8d5b5e00",
+      "validUntil": "2027-12-31T00:00:00Z"
+    }
+  ]
+}

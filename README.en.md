@@ -2,7 +2,7 @@
 
 English · [Español](README.es.md) · [Français](README.md)
 
-Four open-source projects in a **local alpha**, with an interactive studio to try them. Names and scope are provisional. This repository is not a hosted service, and its packages are not published on npm.
+Seven open-source projects in a **local alpha**: four in the interactive studio and three new command-line labs. Names and scope are provisional. This repository is not a hosted service, and its packages are not published on npm.
 
 | Project                | What works                                                                                                                                        | Explicit limit of this alpha                                                                                                        |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -10,6 +10,20 @@ Four open-source projects in a **local alpha**, with an interactive studio to tr
 | **Branch**             | Simulates orders, stock reservations, customer credit and notifications, with forks and injected failures                                         | An explicit in-memory business model, not an automatic ERP clone or an arbitrary-code sandbox                                       |
 | **Exit**               | Turns a customer/job/attachment export into an editable standalone application                                                                    | Explicit mapping, local single-user app; original SaaS permissions and automations are not recreated                                |
 | **Agent Checkout Lab** | Tests a quote journey in Chromium and checks the data actually saved                                                                              | A `/api/quote` test contract and deterministic drivers, not a universal agent-compatibility score or proof of commercial conversion |
+
+The three new labs are separate from the studio; their demos connect to no external service:
+
+| Project               | First executable proof                                                                    | Explicit limit                                                                       |
+| --------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| **Machine Data Lab**  | Reconciles two synthetic machine exports, normalizes units and flags gaps with provenance | Access rights are declared, not verified; no manufacturer access or Data Act verdict |
+| **Supplier Evidence** | Reuses synthetic evidence for two buyers with hash checking and scoped disclosure         | Does not verify claim truth or product-passport compliance                           |
+| **Handover Drill**    | Copies a small app, restores a snapshot and checks a business outcome                     | Trusted code only; does not prove production recovery                                |
+
+```sh
+node packages/machine-data/bin/cli.js demo --locale=en
+node packages/supplier-evidence/bin/cli.js demo --locale=en
+node packages/handover-drill/bin/cli.js demo --locale=en
+```
 
 ## Try it
 
@@ -51,20 +65,23 @@ npm audit --audit-level=moderate
 
 On Linux CI, install system libraries with `npx playwright install --with-deps chromium`. `pack:check` uses npm to install Playwright in a temporary directory; our package tarballs remain local. The GitHub workflow tests Node 22 and 24 on Linux; a macOS check of the Swift bridges can be run manually. None of these tests grants the system click-monitoring permission.
 
-## Four packages, one shared studio
+## Seven packages, four in the shared studio
 
 ```text
-packages/teachpack/  → symbolic learning + CLI
-packages/branch/     → business simulator + CLI
-packages/exit/       → migration + standalone-app generator + CLI
-packages/checkout/   → browser + business-result verification + CLI
-studio/              → local studio and test site
-test/                → rules, integration and browser tests
+packages/teachpack/         → symbolic learning + CLI
+packages/branch/            → business simulator + CLI
+packages/exit/              → migration + standalone-app generator + CLI
+packages/checkout/          → browser + business-result verification + CLI
+packages/machine-data/      → machine-export reconciliation + CLI
+packages/supplier-evidence/ → scoped supplier-evidence sharing + CLI
+packages/handover-drill/    → application handover drill + CLI
+studio/                     → local studio and test site
+test/                       → rules, integration and browser tests
 ```
 
-Each package has its own README, MIT license, ESM exports and executable, and can be packed independently. Teachpack uses Branch for its rehearsal command. This monorepo supports cross-project experiments; it does not imply that four separate GitHub repositories already exist.
+Each package has its own README, MIT license, ESM exports and executable, and can be packed independently. Teachpack uses Branch for its rehearsal command. This monorepo supports cross-project experiments; it does not imply that seven separate GitHub repositories already exist.
 
-Detailed references: [Teachpack](packages/teachpack/README.md), [Branch](packages/branch/README.md), [Exit](packages/exit/README.md), [Agent Checkout](packages/checkout/README.md). See [security and limits](SECURITY.md) and [contributing](CONTRIBUTING.md). Strategy and launch notes stay local and are not part of the public repository.
+Detailed references: [Teachpack](packages/teachpack/README.md), [Branch](packages/branch/README.md), [Exit](packages/exit/README.md), [Agent Checkout](packages/checkout/README.md), [Machine Data Lab](packages/machine-data/README.md), [Supplier Evidence](packages/supplier-evidence/README.md) and [Handover Drill](packages/handover-drill/README.md). See [security and limits](SECURITY.md) and [contributing](CONTRIBUTING.md). Strategy and launch notes stay local and are not part of the public repository.
 
 ## Status
 
