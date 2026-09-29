@@ -2,7 +2,7 @@
 
 English · [Español](README.es.md) · [Français](README.md)
 
-Seven open-source projects in a **local alpha**: four in the interactive studio and three new command-line labs. Names and scope are provisional. This repository is not a hosted service, and its packages are not published on npm.
+Eleven open-source projects in a **local alpha**: four in the interactive studio and seven command-line labs. Names and scope are provisional. This repository is not a hosted service, and its packages are not published on npm.
 
 | Project                | What works                                                                                                                                        | Explicit limit of this alpha                                                                                                        |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -11,18 +11,26 @@ Seven open-source projects in a **local alpha**: four in the interactive studio 
 | **Exit**               | Turns a customer/job/attachment export into an editable standalone application                                                                    | Explicit mapping, local single-user app; original SaaS permissions and automations are not recreated                                |
 | **Agent Checkout Lab** | Tests a quote journey in Chromium and checks the data actually saved                                                                              | A `/api/quote` test contract and deterministic drivers, not a universal agent-compatibility score or proof of commercial conversion |
 
-The three new labs are separate from the studio; their demos connect to no external service:
+The seven labs are separate from the studio; their demos connect to no external service:
 
-| Project               | First executable proof                                                                    | Explicit limit                                                                       |
-| --------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| **Machine Data Lab**  | Reconciles two synthetic machine exports, normalizes units and flags gaps with provenance | Access rights are declared, not verified; no manufacturer access or Data Act verdict |
-| **Supplier Evidence** | Reuses synthetic evidence for two buyers with hash checking and scoped disclosure         | Does not verify claim truth or product-passport compliance                           |
-| **Handover Drill**    | Copies a small app, restores a snapshot and checks a business outcome                     | Trusted code only; does not prove production recovery                                |
+| Project                  | First executable proof                                                                    | Explicit limit                                                                       |
+| ------------------------ | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| **Machine Data Lab**     | Reconciles two synthetic machine exports, normalizes units and flags gaps with provenance | Access rights are declared, not verified; no manufacturer access or Data Act verdict |
+| **Supplier Evidence**    | Reuses synthetic evidence for two buyers with hash checking and scoped disclosure         | Does not verify claim truth or product-passport compliance                           |
+| **Handover Drill**       | Copies a small app, restores a snapshot and checks a business outcome                     | Trusted code only; does not prove production recovery                                |
+| **Payee Exceptions**     | Triages supplied VoP results and flags cases needing review                               | Does not contact banks or initiate payments                                          |
+| **Invoice Path**         | Reconciles accounting-firm and platform events and flags route gaps                       | Sends no invoices and does not implement platform APIs                               |
+| **Provenance Last Mile** | Compares C2PA manifests in local files before and after publication                       | Delegates validation to `c2patool`; demo is synthetic                                |
+| **PQC Cutover**          | Reviews observed hybrid TLS negotiation and fallback attempts                             | Does not collect handshakes or certify security                                      |
 
 ```sh
 node packages/machine-data/bin/cli.js demo --locale=en
 node packages/supplier-evidence/bin/cli.js demo --locale=en
 node packages/handover-drill/bin/cli.js demo --locale=en
+node packages/payee-exceptions/bin/cli.js demo --locale=en
+node packages/invoice-path/bin/cli.js demo --locale=en
+node packages/provenance-last-mile/bin/cli.js demo --locale=en
+node packages/pqc-cutover/bin/cli.js demo --locale=en
 ```
 
 ## Try it
@@ -65,7 +73,7 @@ npm audit --audit-level=moderate
 
 On Linux CI, install system libraries with `npx playwright install --with-deps chromium`. `pack:check` uses npm to install Playwright in a temporary directory; our package tarballs remain local. The GitHub workflow tests Node 22 and 24 on Linux; a macOS check of the Swift bridges can be run manually. None of these tests grants the system click-monitoring permission.
 
-## Seven packages, four in the shared studio
+## Eleven packages, four in the shared studio
 
 ```text
 packages/teachpack/         → symbolic learning + CLI
@@ -75,13 +83,17 @@ packages/checkout/          → browser + business-result verification + CLI
 packages/machine-data/      → machine-export reconciliation + CLI
 packages/supplier-evidence/ → scoped supplier-evidence sharing + CLI
 packages/handover-drill/    → application handover drill + CLI
+packages/payee-exceptions/  → VoP exception triage + CLI
+packages/invoice-path/      → invoice-event reconciliation + CLI
+packages/provenance-last-mile/ → post-publication C2PA check + CLI
+packages/pqc-cutover/       → hybrid TLS cutover observation review + CLI
 studio/                     → local studio and test site
 test/                       → rules, integration and browser tests
 ```
 
-Each package has its own README, MIT license, ESM exports and executable, and can be packed independently. Teachpack uses Branch for its rehearsal command. This monorepo supports cross-project experiments; it does not imply that seven separate GitHub repositories already exist.
+Each package has its own README, MIT license, ESM exports and executable, and can be packed independently. Teachpack uses Branch for its rehearsal command. This monorepo supports cross-project experiments; it does not imply that eleven separate GitHub repositories already exist.
 
-Detailed references: [Teachpack](packages/teachpack/README.md), [Branch](packages/branch/README.md), [Exit](packages/exit/README.md), [Agent Checkout](packages/checkout/README.md), [Machine Data Lab](packages/machine-data/README.md), [Supplier Evidence](packages/supplier-evidence/README.md) and [Handover Drill](packages/handover-drill/README.md). See [security and limits](SECURITY.md) and [contributing](CONTRIBUTING.md). Strategy and launch notes stay local and are not part of the public repository.
+Detailed references: [Teachpack](packages/teachpack/README.md), [Branch](packages/branch/README.md), [Exit](packages/exit/README.md), [Agent Checkout](packages/checkout/README.md), [Machine Data Lab](packages/machine-data/README.md), [Supplier Evidence](packages/supplier-evidence/README.md), [Handover Drill](packages/handover-drill/README.md), [Payee Exceptions](packages/payee-exceptions/README.md), [Invoice Path](packages/invoice-path/README.md), [Provenance Last Mile](packages/provenance-last-mile/README.md) and [PQC Cutover](packages/pqc-cutover/README.md). See [security and limits](SECURITY.md) and [contributing](CONTRIBUTING.md). Strategy and launch notes stay local and are not part of the public repository.
 
 ## Status
 

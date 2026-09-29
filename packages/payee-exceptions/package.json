@@ -1,0 +1,22 @@
+{
+  "name": "@gbesse/payee-exceptions",
+  "version": "0.1.0",
+  "description": "Local review ledger for supplied verification-of-payee results.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "payee-exceptions": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

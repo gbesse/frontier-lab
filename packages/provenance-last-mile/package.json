@@ -1,0 +1,22 @@
+{
+  "name": "@gbesse/provenance-last-mile",
+  "version": "0.1.0",
+  "description": "Compare C2PA validation across local publishing stages using c2patool.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "provenance-last-mile": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

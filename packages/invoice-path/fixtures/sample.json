@@ -1,0 +1,46 @@
+{
+  "invoices": [
+    { "id": "INV-001", "expectedPlatform": "pa-north" },
+    { "id": "INV-002", "expectedPlatform": "pa-south" }
+  ],
+  "events": [
+    {
+      "id": "evt-1",
+      "invoiceId": "INV-001",
+      "source": "ec-export",
+      "status": "sent",
+      "at": "2026-09-20T10:00:00Z"
+    },
+    {
+      "id": "evt-2",
+      "invoiceId": "INV-001",
+      "source": "pa-export",
+      "status": "received",
+      "platform": "pa-north",
+      "at": "2026-09-20T10:02:00Z"
+    },
+    {
+      "id": "evt-3",
+      "invoiceId": "INV-001",
+      "source": "pa-export",
+      "status": "accepted",
+      "platform": "pa-north",
+      "at": "2026-09-20T10:05:00Z"
+    },
+    {
+      "id": "evt-4",
+      "invoiceId": "INV-002",
+      "source": "ec-export",
+      "status": "sent",
+      "at": "2026-09-20T11:00:00Z"
+    },
+    {
+      "id": "evt-5",
+      "invoiceId": "INV-002",
+      "source": "pa-export",
+      "status": "received",
+      "platform": "pa-other",
+      "at": "2026-09-20T11:03:00Z"
+    }
+  ]
+}

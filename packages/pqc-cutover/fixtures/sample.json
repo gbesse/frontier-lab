@@ -1,0 +1,50 @@
+{
+  "systems": [
+    {
+      "id": "api-gateway",
+      "owner": "security-team",
+      "expectedHybridGroup": "X25519MLKEM768",
+      "observations": [
+        {
+          "id": "gw-normal",
+          "scenario": "normal",
+          "success": true,
+          "offeredGroups": ["X25519MLKEM768", "X25519"],
+          "negotiatedGroup": "X25519MLKEM768",
+          "evidenceRef": "synthetic/gw-normal"
+        },
+        {
+          "id": "gw-broken",
+          "scenario": "pq_path_broken",
+          "success": false,
+          "offeredGroups": ["X25519MLKEM768"],
+          "negotiatedGroup": null,
+          "evidenceRef": "synthetic/gw-broken"
+        }
+      ]
+    },
+    {
+      "id": "legacy-proxy",
+      "owner": "platform-team",
+      "expectedHybridGroup": "X25519MLKEM768",
+      "observations": [
+        {
+          "id": "lp-normal",
+          "scenario": "normal",
+          "success": true,
+          "offeredGroups": ["X25519MLKEM768", "X25519"],
+          "negotiatedGroup": "X25519",
+          "evidenceRef": "synthetic/lp-normal"
+        },
+        {
+          "id": "lp-broken",
+          "scenario": "pq_path_broken",
+          "success": true,
+          "offeredGroups": ["X25519MLKEM768", "X25519"],
+          "negotiatedGroup": "X25519",
+          "evidenceRef": "synthetic/lp-broken"
+        }
+      ]
+    }
+  ]
+}

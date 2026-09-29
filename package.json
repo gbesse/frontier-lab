@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Seven inspectable local experiments across workflows, machine data, supplier evidence and app handover.",
+  "description": "Eleven inspectable local experiments across workflows, data exchange, provenance, payments and cyber cutovers.",
   "workspaces": [
     "packages/*"
   ],

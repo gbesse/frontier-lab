@@ -1,0 +1,22 @@
+{
+  "name": "@gbesse/pqc-cutover",
+  "version": "0.1.0",
+  "description": "Offline review of supplied hybrid key-exchange cutover observations.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "pqc-cutover": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

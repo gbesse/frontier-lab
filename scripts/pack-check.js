@@ -16,6 +16,10 @@ for (const name of [
   'machine-data',
   'supplier-evidence',
   'handover-drill',
+  'payee-exceptions',
+  'invoice-path',
+  'provenance-last-mile',
+  'pqc-cutover',
 ]) {
   const { stdout } = await exec('npm', ['pack', '--json', '--pack-destination', temp], {
     cwd: resolve('packages', name),
@@ -77,4 +81,12 @@ assert.equal(supplier[0].released.length, 2);
 assert.equal(supplier[1].unresolved[0].code, 'withheld');
 const handover = JSON.parse((await run('handover-drill', ['demo', '--locale=fr'])).stdout);
 assert.equal(handover.passed, true);
-console.log(`All seven packages installed and CLIs executed outside the monorepo: ${consumer}`);
+const payee = JSON.parse((await run('payee-exceptions', ['demo', '--locale=fr'])).stdout);
+assert.equal(payee.cases.filter((item) => item.decision === 'review').length, 2);
+const invoice = JSON.parse((await run('invoice-path', ['demo', '--locale=en'])).stdout);
+assert.ok(invoice.issues.some((item) => item.code === 'wrongRoute'));
+const provenance = JSON.parse((await run('provenance-last-mile', ['demo', '--locale=es'])).stdout);
+assert.equal(provenance.stages.at(-1).code, 'absent');
+const pqc = JSON.parse((await run('pqc-cutover', ['demo', '--locale=en'])).stdout);
+assert.ok(pqc.systems[1].findings.some((item) => item.code === 'downgradeObserved'));
+console.log(`All eleven packages installed and CLIs executed outside the monorepo: ${consumer}`);

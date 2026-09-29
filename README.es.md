@@ -2,7 +2,7 @@
 
 [English](README.en.md) · Español · [Français](README.md)
 
-Siete proyectos de código abierto en **alfa local**: cuatro en el taller interactivo y tres nuevos laboratorios de línea de comandos. Los nombres y el alcance son provisionales. Este repositorio no es un servicio alojado y sus paquetes no están publicados en npm.
+Once proyectos de código abierto en **alfa local**: cuatro en el taller interactivo y siete laboratorios de línea de comandos. Los nombres y el alcance son provisionales. Este repositorio no es un servicio alojado y sus paquetes no están publicados en npm.
 
 | Proyecto               | Qué funciona                                                                                                                                                  | Límite explícito de esta alfa                                                                                                                                 |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -11,18 +11,26 @@ Siete proyectos de código abierto en **alfa local**: cuatro en el taller intera
 | **Exit**               | Convierte una exportación de clientes, intervenciones y adjuntos en una aplicación independiente y editable                                                   | Correspondencias explícitas y aplicación local de un usuario; no recrea permisos ni automatizaciones del SaaS original                                        |
 | **Agent Checkout Lab** | Prueba un recorrido de presupuesto en Chromium y comprueba los datos guardados                                                                                | Un contrato de prueba `/api/quote` y controladores deterministas, no una puntuación universal de compatibilidad con agentes ni prueba de conversión comercial |
 
-Los tres laboratorios nuevos son independientes del taller; sus demostraciones no se conectan a servicios externos:
+Los siete laboratorios son independientes del taller; sus demostraciones no se conectan a servicios externos:
 
-| Proyecto              | Primera prueba ejecutable                                                                                 | Límite explícito                                                                                    |
-| --------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| **Machine Data Lab**  | Concilia dos exportaciones sintéticas de máquinas, normaliza unidades y señala intervalos con procedencia | El acceso se declara, no se verifica; no accede a fabricantes ni emite dictámenes sobre el Data Act |
-| **Supplier Evidence** | Reutiliza pruebas sintéticas para dos compradores con comprobación del hash y divulgación limitada        | No verifica la veracidad de las declaraciones ni el cumplimiento de un pasaporte de producto        |
-| **Handover Drill**    | Copia una pequeña aplicación, restaura una instantánea y comprueba un resultado de negocio                | Solo código de confianza; no demuestra la recuperación en producción                                |
+| Proyecto                 | Primera prueba ejecutable                                                                                 | Límite explícito                                                                                    |
+| ------------------------ | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| **Machine Data Lab**     | Concilia dos exportaciones sintéticas de máquinas, normaliza unidades y señala intervalos con procedencia | El acceso se declara, no se verifica; no accede a fabricantes ni emite dictámenes sobre el Data Act |
+| **Supplier Evidence**    | Reutiliza pruebas sintéticas para dos compradores con comprobación del hash y divulgación limitada        | No verifica la veracidad de las declaraciones ni el cumplimiento de un pasaporte de producto        |
+| **Handover Drill**       | Copia una pequeña aplicación, restaura una instantánea y comprueba un resultado de negocio                | Solo código de confianza; no demuestra la recuperación en producción                                |
+| **Payee Exceptions**     | Clasifica resultados VoP aportados y señala casos que requieren revisión                                  | No consulta bancos ni inicia pagos                                                                  |
+| **Invoice Path**         | Concilia eventos contables y de plataformas y señala interrupciones del recorrido                         | No envía facturas ni implementa API de plataformas                                                  |
+| **Provenance Last Mile** | Compara manifiestos C2PA de archivos locales antes y después de publicar                                  | Delega la validación a `c2patool`; la demostración es sintética                                     |
+| **PQC Cutover**          | Revisa observaciones de negociación TLS híbrida y repliegue                                               | No captura conexiones ni certifica la seguridad                                                     |
 
 ```sh
 node packages/machine-data/bin/cli.js demo --locale=es
 node packages/supplier-evidence/bin/cli.js demo --locale=es
 node packages/handover-drill/bin/cli.js demo --locale=es
+node packages/payee-exceptions/bin/cli.js demo --locale=es
+node packages/invoice-path/bin/cli.js demo --locale=es
+node packages/provenance-last-mile/bin/cli.js demo --locale=es
+node packages/pqc-cutover/bin/cli.js demo --locale=es
 ```
 
 ## Probar
@@ -65,7 +73,7 @@ npm audit --audit-level=moderate
 
 En CI con Linux, instala las bibliotecas del sistema con `npx playwright install --with-deps chromium`. `pack:check` usa npm para instalar Playwright en un directorio temporal; los paquetes tar de este proyecto siguen siendo locales. El flujo de GitHub prueba Node 22 y 24 en Linux; la comprobación de los puentes Swift en macOS se puede ejecutar manualmente. Ninguna de estas pruebas concede el permiso del sistema para supervisar clics.
 
-## Siete paquetes, cuatro en el taller compartido
+## Once paquetes, cuatro en el taller compartido
 
 ```text
 packages/teachpack/         → aprendizaje simbólico + CLI
@@ -75,13 +83,17 @@ packages/checkout/          → navegador + verificación del resultado de negoc
 packages/machine-data/      → conciliación de exportaciones de máquinas + CLI
 packages/supplier-evidence/ → divulgación limitada de pruebas de proveedores + CLI
 packages/handover-drill/    → ejercicio de recuperación de aplicaciones + CLI
+packages/payee-exceptions/  → clasificación de excepciones VoP + CLI
+packages/invoice-path/      → conciliación de eventos de facturas + CLI
+packages/provenance-last-mile/ → control C2PA posterior a la publicación + CLI
+packages/pqc-cutover/       → revisión de ensayos de transición TLS híbrida + CLI
 studio/                     → taller local y sitio de prueba
 test/                       → reglas, integración y pruebas de navegador
 ```
 
-Cada paquete tiene su propio README, licencia MIT, exportaciones ESM y ejecutable; se puede empaquetar por separado. Teachpack usa Branch para sus ensayos. El monorepositorio facilita las pruebas cruzadas; no implica que ya existan siete repositorios GitHub distintos.
+Cada paquete tiene su propio README, licencia MIT, exportaciones ESM y ejecutable; se puede empaquetar por separado. Teachpack usa Branch para sus ensayos. El monorepositorio facilita las pruebas cruzadas; no implica que ya existan once repositorios GitHub distintos.
 
-Referencias detalladas: [Teachpack](packages/teachpack/README.md), [Branch](packages/branch/README.md), [Exit](packages/exit/README.md), [Agent Checkout](packages/checkout/README.md), [Machine Data Lab](packages/machine-data/README.md), [Supplier Evidence](packages/supplier-evidence/README.md) y [Handover Drill](packages/handover-drill/README.md). Consulta [seguridad y límites](SECURITY.md) y [contribuciones](CONTRIBUTING.md). Las notas de estrategia y lanzamiento quedan en local y no forman parte del repositorio público.
+Referencias detalladas: [Teachpack](packages/teachpack/README.md), [Branch](packages/branch/README.md), [Exit](packages/exit/README.md), [Agent Checkout](packages/checkout/README.md), [Machine Data Lab](packages/machine-data/README.md), [Supplier Evidence](packages/supplier-evidence/README.md), [Handover Drill](packages/handover-drill/README.md), [Payee Exceptions](packages/payee-exceptions/README.md), [Invoice Path](packages/invoice-path/README.md), [Provenance Last Mile](packages/provenance-last-mile/README.md) y [PQC Cutover](packages/pqc-cutover/README.md). Consulta [seguridad y límites](SECURITY.md) y [contribuciones](CONTRIBUTING.md). Las notas de estrategia y lanzamiento quedan en local y no forman parte del repositorio público.
 
 ## Estado
 

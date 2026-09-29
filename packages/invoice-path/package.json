@@ -1,0 +1,22 @@
+{
+  "name": "@gbesse/invoice-path",
+  "version": "0.1.0",
+  "description": "Read-only reconciliation of supplied invoice route and lifecycle events.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "invoice-path": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

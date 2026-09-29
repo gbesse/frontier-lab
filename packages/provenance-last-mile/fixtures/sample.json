@@ -1,0 +1,31 @@
+{
+  "stages": [
+    {
+      "label": "source",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "validator": {
+        "active_manifest": "urn:c2pa:synthetic-1",
+        "validation_state": "Valid",
+        "validation_status": []
+      }
+    },
+    {
+      "label": "cms",
+      "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "validator": {
+        "active_manifest": "urn:c2pa:synthetic-1",
+        "validation_state": "Valid",
+        "validation_status": []
+      }
+    },
+    {
+      "label": "public-download",
+      "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "validator": {
+        "active_manifest": null,
+        "validation_state": "unknown",
+        "validation_status": []
+      }
+    }
+  ]
+}

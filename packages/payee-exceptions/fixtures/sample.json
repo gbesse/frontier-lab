@@ -1,0 +1,42 @@
+{
+  "suppliers": [
+    {
+      "id": "vendor-1",
+      "legalName": "Ateliers du Nord SAS",
+      "tradeNames": ["Nord Atelier"],
+      "accountRef": "SYNTHETIC-ACCOUNT-A"
+    },
+    {
+      "id": "vendor-2",
+      "legalName": "Solaris Iberia SL",
+      "tradeNames": ["Solaris"],
+      "accountRef": "SYNTHETIC-ACCOUNT-B"
+    }
+  ],
+  "checks": [
+    {
+      "id": "check-1",
+      "supplierId": "vendor-1",
+      "accountRef": "SYNTHETIC-ACCOUNT-A",
+      "submittedName": "Ateliers du Nord SAS",
+      "bankResult": "match",
+      "at": "2026-09-20T10:00:00Z"
+    },
+    {
+      "id": "check-2",
+      "supplierId": "vendor-2",
+      "accountRef": "SYNTHETIC-ACCOUNT-B",
+      "submittedName": "Solaris",
+      "bankResult": "close_match",
+      "at": "2026-09-20T11:00:00Z"
+    },
+    {
+      "id": "check-3",
+      "supplierId": "vendor-1",
+      "accountRef": "SYNTHETIC-ACCOUNT-C",
+      "submittedName": "Nord Atelier",
+      "bankResult": "no_match",
+      "at": "2026-09-20T12:00:00Z"
+    }
+  ]
+}
