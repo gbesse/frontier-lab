@@ -4,6 +4,8 @@
 
 Once proyectos de código abierto en **alfa local**: cuatro en el taller interactivo y siete laboratorios de línea de comandos. Los nombres y el alcance son provisionales. Este repositorio no es un servicio alojado y sus paquetes no están publicados en npm.
 
+Las extensiones para agentes tienen sus propios repositorios: [Agent Commerce Ledger para OpenClaw y Hermes](https://github.com/gbesse/agent-commerce-ledger) registra recibos de mensajes y aprobaciones de herramientas configuradas; [Caller Context para OpenClaw](https://github.com/gbesse/openclaw-caller-context) busca contexto local del llamante. No crean contactos CRM ni envían seguimientos.
+
 | Proyecto               | Qué funciona                                                                                                                                                  | Límite explícito de esta alfa                                                                                                                                 |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Teachpack**          | Sigue una ventana o pantalla compartida, lee texto localmente y crea una guía visual revisable; también compila demostraciones estructuradas en una habilidad | La guía reconoce estados de pantalla, pero no controla otras aplicaciones                                                                                     |
