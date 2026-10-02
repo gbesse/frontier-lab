@@ -35,6 +35,10 @@ node packages/provenance-last-mile/bin/cli.js demo --locale=es
 node packages/pqc-cutover/bin/cli.js demo --locale=es
 ```
 
+## Recorrido rápido por los siete laboratorios
+
+`npm run demo:labs -- --locale=es` ejecuta las siete demostraciones sin conexión y reúne sus resúmenes y límites en un solo informe JSON. Los datos son sintéticos; no se necesita cuenta ni servicio externo. Elige `fr` o `en` para los otros idiomas.
+
 ## Probar
 
 Se necesitan Node.js 22+ y npm. En macOS, Teachpack usa Apple Vision para reconocer texto en pantalla localmente. Elige la ventana o pantalla en el diálogo del navegador; prueba Chrome si el navegador integrado no ofrece compartir pantalla. No se necesita cuenta ni clave API.
