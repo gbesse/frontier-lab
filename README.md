@@ -35,6 +35,10 @@ node packages/provenance-last-mile/bin/cli.js demo --locale=fr
 node packages/pqc-cutover/bin/cli.js demo --locale=fr
 ```
 
+## Parcours rapide des sept laboratoires
+
+`npm run demo:labs -- --locale=fr` exécute les sept démonstrations hors ligne et rassemble leurs résumés et limites dans un seul JSON. Les données sont synthétiques ; aucun compte ni service externe n’est requis. Choisir `en` ou `es` pour les autres langues.
+
 ## Essayer
 
 Node.js 22+ et npm. Sur macOS, la capture visuelle Teachpack utilise Apple Vision pour lire le texte sans service externe. Choisir la fenêtre ou l’écran dans le sélecteur du navigateur ; Chrome est conseillé si le navigateur intégré ne propose pas le partage d’écran. Aucun compte ni clé API requis.

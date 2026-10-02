@@ -1,6 +1,6 @@
 {
   "name": "frontier-lab",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "description": "Eleven inspectable local experiments across workflows, data exchange, provenance, payments and cyber cutovers.",
@@ -18,7 +18,8 @@
     "check": "npm test && npm run demo",
     "pack:check": "node scripts/pack-check.js",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "demo:labs": "node scripts/lab-tour.mjs"
   },
   "devDependencies": {
     "playwright": "^1.55.0",
