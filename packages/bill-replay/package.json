@@ -1,0 +1,22 @@
+{
+  "name": "@gbesse/bill-replay",
+  "version": "0.1.0",
+  "description": "Local-first reconciliation of metered electricity, dated rates and billed lines.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "bill-replay": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

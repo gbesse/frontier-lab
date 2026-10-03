@@ -2,7 +2,7 @@
 
 English · [Español](README.es.md) · [Français](README.md)
 
-Eleven open-source projects in a **local alpha**: four in the interactive studio and seven command-line labs. Names and scope are provisional. This repository is not a hosted service, and its packages are not published on npm.
+Fourteen open-source projects in a **local alpha**: four in the interactive studio and ten command-line labs. Names and scope are provisional. This repository is not a hosted service, and its packages are not published on npm.
 
 The agent extensions have their own repositories: [Agent Commerce Ledger for OpenClaw and Hermes](https://github.com/gbesse/agent-commerce-ledger) records message receipts and approvals for configured tools; [Caller Context for OpenClaw](https://github.com/gbesse/openclaw-caller-context) looks up local caller context. They do not create CRM contacts or send follow-ups.
 
@@ -13,7 +13,7 @@ The agent extensions have their own repositories: [Agent Commerce Ledger for Ope
 | **Exit**               | Turns a customer/job/attachment export into an editable standalone application                                                                    | Explicit mapping, local single-user app; original SaaS permissions and automations are not recreated                                |
 | **Agent Checkout Lab** | Tests a quote journey in Chromium and checks the data actually saved                                                                              | A `/api/quote` test contract and deterministic drivers, not a universal agent-compatibility score or proof of commercial conversion |
 
-The seven labs are separate from the studio; their demos connect to no external service:
+The ten labs are separate from the studio; their demos connect to no external service:
 
 | Project                  | First executable proof                                                                    | Explicit limit                                                                       |
 | ------------------------ | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
@@ -24,6 +24,9 @@ The seven labs are separate from the studio; their demos connect to no external 
 | **Invoice Path**         | Reconciles accounting-firm and platform events and flags route gaps                       | Sends no invoices and does not implement platform APIs                               |
 | **Provenance Last Mile** | Compares C2PA manifests in local files before and after publication                       | Delegates validation to `c2patool`; demo is synthetic                                |
 | **PQC Cutover**          | Reviews observed hybrid TLS negotiation and fallback attempts                             | Does not collect handshakes or certify security                                      |
+| **Bill Replay**          | Recalculates an energy line from meter readings and dated rates using exact decimal math  | Depends on supplied data; does not validate meter or contract                        |
+| **GARAN Witness**        | Observes visible guarantee notices across a Chromium purchase journey                     | Does not certify product eligibility or official artwork                             |
+| **Age Proof Lab**        | Tests `mdoc`/ZKP decisions against a negative matrix and finds HAR canaries               | Does not validate cryptography or certify compliance                                 |
 
 ```sh
 node packages/machine-data/bin/cli.js demo --locale=en
@@ -33,6 +36,9 @@ node packages/payee-exceptions/bin/cli.js demo --locale=en
 node packages/invoice-path/bin/cli.js demo --locale=en
 node packages/provenance-last-mile/bin/cli.js demo --locale=en
 node packages/pqc-cutover/bin/cli.js demo --locale=en
+node packages/bill-replay/bin/cli.js demo --locale=en
+node packages/garan-witness/bin/cli.js demo --locale=en
+node packages/age-proof-lab/bin/cli.js demo --locale=en
 ```
 
 ## Try it
@@ -75,7 +81,7 @@ npm audit --audit-level=moderate
 
 On Linux CI, install system libraries with `npx playwright install --with-deps chromium`. `pack:check` uses npm to install Playwright in a temporary directory; our package tarballs remain local. The GitHub workflow tests Node 22 and 24 on Linux; a macOS check of the Swift bridges can be run manually. None of these tests grants the system click-monitoring permission.
 
-## Eleven packages, four in the shared studio
+## Fourteen packages, four in the shared studio
 
 ```text
 packages/teachpack/         → symbolic learning + CLI
@@ -89,13 +95,18 @@ packages/payee-exceptions/  → VoP exception triage + CLI
 packages/invoice-path/      → invoice-event reconciliation + CLI
 packages/provenance-last-mile/ → post-publication C2PA check + CLI
 packages/pqc-cutover/       → hybrid TLS cutover observation review + CLI
+packages/bill-replay/       → electricity-bill reconciliation + CLI
+packages/garan-witness/     → guarantee-notice observation + CLI
+packages/age-proof-lab/     → age-verifier tests and canaries + CLI
 studio/                     → local studio and test site
 test/                       → rules, integration and browser tests
 ```
 
-Each package has its own README, MIT license, ESM exports and executable, and can be packed independently. Teachpack uses Branch for its rehearsal command. This monorepo supports cross-project experiments; it does not imply that eleven separate GitHub repositories already exist.
+Each package has its own README, MIT license, ESM exports and executable, and can be packed independently. Teachpack uses Branch for its rehearsal command. This monorepo supports cross-project experiments; it does not imply that fourteen separate GitHub repositories already exist.
 
 Detailed references: [Teachpack](packages/teachpack/README.md), [Branch](packages/branch/README.md), [Exit](packages/exit/README.md), [Agent Checkout](packages/checkout/README.md), [Machine Data Lab](packages/machine-data/README.md), [Supplier Evidence](packages/supplier-evidence/README.md), [Handover Drill](packages/handover-drill/README.md), [Payee Exceptions](packages/payee-exceptions/README.md), [Invoice Path](packages/invoice-path/README.md), [Provenance Last Mile](packages/provenance-last-mile/README.md) and [PQC Cutover](packages/pqc-cutover/README.md). See [security and limits](SECURITY.md) and [contributing](CONTRIBUTING.md). Strategy and launch notes stay local and are not part of the public repository.
+
+New labs: [Bill Replay](packages/bill-replay/README.md), [GARAN Witness](packages/garan-witness/README.md) and [Age Proof Lab](packages/age-proof-lab/README.md). The last tests synthetic observations and is not an age-proof certification.
 
 ## Status
 

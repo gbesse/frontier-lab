@@ -2,7 +2,7 @@
 
 [English](README.en.md) · Español · [Français](README.md)
 
-Once proyectos de código abierto en **alfa local**: cuatro en el taller interactivo y siete laboratorios de línea de comandos. Los nombres y el alcance son provisionales. Este repositorio no es un servicio alojado y sus paquetes no están publicados en npm.
+Catorce proyectos de código abierto en **alfa local**: cuatro en el taller interactivo y diez laboratorios de línea de comandos. Los nombres y el alcance son provisionales. Este repositorio no es un servicio alojado y sus paquetes no están publicados en npm.
 
 Las extensiones para agentes tienen sus propios repositorios: [Agent Commerce Ledger para OpenClaw y Hermes](https://github.com/gbesse/agent-commerce-ledger) registra recibos de mensajes y aprobaciones de herramientas configuradas; [Caller Context para OpenClaw](https://github.com/gbesse/openclaw-caller-context) busca contexto local del llamante. No crean contactos CRM ni envían seguimientos.
 
@@ -13,7 +13,7 @@ Las extensiones para agentes tienen sus propios repositorios: [Agent Commerce Le
 | **Exit**               | Convierte una exportación de clientes, intervenciones y adjuntos en una aplicación independiente y editable                                                   | Correspondencias explícitas y aplicación local de un usuario; no recrea permisos ni automatizaciones del SaaS original                                        |
 | **Agent Checkout Lab** | Prueba un recorrido de presupuesto en Chromium y comprueba los datos guardados                                                                                | Un contrato de prueba `/api/quote` y controladores deterministas, no una puntuación universal de compatibilidad con agentes ni prueba de conversión comercial |
 
-Los siete laboratorios son independientes del taller; sus demostraciones no se conectan a servicios externos:
+Los diez laboratorios son independientes del taller; sus demostraciones no se conectan a servicios externos:
 
 | Proyecto                 | Primera prueba ejecutable                                                                                 | Límite explícito                                                                                    |
 | ------------------------ | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
@@ -24,6 +24,9 @@ Los siete laboratorios son independientes del taller; sus demostraciones no se c
 | **Invoice Path**         | Concilia eventos contables y de plataformas y señala interrupciones del recorrido                         | No envía facturas ni implementa API de plataformas                                                  |
 | **Provenance Last Mile** | Compara manifiestos C2PA de archivos locales antes y después de publicar                                  | Delega la validación a `c2patool`; la demostración es sintética                                     |
 | **PQC Cutover**          | Revisa observaciones de negociación TLS híbrida y repliegue                                               | No captura conexiones ni certifica la seguridad                                                     |
+| **Bill Replay**          | Recalcula un importe de energía con lecturas y tarifas fechadas usando decimales exactos                  | Depende de los datos aportados; no valida el contador ni el contrato                                |
+| **GARAN Witness**        | Observa avisos de garantía visibles en un recorrido de compra con Chromium                                | No certifica la elegibilidad del producto ni el diseño oficial                                      |
+| **Age Proof Lab**        | Prueba decisiones `mdoc`/ZKP con una matriz negativa y busca canarios en un HAR                           | No valida criptografía ni certifica conformidad                                                     |
 
 ```sh
 node packages/machine-data/bin/cli.js demo --locale=es
@@ -33,6 +36,9 @@ node packages/payee-exceptions/bin/cli.js demo --locale=es
 node packages/invoice-path/bin/cli.js demo --locale=es
 node packages/provenance-last-mile/bin/cli.js demo --locale=es
 node packages/pqc-cutover/bin/cli.js demo --locale=es
+node packages/bill-replay/bin/cli.js demo --locale=es
+node packages/garan-witness/bin/cli.js demo --locale=es
+node packages/age-proof-lab/bin/cli.js demo --locale=es
 ```
 
 ## Probar
@@ -75,7 +81,7 @@ npm audit --audit-level=moderate
 
 En CI con Linux, instala las bibliotecas del sistema con `npx playwright install --with-deps chromium`. `pack:check` usa npm para instalar Playwright en un directorio temporal; los paquetes tar de este proyecto siguen siendo locales. El flujo de GitHub prueba Node 22 y 24 en Linux; la comprobación de los puentes Swift en macOS se puede ejecutar manualmente. Ninguna de estas pruebas concede el permiso del sistema para supervisar clics.
 
-## Once paquetes, cuatro en el taller compartido
+## Catorce paquetes, cuatro en el taller compartido
 
 ```text
 packages/teachpack/         → aprendizaje simbólico + CLI
@@ -89,13 +95,18 @@ packages/payee-exceptions/  → clasificación de excepciones VoP + CLI
 packages/invoice-path/      → conciliación de eventos de facturas + CLI
 packages/provenance-last-mile/ → control C2PA posterior a la publicación + CLI
 packages/pqc-cutover/       → revisión de ensayos de transición TLS híbrida + CLI
+packages/bill-replay/       → conciliación de facturas de electricidad + CLI
+packages/garan-witness/     → observación de avisos de garantía + CLI
+packages/age-proof-lab/     → pruebas de verificadores de edad y canarios + CLI
 studio/                     → taller local y sitio de prueba
 test/                       → reglas, integración y pruebas de navegador
 ```
 
-Cada paquete tiene su propio README, licencia MIT, exportaciones ESM y ejecutable; se puede empaquetar por separado. Teachpack usa Branch para sus ensayos. El monorepositorio facilita las pruebas cruzadas; no implica que ya existan once repositorios GitHub distintos.
+Cada paquete tiene su propio README, licencia MIT, exportaciones ESM y ejecutable; se puede empaquetar por separado. Teachpack usa Branch para sus ensayos. El monorepositorio facilita las pruebas cruzadas; no implica que ya existan catorce repositorios GitHub distintos.
 
 Referencias detalladas: [Teachpack](packages/teachpack/README.md), [Branch](packages/branch/README.md), [Exit](packages/exit/README.md), [Agent Checkout](packages/checkout/README.md), [Machine Data Lab](packages/machine-data/README.md), [Supplier Evidence](packages/supplier-evidence/README.md), [Handover Drill](packages/handover-drill/README.md), [Payee Exceptions](packages/payee-exceptions/README.md), [Invoice Path](packages/invoice-path/README.md), [Provenance Last Mile](packages/provenance-last-mile/README.md) y [PQC Cutover](packages/pqc-cutover/README.md). Consulta [seguridad y límites](SECURITY.md) y [contribuciones](CONTRIBUTING.md). Las notas de estrategia y lanzamiento quedan en local y no forman parte del repositorio público.
+
+Nuevos laboratorios: [Bill Replay](packages/bill-replay/README.md), [GARAN Witness](packages/garan-witness/README.md) y [Age Proof Lab](packages/age-proof-lab/README.md). Este último prueba observaciones sintéticas y no certifica sistemas de acreditación de edad.
 
 ## Estado
 

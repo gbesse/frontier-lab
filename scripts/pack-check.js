@@ -20,6 +20,9 @@ for (const name of [
   'invoice-path',
   'provenance-last-mile',
   'pqc-cutover',
+  'bill-replay',
+  'garan-witness',
+  'age-proof-lab',
 ]) {
   const { stdout } = await exec('npm', ['pack', '--json', '--pack-destination', temp], {
     cwd: resolve('packages', name),
@@ -89,4 +92,12 @@ const provenance = JSON.parse((await run('provenance-last-mile', ['demo', '--loc
 assert.equal(provenance.stages.at(-1).code, 'absent');
 const pqc = JSON.parse((await run('pqc-cutover', ['demo', '--locale=en'])).stdout);
 assert.ok(pqc.systems[1].findings.some((item) => item.code === 'downgradeObserved'));
-console.log(`All eleven packages installed and CLIs executed outside the monorepo: ${consumer}`);
+const bill = JSON.parse((await run('bill-replay', ['demo', '--locale=fr'])).stdout);
+assert.ok(bill.findings.some((item) => item.code === 'ENERGY_MISMATCH'));
+const warranty = JSON.parse((await run('garan-witness', ['demo', '--locale=es'])).stdout);
+assert.ok(
+  warranty.pages.some((page) => page.findings.some((item) => item.code === 'NOTICE_MISSING')),
+);
+const age = JSON.parse((await run('age-proof-lab', ['demo', '--locale=en'])).stdout);
+assert.equal(age.formatCoverage.length, 2);
+console.log(`All fourteen packages installed and CLIs executed outside the monorepo: ${consumer}`);

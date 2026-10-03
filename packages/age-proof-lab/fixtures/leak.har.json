@@ -1,0 +1,19 @@
+{
+  "log": {
+    "entries": [
+      {
+        "request": {
+          "url": "https://relying-party.example.test/verify",
+          "headers": [],
+          "postData": { "text": "SYNTHETIC_AGE_PROOF_CANARY_12345" }
+        }
+      },
+      {
+        "request": {
+          "url": "https://analytics.example.test/collect?proof=SYNTHETIC_AGE_PROOF_CANARY_12345",
+          "headers": []
+        }
+      }
+    ]
+  }
+}

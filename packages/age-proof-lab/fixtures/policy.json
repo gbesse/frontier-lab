@@ -1,0 +1,4 @@
+{
+  "rpOrigin": "https://relying-party.example.test",
+  "canaries": ["SYNTHETIC_AGE_PROOF_CANARY_12345"]
+}
