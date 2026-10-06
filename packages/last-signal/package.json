@@ -1,0 +1,22 @@
+{
+  "name": "@gbesse/last-signal",
+  "version": "0.1.0",
+  "description": "Local dependency audit for copper and 2G/3G network shutdowns.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "last-signal": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

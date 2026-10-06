@@ -1,0 +1,22 @@
+{
+  "name": "@gbesse/cee-proof-graph",
+  "version": "0.1.0",
+  "description": "Versioned evidence checks for supplied CEE operation rules.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "cee-proof-graph": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,33 @@
+{
+  "recalls": [
+    {
+      "id": "synthetic-recall-1",
+      "gtin": "1234567890128",
+      "lotCodes": ["LOT-A"],
+      "saleWindow": { "from": "2026-08-01", "to": "2026-09-30" },
+      "sourceUrl": "https://example.test/synthetic-recall"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "synthetic-sale-1",
+      "gtin": "1234567890128",
+      "lotCode": "LOT-A",
+      "soldAt": "2026-09-01",
+      "units": 1,
+      "buyerRef": "SYNTHETIC-BUYER-1"
+    },
+    {
+      "id": "synthetic-sale-2",
+      "gtin": "1234567890128",
+      "lotCode": null,
+      "soldAt": "2026-09-02",
+      "units": 1,
+      "buyerRef": "SYNTHETIC-BUYER-2"
+    }
+  ],
+  "stock": [
+    { "id": "synthetic-stock-1", "gtin": "1234567890128", "lotCode": "LOT-A", "units": 4 },
+    { "id": "synthetic-stock-2", "gtin": "1234567890128", "lotCode": "LOT-B", "units": 3 }
+  ]
+}

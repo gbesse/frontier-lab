@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Fourteen inspectable local experiments across workflows, data exchange, energy bills, warranties and privacy.",
+  "description": "Nineteen inspectable local experiments across workflows, data exchange, infrastructure cutovers and evidence.",
   "workspaces": [
     "packages/*"
   ],
