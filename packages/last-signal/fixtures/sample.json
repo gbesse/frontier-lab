@@ -1,0 +1,51 @@
+{
+  "asOf": "2026-10-06",
+  "closures": [
+    {
+      "technology": "2g",
+      "networkOperator": "sample-network",
+      "area": "FR-75",
+      "effectiveAt": "2026-11-15",
+      "source": "synthetic-schedule"
+    },
+    {
+      "technology": "copper",
+      "networkOperator": "sample-fixed",
+      "area": "FR-75",
+      "effectiveAt": "2027-01-31",
+      "source": "synthetic-schedule"
+    }
+  ],
+  "assets": [
+    {
+      "id": "synthetic-lift-1",
+      "criticality": "critical",
+      "dependencies": [
+        {
+          "technology": "2g",
+          "networkOperator": "sample-network",
+          "area": "FR-75",
+          "contractRef": "synthetic-contract-1"
+        }
+      ]
+    },
+    {
+      "id": "synthetic-terminal-2",
+      "criticality": "normal",
+      "dependencies": [
+        {
+          "technology": "copper",
+          "networkOperator": "sample-fixed",
+          "area": "FR-75",
+          "contractRef": "synthetic-contract-2",
+          "replacement": {
+            "installedAt": "2026-09-01",
+            "testedAt": "2026-09-03",
+            "result": "pass",
+            "evidenceRef": "synthetic-test-2"
+          }
+        }
+      ]
+    }
+  ]
+}

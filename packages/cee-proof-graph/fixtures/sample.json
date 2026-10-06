@@ -1,0 +1,68 @@
+{
+  "rules": [
+    {
+      "code": "SYNTHETIC-CEE-001",
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "requiredTypes": ["quote", "invoice", "photo_after"],
+      "uniqueTypes": ["photo_after"],
+      "timing": {
+        "quote": "before_engagement",
+        "invoice": "after_completion",
+        "photo_after": "after_completion"
+      },
+      "rgeDomain": "synthetic-heating",
+      "qualificationAt": "engagement"
+    }
+  ],
+  "qualifications": [
+    {
+      "siret": "12345678901234",
+      "domain": "synthetic-heating",
+      "from": "2025-01-01",
+      "to": "2026-12-31",
+      "source": "synthetic-rge-snapshot"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "quote-1",
+      "type": "quote",
+      "issuedAt": "2026-02-01",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "sourceRef": "synthetic-quote"
+    },
+    {
+      "id": "invoice-1",
+      "type": "invoice",
+      "issuedAt": "2026-04-01",
+      "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "sourceRef": "synthetic-invoice"
+    },
+    {
+      "id": "photo-1",
+      "type": "photo_after",
+      "issuedAt": "2026-04-02",
+      "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "sourceRef": "synthetic-photo"
+    }
+  ],
+  "operations": [
+    {
+      "id": "operation-1",
+      "code": "SYNTHETIC-CEE-001",
+      "engagedAt": "2026-02-15",
+      "completedAt": "2026-03-31",
+      "contractorSiret": "12345678901234",
+      "evidenceIds": ["quote-1", "invoice-1", "photo-1"]
+    },
+    {
+      "id": "operation-2",
+      "code": "SYNTHETIC-CEE-001",
+      "engagedAt": "2026-02-20",
+      "completedAt": "2026-04-03",
+      "contractorSiret": "12345678901234",
+      "evidenceIds": ["quote-1", "photo-1"]
+    }
+  ]
+}

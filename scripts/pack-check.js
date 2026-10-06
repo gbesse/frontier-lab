@@ -23,6 +23,11 @@ for (const name of [
   'bill-replay',
   'garan-witness',
   'age-proof-lab',
+  'last-signal',
+  'recall-to-receipt',
+  'dsn-replay',
+  'water-witness',
+  'cee-proof-graph',
 ]) {
   const { stdout } = await exec('npm', ['pack', '--json', '--pack-destination', temp], {
     cwd: resolve('packages', name),
@@ -100,4 +105,14 @@ assert.ok(
 );
 const age = JSON.parse((await run('age-proof-lab', ['demo', '--locale=en'])).stdout);
 assert.equal(age.formatCoverage.length, 2);
-console.log(`All fourteen packages installed and CLIs executed outside the monorepo: ${consumer}`);
+const signal = JSON.parse((await run('last-signal', ['demo', '--locale=fr'])).stdout);
+assert.ok(signal.findings.some((item) => item.code === 'DEADLINE_NEAR'));
+const recall = JSON.parse((await run('recall-to-receipt', ['demo', '--locale=en'])).stdout);
+assert.ok(recall.matches.some((item) => item.status === 'possible'));
+const dsn = JSON.parse((await run('dsn-replay', ['demo', '--locale=es'])).stdout);
+assert.ok(dsn.findings.some((item) => item.code === 'DOUBLE_CORRECTION_RISK'));
+const water = JSON.parse((await run('water-witness', ['demo', '--locale=fr'])).stdout);
+assert.ok(water.findings.some((item) => item.code === 'NOT_MEASURED'));
+const cee = JSON.parse((await run('cee-proof-graph', ['demo', '--locale=en'])).stdout);
+assert.ok(cee.findings.some((item) => item.code === 'EVIDENCE_REUSED'));
+console.log(`All nineteen packages installed and CLIs executed outside the monorepo: ${consumer}`);

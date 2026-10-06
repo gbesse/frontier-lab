@@ -2,7 +2,7 @@
 
 English · [Español](README.es.md) · [Français](README.md)
 
-Fourteen open-source projects in a **local alpha**: four in the interactive studio and ten command-line labs. Names and scope are provisional. This repository is not a hosted service, and its packages are not published on npm.
+Nineteen open-source projects in a **local alpha**: four in the interactive studio and fifteen command-line labs. Names and scope are provisional. This repository is not a hosted service, and its packages are not published on npm.
 
 The agent extensions have their own repositories: [Agent Commerce Ledger for OpenClaw and Hermes](https://github.com/gbesse/agent-commerce-ledger) records message receipts and approvals for configured tools; [Caller Context for OpenClaw](https://github.com/gbesse/openclaw-caller-context) looks up local caller context. They do not create CRM contacts or send follow-ups.
 
@@ -13,7 +13,7 @@ The agent extensions have their own repositories: [Agent Commerce Ledger for Ope
 | **Exit**               | Turns a customer/job/attachment export into an editable standalone application                                                                    | Explicit mapping, local single-user app; original SaaS permissions and automations are not recreated                                |
 | **Agent Checkout Lab** | Tests a quote journey in Chromium and checks the data actually saved                                                                              | A `/api/quote` test contract and deterministic drivers, not a universal agent-compatibility score or proof of commercial conversion |
 
-The ten labs are separate from the studio; their demos connect to no external service:
+The fifteen labs are separate from the studio; their demos connect to no external service:
 
 | Project                  | First executable proof                                                                    | Explicit limit                                                                       |
 | ------------------------ | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
@@ -27,6 +27,11 @@ The ten labs are separate from the studio; their demos connect to no external se
 | **Bill Replay**          | Recalculates an energy line from meter readings and dated rates using exact decimal math  | Depends on supplied data; does not validate meter or contract                        |
 | **GARAN Witness**        | Observes visible guarantee notices across a Chromium purchase journey                     | Does not certify product eligibility or official artwork                             |
 | **Age Proof Lab**        | Tests `mdoc`/ZKP decisions against a negative matrix and finds HAR canaries               | Does not validate cryptography or certify compliance                                 |
+| **Last Signal**          | Links declared assets to copper/2G/3G shutdown dates and replacement tests                | Does not discover devices or test live networks                                      |
+| **Recall-to-Receipt**    | Matches recalls to sales and stock using GTIN, lot and period                             | Does not stop sales or send customer messages                                        |
+| **DSN Replay**           | Simulates payroll corrections and flags duplicate corrections                             | Takes structured input, not native DSN/CRM files                                     |
+| **Water Witness**        | Distinguishes measurements, quantification limits and missing water data by unit          | Does not issue a drinking-water safety verdict                                       |
+| **CEE Proof Graph**      | Checks consistency of dated rules and declared evidence                                   | Synthetic demo rules; does not certify CEE eligibility                               |
 
 ```sh
 node packages/machine-data/bin/cli.js demo --locale=en
@@ -39,6 +44,11 @@ node packages/pqc-cutover/bin/cli.js demo --locale=en
 node packages/bill-replay/bin/cli.js demo --locale=en
 node packages/garan-witness/bin/cli.js demo --locale=en
 node packages/age-proof-lab/bin/cli.js demo --locale=en
+node packages/last-signal/bin/cli.js demo --locale=en
+node packages/recall-to-receipt/bin/cli.js demo --locale=en
+node packages/dsn-replay/bin/cli.js demo --locale=en
+node packages/water-witness/bin/cli.js demo --locale=en
+node packages/cee-proof-graph/bin/cli.js demo --locale=en
 ```
 
 ## Try it
@@ -81,7 +91,7 @@ npm audit --audit-level=moderate
 
 On Linux CI, install system libraries with `npx playwright install --with-deps chromium`. `pack:check` uses npm to install Playwright in a temporary directory; our package tarballs remain local. The GitHub workflow tests Node 22 and 24 on Linux; a macOS check of the Swift bridges can be run manually. None of these tests grants the system click-monitoring permission.
 
-## Fourteen packages, four in the shared studio
+## Nineteen packages, four in the shared studio
 
 ```text
 packages/teachpack/         → symbolic learning + CLI
@@ -98,15 +108,22 @@ packages/pqc-cutover/       → hybrid TLS cutover observation review + CLI
 packages/bill-replay/       → electricity-bill reconciliation + CLI
 packages/garan-witness/     → guarantee-notice observation + CLI
 packages/age-proof-lab/     → age-verifier tests and canaries + CLI
+packages/last-signal/       → copper and 2G/3G dependency audit + CLI
+packages/recall-to-receipt/ → recall, sales and stock matching + CLI
+packages/dsn-replay/        → DSN correction simulation + CLI
+packages/water-witness/     → water-measurement provenance + CLI
+packages/cee-proof-graph/   → CEE evidence consistency + CLI
 studio/                     → local studio and test site
 test/                       → rules, integration and browser tests
 ```
 
-Each package has its own README, MIT license, ESM exports and executable, and can be packed independently. Teachpack uses Branch for its rehearsal command. This monorepo supports cross-project experiments; it does not imply that fourteen separate GitHub repositories already exist.
+Each package has its own README, MIT license, ESM exports and executable, and can be packed independently. Teachpack uses Branch for its rehearsal command. This monorepo supports cross-project experiments; it does not imply that nineteen separate GitHub repositories already exist.
 
 Detailed references: [Teachpack](packages/teachpack/README.md), [Branch](packages/branch/README.md), [Exit](packages/exit/README.md), [Agent Checkout](packages/checkout/README.md), [Machine Data Lab](packages/machine-data/README.md), [Supplier Evidence](packages/supplier-evidence/README.md), [Handover Drill](packages/handover-drill/README.md), [Payee Exceptions](packages/payee-exceptions/README.md), [Invoice Path](packages/invoice-path/README.md), [Provenance Last Mile](packages/provenance-last-mile/README.md) and [PQC Cutover](packages/pqc-cutover/README.md). See [security and limits](SECURITY.md) and [contributing](CONTRIBUTING.md). Strategy and launch notes stay local and are not part of the public repository.
 
 New labs: [Bill Replay](packages/bill-replay/README.md), [GARAN Witness](packages/garan-witness/README.md) and [Age Proof Lab](packages/age-proof-lab/README.md). The last tests synthetic observations and is not an age-proof certification.
+
+This iteration adds [Last Signal](packages/last-signal/README.md), [Recall-to-Receipt](packages/recall-to-receipt/README.md), [DSN Replay](packages/dsn-replay/README.md), [Water Witness](packages/water-witness/README.md) and [CEE Proof Graph](packages/cee-proof-graph/README.md). External data and official rules still need validated connectors before operational use.
 
 ## Status
 

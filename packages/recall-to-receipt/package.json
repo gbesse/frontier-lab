@@ -1,0 +1,22 @@
+{
+  "name": "@gbesse/recall-to-receipt",
+  "version": "0.1.0",
+  "description": "Local recall matching against GTIN, lots, sales and stock.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "recall-to-receipt": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}
