@@ -106,3 +106,7 @@ Detailed references: [Teachpack](packages/teachpack/README.md), [Branch](package
 These are alpha implementations, not commercially validated products. Local validation has not used a real LLM provider. The optional model driver needs explicit configuration and may incur provider charges. Click detection has been tested with a simulated event; system permission and a real click still need a consenting macOS test before claiming end-to-end validation.
 
 MIT — see [LICENSE](LICENSE).
+
+## Tour one lab
+
+`npm run demo:labs -- --locale=en --project=payee-exceptions` runs only the chosen offline demonstration. The seven valid names are listed above; an unknown name is rejected.

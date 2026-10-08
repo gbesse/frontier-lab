@@ -19,4 +19,17 @@ for (const locale of ['fr', 'en', 'es']) {
       1,
     );
   });
+  test(`single-lab tour works in ${locale}`, async () => {
+    const { stdout } = await run(
+      process.execPath,
+      ['scripts/lab-tour.mjs', `--locale=${locale}`, '--project=payee-exceptions'],
+      { timeout: 60000 },
+    );
+    const tour = JSON.parse(stdout);
+    assert.deepEqual(
+      tour.labs.map((lab) => lab.project),
+      ['payee-exceptions'],
+    );
+    assert.equal(tour.locale, locale);
+  });
 }

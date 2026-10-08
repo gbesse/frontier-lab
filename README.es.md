@@ -106,3 +106,7 @@ Referencias detalladas: [Teachpack](packages/teachpack/README.md), [Branch](pack
 Son implementaciones alfa, no productos validados comercialmente. La validación local no ha usado un proveedor LLM real. El controlador de modelo opcional exige configuración explícita y puede generar costes del proveedor. La detección de clics se ha probado con un evento simulado; todavía falta comprobar el permiso del sistema y un clic real en un Mac con consentimiento antes de afirmar que está validada de extremo a extremo.
 
 MIT — consulta [LICENSE](LICENSE).
+
+## Recorrer un laboratorio
+
+`npm run demo:labs -- --locale=es --project=payee-exceptions` ejecuta solo la demostración sin conexión elegida. Los siete nombres válidos aparecen arriba; se rechaza un nombre desconocido.
