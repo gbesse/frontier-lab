@@ -110,3 +110,7 @@ Documentation détaillée : [Teachpack](packages/teachpack/README.md), [Branch](
 Implémentations alpha, pas produits commercialement validés. Aucun test avec un fournisseur LLM réel dans la validation locale. Le pilote modèle optionnel exige une configuration et peut entraîner une facturation chez le fournisseur choisi. La détection des clics a été testée avec un événement simulé ; son autorisation système et un vrai clic doivent encore être vérifiés sur un Mac consentant avant d’annoncer cette fonction comme validée de bout en bout.
 
 MIT — voir [LICENSE](LICENSE).
+
+## Visiter un seul atelier
+
+`npm run demo:labs -- --locale=fr --project=payee-exceptions` exécute uniquement la démonstration choisie, sans réseau. Les sept noms valides figurent dans la liste des ateliers ci-dessus ; un nom inconnu est refusé.
