@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Nineteen inspectable local experiments across workflows, data exchange, infrastructure cutovers and evidence.",
+  "description": "FR : vingt expériences locales vérifiables. EN: twenty inspectable local experiments. ES: veinte experimentos locales verificables.",
   "workspaces": [
     "packages/*"
   ],
