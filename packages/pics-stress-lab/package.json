@@ -1,0 +1,22 @@
+{
+  "name": "@gbesse/pics-stress-lab",
+  "version": "0.1.0",
+  "description": "FR : exercices PCS/PICS hors ligne. EN: offline PCS/PICS exercises. ES: ejercicios PCS/PICS sin conexión.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "pics-stress-lab": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

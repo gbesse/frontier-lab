@@ -2,7 +2,7 @@
 
 [English](README.en.md) · [Español](README.es.md) · Français
 
-Dix-neuf projets open source en **alpha locale** : quatre dans l’atelier interactif et quinze bancs d’essai en ligne de commande. Les noms et le périmètre sont provisoires. Ce dépôt n’est pas un service hébergé et ses packages ne sont pas publiés sur npm.
+Vingt projets open source en **alpha locale** : quatre dans l’atelier interactif et seize bancs d’essai en ligne de commande. Les noms et le périmètre sont provisoires. Ce dépôt n’est pas un service hébergé et ses packages ne sont pas publiés sur npm.
 
 Les extensions d’agents ont leurs propres dépôts : [Agent Commerce Ledger pour OpenClaw et Hermes](https://github.com/gbesse/agent-commerce-ledger) consigne les reçus de messages et les validations d’outils configurés ; [Caller Context pour OpenClaw](https://github.com/gbesse/openclaw-caller-context) recherche un contexte d’appel local. Elles ne créent pas de contact CRM et n’envoient pas de relance.
 
@@ -13,7 +13,7 @@ Les extensions d’agents ont leurs propres dépôts : [Agent Commerce Ledger po
 | **Exit**               | Transforme un export clients/interventions/pièces jointes en application autonome modifiable                                                             | Mapping explicite, mono-utilisateur local ; pas de recréation automatique des permissions et automatisations du SaaS source                  |
 | **Agent Checkout Lab** | Teste un parcours de devis dans Chromium et vérifie les données enregistrées                                                                             | Contrat de test `/api/quote`, pilotes déterministes ; pas un score universel de compatibilité agents ni une preuve de conversion commerciale |
 
-Les quinze bancs sont indépendants de l’atelier ; leurs démos ne se connectent à aucun service externe :
+Les seize bancs sont indépendants de l’atelier ; leurs démos ne se connectent à aucun service externe :
 
 | Projet                   | Première preuve exécutable                                                                                  | Limite explicite                                                                              |
 | ------------------------ | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
@@ -32,6 +32,7 @@ Les quinze bancs sont indépendants de l’atelier ; leurs démos ne se connecte
 | **DSN Replay**           | Simule des corrections de paie et signale les doubles corrections                                           | Accepte un format structuré, pas les fichiers DSN/CRM natifs                                  |
 | **Water Witness**        | Distingue mesures, limites de quantification et absences de données par unité d’eau                         | Ne rend aucun avis de potabilité                                                              |
 | **CEE Proof Graph**      | Contrôle la cohérence de règles datées et de pièces déclarées                                               | Règles de démo synthétiques ; ne certifie pas l’éligibilité CEE                               |
+| **PICS Stress Lab**      | Rejoue les conflits de moyens entre six communes sous pannes injectées                                      | Exercice fictif hors ligne ; ne vérifie pas les secours réels ni les pouvoirs de décision     |
 
 ```sh
 node packages/machine-data/bin/cli.js demo --locale=fr
@@ -49,6 +50,7 @@ node packages/recall-to-receipt/bin/cli.js demo --locale=fr
 node packages/dsn-replay/bin/cli.js demo --locale=fr
 node packages/water-witness/bin/cli.js demo --locale=fr
 node packages/cee-proof-graph/bin/cli.js demo --locale=fr
+node packages/pics-stress-lab/bin/cli.js demo --locale=fr
 ```
 
 ## Essayer
@@ -95,7 +97,7 @@ npm audit --audit-level=moderate
 
 Sous Linux en CI, installer les bibliothèques système avec `npx playwright install --with-deps chromium`. `pack:check` utilise npm pour installer Playwright dans un répertoire temporaire ; les tarballs de nos packages restent locaux. Le workflow GitHub teste Node 22 et 24 sous Linux ; une vérification macOS des ponts Swift peut être lancée manuellement. Aucun de ces tests n’accorde l’autorisation système de surveillance des clics.
 
-## Dix-neuf packages, dont quatre dans l’atelier partagé
+## Vingt packages, dont quatre dans l’atelier partagé
 
 ```text
 packages/teachpack/         → apprentissage symbolique + CLI
@@ -117,17 +119,20 @@ packages/recall-to-receipt/ → rapprochement rappels, ventes et stocks + CLI
 packages/dsn-replay/        → simulation de corrections DSN + CLI
 packages/water-witness/     → provenance des mesures d’eau + CLI
 packages/cee-proof-graph/   → cohérence des preuves CEE + CLI
+packages/pics-stress-lab/   → exercice de moyens intercommunaux PCS/PICS + CLI
 studio/                     → atelier local et site témoin
 test/                       → règles, intégration, tests navigateur
 ```
 
-Chaque package contient son README, sa licence MIT, ses exports ESM et son exécutable, et peut être empaqueté séparément. Teachpack utilise Branch pour sa commande de répétition. Le monorepo facilite les essais croisés, sans prétendre que dix-neuf dépôts GitHub distincts ont déjà été créés.
+Chaque package contient son README, sa licence MIT, ses exports ESM et son exécutable, et peut être empaqueté séparément. Teachpack utilise Branch pour sa commande de répétition. Le monorepo facilite les essais croisés, sans prétendre que vingt dépôts GitHub distincts ont déjà été créés.
 
 Documentation détaillée : [Teachpack](packages/teachpack/README.md), [Branch](packages/branch/README.md), [Exit](packages/exit/README.md), [Agent Checkout](packages/checkout/README.md), [Machine Data Lab](packages/machine-data/README.md), [Supplier Evidence](packages/supplier-evidence/README.md), [Handover Drill](packages/handover-drill/README.md), [Payee Exceptions](packages/payee-exceptions/README.md), [Invoice Path](packages/invoice-path/README.md), [Provenance Last Mile](packages/provenance-last-mile/README.md) et [PQC Cutover](packages/pqc-cutover/README.md). Voir aussi [Sécurité et limites](SECURITY.md) et [Contribuer](CONTRIBUTING.md). Les notes de stratégie et de lancement restent locales et ne font pas partie du dépôt public.
 
 Nouveaux bancs : [Bill Replay](packages/bill-replay/README.md), [GARAN Witness](packages/garan-witness/README.md) et [Age Proof Lab](packages/age-proof-lab/README.md). Le dernier teste des observations synthétiques et ne constitue pas une certification de preuve d’âge.
 
 Cette itération ajoute [Last Signal](packages/last-signal/README.md), [Recall-to-Receipt](packages/recall-to-receipt/README.md), [DSN Replay](packages/dsn-replay/README.md), [Water Witness](packages/water-witness/README.md) et [CEE Proof Graph](packages/cee-proof-graph/README.md). Les données externes et règles officielles doivent encore être reliées et validées avant un usage opérationnel.
+
+[PICS Stress Lab](packages/pics-stress-lab/README.md) ajoute un exercice synthétique de partage de moyens entre communes. Il ne commande aucune intervention réelle.
 
 ## Statut
 

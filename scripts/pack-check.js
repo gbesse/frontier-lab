@@ -28,6 +28,7 @@ for (const name of [
   'dsn-replay',
   'water-witness',
   'cee-proof-graph',
+  'pics-stress-lab',
 ]) {
   const { stdout } = await exec('npm', ['pack', '--json', '--pack-destination', temp], {
     cwd: resolve('packages', name),
@@ -115,4 +116,7 @@ const water = JSON.parse((await run('water-witness', ['demo', '--locale=fr'])).s
 assert.ok(water.findings.some((item) => item.code === 'NOT_MEASURED'));
 const cee = JSON.parse((await run('cee-proof-graph', ['demo', '--locale=en'])).stdout);
 assert.ok(cee.findings.some((item) => item.code === 'EVIDENCE_REUSED'));
-console.log(`All nineteen packages installed and CLIs executed outside the monorepo: ${consumer}`);
+const pics = JSON.parse((await run('pics-stress-lab', ['demo', '--locale=es'])).stdout);
+assert.equal(pics.runs[0].unmetUnitMinutes, 0);
+assert.ok(pics.runs[1].findings.some((item) => item.code === 'CAPACITY_CONFLICT'));
+console.log(`All twenty packages installed and CLIs executed outside the monorepo: ${consumer}`);
