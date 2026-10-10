@@ -110,3 +110,9 @@ MIT — consulta [LICENSE](LICENSE).
 ## Recorrer un laboratorio
 
 `npm run demo:labs -- --locale=es --project=payee-exceptions` ejecuta solo la demostración sin conexión elegida. Los siete nombres válidos aparecen arriba; se rechaza un nombre desconocido.
+
+## Contrôle d’adoption · Adoption check · Comprobación de adopción
+
+[Pruebe un caso sintético de adopción](examples/adoption-check.md).
+
+Ejecute `npm run demo:branch-failure` para ver un fallo sintético de notificación tras la confirmación: la orden sigue confirmada y no se encola ningún mensaje. Esto no simula una transacción ERP ni envía correo real.

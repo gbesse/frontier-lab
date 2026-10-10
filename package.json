@@ -19,7 +19,8 @@
     "pack:check": "node scripts/pack-check.js",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "demo:labs": "node scripts/lab-tour.mjs"
+    "demo:labs": "node scripts/lab-tour.mjs",
+    "demo:branch-failure": "node packages/branch/bin/cli.js run examples/branch-failure.json"
   },
   "devDependencies": {
     "playwright": "^1.55.0",
