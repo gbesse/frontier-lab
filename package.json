@@ -3,7 +3,7 @@
   "version": "0.1.2",
   "private": true,
   "type": "module",
-  "description": "Eleven inspectable local experiments across workflows, data exchange, provenance, payments and cyber cutovers.",
+  "description": "Fourteen inspectable local experiments across workflows, data exchange, energy bills, warranties and privacy.",
   "workspaces": [
     "packages/*"
   ],
@@ -13,7 +13,7 @@
   "scripts": {
     "start": "node studio/server.js",
     "test": "node --test test/*.test.js",
-    "test:browser": "node test/browser.mjs && node test/visual-browser.mjs",
+    "test:browser": "node test/browser.mjs && node test/visual-browser.mjs && node test/wave-three-browser.mjs",
     "demo": "node scripts/demo.js",
     "check": "npm test && npm run demo",
     "pack:check": "node scripts/pack-check.js",

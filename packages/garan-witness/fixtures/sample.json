@@ -1,0 +1,39 @@
+{
+  "pages": [
+    {
+      "id": "product-fr",
+      "stage": "product",
+      "url": "https://example.test/product",
+      "expectedLocale": "fr",
+      "noticeSelector": "#legal-notice",
+      "garanSelector": "#garan",
+      "expectGaran": true,
+      "expectedNoticeText": "garantie légale",
+      "expectedGaranText": "GARAN",
+      "observation": {
+        "status": "ok",
+        "documentLocale": "fr",
+        "noticeVisible": true,
+        "noticeText": "Information sur la garantie légale",
+        "garanVisible": true,
+        "garanText": "GARAN — 3 ans"
+      }
+    },
+    {
+      "id": "checkout-es",
+      "stage": "checkout",
+      "url": "https://example.test/checkout",
+      "expectedLocale": "es",
+      "noticeSelector": "#legal-notice",
+      "garanSelector": "#garan",
+      "expectGaran": false,
+      "expectedNoticeText": "garantía legal",
+      "observation": {
+        "status": "ok",
+        "documentLocale": "en",
+        "noticeVisible": false,
+        "garanVisible": false
+      }
+    }
+  ]
+}
