@@ -114,3 +114,9 @@ MIT — voir [LICENSE](LICENSE).
 ## Visiter un seul atelier
 
 `npm run demo:labs -- --locale=fr --project=payee-exceptions` exécute uniquement la démonstration choisie, sans réseau. Les sept noms valides figurent dans la liste des ateliers ci-dessus ; un nom inconnu est refusé.
+
+## Contrôle d’adoption · Adoption check · Comprobación de adopción
+
+[Français : essayer un cas synthétique](examples/adoption-check.md) · [English: try a synthetic case](examples/adoption-check.md) · [Español: pruebe un caso sintético](examples/adoption-check.md).
+
+Exécutez `npm run demo:branch-failure` pour voir une panne synthétique de notification après confirmation : la commande vérifie que la commande reste confirmée et qu’aucun message n’est mis en file. Ce parcours ne simule ni transaction ERP ni envoi réel.

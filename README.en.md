@@ -110,3 +110,9 @@ MIT — see [LICENSE](LICENSE).
 ## Tour one lab
 
 `npm run demo:labs -- --locale=en --project=payee-exceptions` runs only the chosen offline demonstration. The seven valid names are listed above; an unknown name is rejected.
+
+## Contrôle d’adoption · Adoption check · Comprobación de adopción
+
+[Try a synthetic adoption case](examples/adoption-check.md).
+
+Run `npm run demo:branch-failure` to see a synthetic notification failure after confirmation: the command checks that the order stays confirmed and no message is queued. This does not simulate an ERP transaction or send real mail.
