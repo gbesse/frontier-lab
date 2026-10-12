@@ -344,3 +344,20 @@ document.addEventListener('frontier:localechange', () => {
   if (lastExitReport) renderExitReport(lastExitReport);
   navigate();
 });
+
+function commonsRootLink() {
+  const link = document.querySelector('#commons-discovery-root');
+  if (link) {
+    const url = new URL(link.href);
+    url.searchParams.set('lang', document.documentElement.lang);
+    link.href = url.href;
+  }
+}
+document.addEventListener('frontier:localechange', commonsRootLink);
+function matterRootLink() {
+  const link = document.querySelector('#matter-discovery');
+  if (link) link.href = `/matter?lang=${document.documentElement.lang || 'fr'}`;
+}
+matterRootLink();
+document.addEventListener('frontier:localechange', matterRootLink);
+commonsRootLink();

@@ -1,0 +1,41 @@
+{
+  "name": "@gbesse/microfabgym",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./i18n": "./src/i18n.js"
+  },
+  "bin": {
+    "microfabgym": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "public",
+    "fixtures",
+    "README.md",
+    "README.en.md",
+    "README.es.md",
+    "LICENSE",
+    "python",
+    "docs"
+  ],
+  "scripts": {
+    "start": "node bin/serve.js",
+    "demo": "node bin/cli.js demo",
+    "test": "node --test test/*.test.js",
+    "test:browser": "node test/browser.mjs",
+    "format:check": "prettier --check ."
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "playwright": "1.55.1",
+    "prettier": "3.9.9"
+  },
+  "description": "FR: Un environnement de fabrication partiellement observable pour tester quand mesurer et comment corriger un dépôt. EN: A partially observable fabrication environment for testing when to measure and how to correct deposition. ES: Un entorno de fabricación parcialmente observable para probar cuándo medir y cómo corregir un depósito."
+}

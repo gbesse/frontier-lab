@@ -1,0 +1,972 @@
+{
+  "schemaVersion": 1,
+  "origin": "synthetic",
+  "operations": [
+    {
+      "id": "deposit",
+      "dependsOn": []
+    },
+    {
+      "id": "cure",
+      "dependsOn": ["deposit"]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "bond",
+      "operationId": "cure",
+      "metric": "bond-strength",
+      "unit": "MPa",
+      "limits": {
+        "min": 12,
+        "max": 20
+      }
+    }
+  ],
+  "parts": [
+    {
+      "id": "part-01",
+      "facts": {
+        "materialLot": "lot-A",
+        "recipeVersion": "v1",
+        "operator": "op-B"
+      },
+      "events": [
+        {
+          "id": "part-01-1",
+          "seq": 1,
+          "operationId": "deposit",
+          "type": "start",
+          "time": "2026-10-10T12:00:00Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-01-2",
+          "seq": 2,
+          "operationId": "deposit",
+          "type": "finish",
+          "time": "2026-10-10T12:00:05Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-01-3",
+          "seq": 3,
+          "operationId": "cure",
+          "type": "start",
+          "time": "2026-10-10T12:00:06Z",
+          "parameters": {
+            "temperatureC": 120
+          }
+        },
+        {
+          "id": "part-01-4",
+          "seq": 4,
+          "operationId": "cure",
+          "type": "finish",
+          "time": "2026-10-10T12:01:06Z",
+          "parameters": {
+            "temperatureC": 120
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "id": "part-01-bond",
+          "requirementId": "bond",
+          "value": 15,
+          "uncertainty95": 0.5,
+          "unit": "MPa"
+        }
+      ]
+    },
+    {
+      "id": "part-02",
+      "facts": {
+        "materialLot": "lot-A",
+        "recipeVersion": "v1",
+        "operator": "op-A"
+      },
+      "events": [
+        {
+          "id": "part-02-1",
+          "seq": 1,
+          "operationId": "deposit",
+          "type": "start",
+          "time": "2026-10-10T12:00:00Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-02-2",
+          "seq": 2,
+          "operationId": "deposit",
+          "type": "finish",
+          "time": "2026-10-10T12:00:05Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-02-3",
+          "seq": 3,
+          "operationId": "cure",
+          "type": "start",
+          "time": "2026-10-10T12:00:06Z",
+          "parameters": {
+            "temperatureC": 120
+          }
+        },
+        {
+          "id": "part-02-4",
+          "seq": 4,
+          "operationId": "cure",
+          "type": "finish",
+          "time": "2026-10-10T12:01:06Z",
+          "parameters": {
+            "temperatureC": 120
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "id": "part-02-bond",
+          "requirementId": "bond",
+          "value": 15,
+          "uncertainty95": 0.5,
+          "unit": "MPa"
+        }
+      ]
+    },
+    {
+      "id": "part-03",
+      "facts": {
+        "materialLot": "lot-A",
+        "recipeVersion": "v1",
+        "operator": "op-B"
+      },
+      "events": [
+        {
+          "id": "part-03-1",
+          "seq": 1,
+          "operationId": "deposit",
+          "type": "start",
+          "time": "2026-10-10T12:00:00Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-03-2",
+          "seq": 2,
+          "operationId": "deposit",
+          "type": "finish",
+          "time": "2026-10-10T12:00:05Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-03-3",
+          "seq": 3,
+          "operationId": "cure",
+          "type": "start",
+          "time": "2026-10-10T12:00:06Z",
+          "parameters": {
+            "temperatureC": 120
+          }
+        },
+        {
+          "id": "part-03-4",
+          "seq": 4,
+          "operationId": "cure",
+          "type": "finish",
+          "time": "2026-10-10T12:01:06Z",
+          "parameters": {
+            "temperatureC": 120
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "id": "part-03-bond",
+          "requirementId": "bond",
+          "value": 15,
+          "uncertainty95": 0.5,
+          "unit": "MPa"
+        }
+      ]
+    },
+    {
+      "id": "part-04",
+      "facts": {
+        "materialLot": "lot-A",
+        "recipeVersion": "v1",
+        "operator": "op-A"
+      },
+      "events": [
+        {
+          "id": "part-04-1",
+          "seq": 1,
+          "operationId": "deposit",
+          "type": "start",
+          "time": "2026-10-10T12:00:00Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-04-2",
+          "seq": 2,
+          "operationId": "deposit",
+          "type": "finish",
+          "time": "2026-10-10T12:00:05Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-04-3",
+          "seq": 3,
+          "operationId": "cure",
+          "type": "start",
+          "time": "2026-10-10T12:00:06Z",
+          "parameters": {
+            "temperatureC": 120
+          }
+        },
+        {
+          "id": "part-04-4",
+          "seq": 4,
+          "operationId": "cure",
+          "type": "finish",
+          "time": "2026-10-10T12:01:06Z",
+          "parameters": {
+            "temperatureC": 120
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "id": "part-04-bond",
+          "requirementId": "bond",
+          "value": 15,
+          "uncertainty95": 0.5,
+          "unit": "MPa"
+        }
+      ]
+    },
+    {
+      "id": "part-05",
+      "facts": {
+        "materialLot": "lot-A",
+        "recipeVersion": "v1",
+        "operator": "op-B"
+      },
+      "events": [
+        {
+          "id": "part-05-1",
+          "seq": 1,
+          "operationId": "deposit",
+          "type": "start",
+          "time": "2026-10-10T12:00:00Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-05-2",
+          "seq": 2,
+          "operationId": "deposit",
+          "type": "finish",
+          "time": "2026-10-10T12:00:05Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-05-3",
+          "seq": 3,
+          "operationId": "cure",
+          "type": "start",
+          "time": "2026-10-10T12:00:06Z",
+          "parameters": {
+            "temperatureC": 120
+          }
+        },
+        {
+          "id": "part-05-4",
+          "seq": 4,
+          "operationId": "cure",
+          "type": "finish",
+          "time": "2026-10-10T12:01:06Z",
+          "parameters": {
+            "temperatureC": 120
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "id": "part-05-bond",
+          "requirementId": "bond",
+          "value": 15,
+          "uncertainty95": 0.5,
+          "unit": "MPa"
+        }
+      ]
+    },
+    {
+      "id": "part-06",
+      "facts": {
+        "materialLot": "lot-A",
+        "recipeVersion": "v1",
+        "operator": "op-A"
+      },
+      "events": [
+        {
+          "id": "part-06-1",
+          "seq": 1,
+          "operationId": "deposit",
+          "type": "start",
+          "time": "2026-10-10T12:00:00Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-06-2",
+          "seq": 2,
+          "operationId": "deposit",
+          "type": "finish",
+          "time": "2026-10-10T12:00:05Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-06-3",
+          "seq": 3,
+          "operationId": "cure",
+          "type": "start",
+          "time": "2026-10-10T12:00:06Z",
+          "parameters": {
+            "temperatureC": 120
+          }
+        },
+        {
+          "id": "part-06-4",
+          "seq": 4,
+          "operationId": "cure",
+          "type": "finish",
+          "time": "2026-10-10T12:01:06Z",
+          "parameters": {
+            "temperatureC": 120
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "id": "part-06-bond",
+          "requirementId": "bond",
+          "value": 15,
+          "uncertainty95": 0.5,
+          "unit": "MPa"
+        }
+      ]
+    },
+    {
+      "id": "part-07",
+      "facts": {
+        "materialLot": "lot-A",
+        "recipeVersion": "v1",
+        "operator": "op-B"
+      },
+      "events": [
+        {
+          "id": "part-07-1",
+          "seq": 1,
+          "operationId": "deposit",
+          "type": "start",
+          "time": "2026-10-10T12:00:00Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-07-2",
+          "seq": 2,
+          "operationId": "deposit",
+          "type": "finish",
+          "time": "2026-10-10T12:00:05Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-07-3",
+          "seq": 3,
+          "operationId": "cure",
+          "type": "start",
+          "time": "2026-10-10T12:00:06Z",
+          "parameters": {
+            "temperatureC": 120
+          }
+        },
+        {
+          "id": "part-07-4",
+          "seq": 4,
+          "operationId": "cure",
+          "type": "finish",
+          "time": "2026-10-10T12:01:06Z",
+          "parameters": {
+            "temperatureC": 120
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "id": "part-07-bond",
+          "requirementId": "bond",
+          "value": 15,
+          "uncertainty95": 0.5,
+          "unit": "MPa"
+        }
+      ]
+    },
+    {
+      "id": "part-08",
+      "facts": {
+        "materialLot": "lot-A",
+        "recipeVersion": "v1",
+        "operator": "op-A"
+      },
+      "events": [
+        {
+          "id": "part-08-1",
+          "seq": 1,
+          "operationId": "deposit",
+          "type": "start",
+          "time": "2026-10-10T12:00:00Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-08-2",
+          "seq": 2,
+          "operationId": "deposit",
+          "type": "finish",
+          "time": "2026-10-10T12:00:05Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-08-3",
+          "seq": 3,
+          "operationId": "cure",
+          "type": "start",
+          "time": "2026-10-10T12:00:06Z",
+          "parameters": {
+            "temperatureC": 120
+          }
+        },
+        {
+          "id": "part-08-4",
+          "seq": 4,
+          "operationId": "cure",
+          "type": "finish",
+          "time": "2026-10-10T12:01:06Z",
+          "parameters": {
+            "temperatureC": 120
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "id": "part-08-bond",
+          "requirementId": "bond",
+          "value": 15,
+          "uncertainty95": 0.5,
+          "unit": "MPa"
+        }
+      ]
+    },
+    {
+      "id": "part-09",
+      "facts": {
+        "materialLot": "lot-B",
+        "recipeVersion": "v2",
+        "operator": "op-B"
+      },
+      "events": [
+        {
+          "id": "part-09-1",
+          "seq": 1,
+          "operationId": "deposit",
+          "type": "start",
+          "time": "2026-10-10T12:00:00Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-09-2",
+          "seq": 2,
+          "operationId": "deposit",
+          "type": "finish",
+          "time": "2026-10-10T12:00:05Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-09-3",
+          "seq": 3,
+          "operationId": "cure",
+          "type": "start",
+          "time": "2026-10-10T12:00:06Z",
+          "parameters": {
+            "temperatureC": 130
+          }
+        },
+        {
+          "id": "part-09-4",
+          "seq": 4,
+          "operationId": "cure",
+          "type": "finish",
+          "time": "2026-10-10T12:01:06Z",
+          "parameters": {
+            "temperatureC": 130
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "id": "part-09-bond",
+          "requirementId": "bond",
+          "value": 8,
+          "uncertainty95": 0.5,
+          "unit": "MPa"
+        }
+      ]
+    },
+    {
+      "id": "part-10",
+      "facts": {
+        "materialLot": "lot-B",
+        "recipeVersion": "v2",
+        "operator": "op-A"
+      },
+      "events": [
+        {
+          "id": "part-10-1",
+          "seq": 1,
+          "operationId": "deposit",
+          "type": "start",
+          "time": "2026-10-10T12:00:00Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-10-2",
+          "seq": 2,
+          "operationId": "deposit",
+          "type": "finish",
+          "time": "2026-10-10T12:00:05Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-10-3",
+          "seq": 3,
+          "operationId": "cure",
+          "type": "start",
+          "time": "2026-10-10T12:00:06Z",
+          "parameters": {
+            "temperatureC": 130
+          }
+        },
+        {
+          "id": "part-10-4",
+          "seq": 4,
+          "operationId": "cure",
+          "type": "finish",
+          "time": "2026-10-10T12:01:06Z",
+          "parameters": {
+            "temperatureC": 130
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "id": "part-10-bond",
+          "requirementId": "bond",
+          "value": 8,
+          "uncertainty95": 0.5,
+          "unit": "MPa"
+        }
+      ]
+    },
+    {
+      "id": "part-11",
+      "facts": {
+        "materialLot": "lot-B",
+        "recipeVersion": "v2",
+        "operator": "op-B"
+      },
+      "events": [
+        {
+          "id": "part-11-1",
+          "seq": 1,
+          "operationId": "deposit",
+          "type": "start",
+          "time": "2026-10-10T12:00:00Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-11-2",
+          "seq": 2,
+          "operationId": "deposit",
+          "type": "finish",
+          "time": "2026-10-10T12:00:05Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-11-3",
+          "seq": 3,
+          "operationId": "cure",
+          "type": "start",
+          "time": "2026-10-10T12:00:06Z",
+          "parameters": {
+            "temperatureC": 130
+          }
+        },
+        {
+          "id": "part-11-4",
+          "seq": 4,
+          "operationId": "cure",
+          "type": "finish",
+          "time": "2026-10-10T12:01:06Z",
+          "parameters": {
+            "temperatureC": 130
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "id": "part-11-bond",
+          "requirementId": "bond",
+          "value": 8,
+          "uncertainty95": 0.5,
+          "unit": "MPa"
+        }
+      ]
+    },
+    {
+      "id": "part-12",
+      "facts": {
+        "materialLot": "lot-B",
+        "recipeVersion": "v2",
+        "operator": "op-A"
+      },
+      "events": [
+        {
+          "id": "part-12-1",
+          "seq": 1,
+          "operationId": "deposit",
+          "type": "start",
+          "time": "2026-10-10T12:00:00Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-12-2",
+          "seq": 2,
+          "operationId": "deposit",
+          "type": "finish",
+          "time": "2026-10-10T12:00:05Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-12-3",
+          "seq": 3,
+          "operationId": "cure",
+          "type": "start",
+          "time": "2026-10-10T12:00:06Z",
+          "parameters": {
+            "temperatureC": 130
+          }
+        },
+        {
+          "id": "part-12-4",
+          "seq": 4,
+          "operationId": "cure",
+          "type": "finish",
+          "time": "2026-10-10T12:01:06Z",
+          "parameters": {
+            "temperatureC": 130
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "id": "part-12-bond",
+          "requirementId": "bond",
+          "value": 8,
+          "uncertainty95": 0.5,
+          "unit": "MPa"
+        }
+      ]
+    },
+    {
+      "id": "part-13",
+      "facts": {
+        "materialLot": "lot-B",
+        "recipeVersion": "v2",
+        "operator": "op-B"
+      },
+      "events": [
+        {
+          "id": "part-13-1",
+          "seq": 1,
+          "operationId": "deposit",
+          "type": "start",
+          "time": "2026-10-10T12:00:00Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-13-2",
+          "seq": 2,
+          "operationId": "deposit",
+          "type": "finish",
+          "time": "2026-10-10T12:00:05Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-13-3",
+          "seq": 3,
+          "operationId": "cure",
+          "type": "start",
+          "time": "2026-10-10T12:00:06Z",
+          "parameters": {
+            "temperatureC": 130
+          }
+        },
+        {
+          "id": "part-13-4",
+          "seq": 4,
+          "operationId": "cure",
+          "type": "finish",
+          "time": "2026-10-10T12:01:06Z",
+          "parameters": {
+            "temperatureC": 130
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "id": "part-13-bond",
+          "requirementId": "bond",
+          "value": 8,
+          "uncertainty95": 0.5,
+          "unit": "MPa"
+        }
+      ]
+    },
+    {
+      "id": "part-14",
+      "facts": {
+        "materialLot": "lot-B",
+        "recipeVersion": "v2",
+        "operator": "op-A"
+      },
+      "events": [
+        {
+          "id": "part-14-1",
+          "seq": 1,
+          "operationId": "deposit",
+          "type": "start",
+          "time": "2026-10-10T12:00:00Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-14-2",
+          "seq": 2,
+          "operationId": "deposit",
+          "type": "finish",
+          "time": "2026-10-10T12:00:05Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-14-3",
+          "seq": 3,
+          "operationId": "cure",
+          "type": "start",
+          "time": "2026-10-10T12:00:06Z",
+          "parameters": {
+            "temperatureC": 130
+          }
+        },
+        {
+          "id": "part-14-4",
+          "seq": 4,
+          "operationId": "cure",
+          "type": "finish",
+          "time": "2026-10-10T12:01:06Z",
+          "parameters": {
+            "temperatureC": 130
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "id": "part-14-bond",
+          "requirementId": "bond",
+          "value": 8,
+          "uncertainty95": 0.5,
+          "unit": "MPa"
+        }
+      ]
+    },
+    {
+      "id": "part-15",
+      "facts": {
+        "materialLot": "lot-B",
+        "recipeVersion": "v2",
+        "operator": "op-B"
+      },
+      "events": [
+        {
+          "id": "part-15-1",
+          "seq": 1,
+          "operationId": "deposit",
+          "type": "start",
+          "time": "2026-10-10T12:00:00Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-15-2",
+          "seq": 2,
+          "operationId": "deposit",
+          "type": "finish",
+          "time": "2026-10-10T12:00:05Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-15-3",
+          "seq": 3,
+          "operationId": "cure",
+          "type": "start",
+          "time": "2026-10-10T12:00:06Z",
+          "parameters": {
+            "temperatureC": 130
+          }
+        },
+        {
+          "id": "part-15-4",
+          "seq": 4,
+          "operationId": "cure",
+          "type": "finish",
+          "time": "2026-10-10T12:01:06Z",
+          "parameters": {
+            "temperatureC": 130
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "id": "part-15-bond",
+          "requirementId": "bond",
+          "value": 8,
+          "uncertainty95": 0.5,
+          "unit": "MPa"
+        }
+      ]
+    },
+    {
+      "id": "part-16",
+      "facts": {
+        "materialLot": "lot-B",
+        "recipeVersion": "v2",
+        "operator": "op-A"
+      },
+      "events": [
+        {
+          "id": "part-16-1",
+          "seq": 1,
+          "operationId": "deposit",
+          "type": "start",
+          "time": "2026-10-10T12:00:00Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-16-2",
+          "seq": 2,
+          "operationId": "deposit",
+          "type": "finish",
+          "time": "2026-10-10T12:00:05Z",
+          "parameters": {
+            "thicknessUm": 40
+          }
+        },
+        {
+          "id": "part-16-3",
+          "seq": 3,
+          "operationId": "cure",
+          "type": "start",
+          "time": "2026-10-10T12:00:06Z",
+          "parameters": {
+            "temperatureC": 130
+          }
+        },
+        {
+          "id": "part-16-4",
+          "seq": 4,
+          "operationId": "cure",
+          "type": "finish",
+          "time": "2026-10-10T12:01:06Z",
+          "parameters": {
+            "temperatureC": 130
+          }
+        }
+      ],
+      "measurements": [
+        {
+          "id": "part-16-bond",
+          "requirementId": "bond",
+          "value": 8,
+          "uncertainty95": 0.5,
+          "unit": "MPa"
+        }
+      ]
+    }
+  ]
+}

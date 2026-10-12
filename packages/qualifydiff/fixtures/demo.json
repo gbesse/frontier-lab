@@ -1,0 +1,245 @@
+{
+  "schemaVersion": 1,
+  "origin": "synthetic",
+  "asOf": "2026-10-11T12:00:00Z",
+  "baseline": {
+    "id": "recipe-v1",
+    "nodes": [
+      {
+        "id": "resin",
+        "kind": "material",
+        "dependsOn": [],
+        "config": {
+          "supplier": "synthetic-A",
+          "grade": "R1"
+        }
+      },
+      {
+        "id": "deposit",
+        "kind": "operation",
+        "dependsOn": ["resin"],
+        "config": {
+          "thicknessUm": 40
+        }
+      },
+      {
+        "id": "cure",
+        "kind": "operation",
+        "dependsOn": ["deposit"],
+        "config": {
+          "temperatureC": 120,
+          "durationS": 60
+        }
+      },
+      {
+        "id": "bond",
+        "kind": "property",
+        "dependsOn": ["cure"],
+        "config": {
+          "minimumMpa": 12
+        }
+      },
+      {
+        "id": "conductor",
+        "kind": "material",
+        "dependsOn": [],
+        "config": {
+          "grade": "Cu-demo"
+        }
+      },
+      {
+        "id": "resistance",
+        "kind": "property",
+        "dependsOn": ["conductor"],
+        "config": {
+          "maximumOhm": 0.1
+        }
+      }
+    ],
+    "tests": [
+      {
+        "id": "bond-pull",
+        "dependsOn": ["bond"],
+        "protocol": {
+          "version": "1",
+          "method": "pull",
+          "unit": "MPa"
+        },
+        "mandatory": true
+      },
+      {
+        "id": "contact-resistance",
+        "dependsOn": ["resistance"],
+        "protocol": {
+          "version": "1",
+          "method": "four-wire",
+          "unit": "ohm"
+        },
+        "mandatory": true
+      }
+    ]
+  },
+  "candidate": {
+    "id": "recipe-v2",
+    "nodes": [
+      {
+        "id": "resin",
+        "kind": "material",
+        "dependsOn": [],
+        "config": {
+          "supplier": "synthetic-A",
+          "grade": "R1"
+        }
+      },
+      {
+        "id": "deposit",
+        "kind": "operation",
+        "dependsOn": ["resin"],
+        "config": {
+          "thicknessUm": 40
+        }
+      },
+      {
+        "id": "cure",
+        "kind": "operation",
+        "dependsOn": ["deposit"],
+        "config": {
+          "temperatureC": 130,
+          "durationS": 60
+        }
+      },
+      {
+        "id": "bond",
+        "kind": "property",
+        "dependsOn": ["cure"],
+        "config": {
+          "minimumMpa": 12
+        }
+      },
+      {
+        "id": "conductor",
+        "kind": "material",
+        "dependsOn": [],
+        "config": {
+          "grade": "Cu-demo"
+        }
+      },
+      {
+        "id": "resistance",
+        "kind": "property",
+        "dependsOn": ["conductor"],
+        "config": {
+          "maximumOhm": 0.1
+        }
+      }
+    ],
+    "tests": [
+      {
+        "id": "bond-pull",
+        "dependsOn": ["bond"],
+        "protocol": {
+          "version": "1",
+          "method": "pull",
+          "unit": "MPa"
+        },
+        "mandatory": true
+      },
+      {
+        "id": "contact-resistance",
+        "dependsOn": ["resistance"],
+        "protocol": {
+          "version": "1",
+          "method": "four-wire",
+          "unit": "ohm"
+        },
+        "mandatory": true
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "id": "evidence-bond-pull",
+      "testId": "bond-pull",
+      "result": "pass",
+      "measuredAt": "2026-10-01T12:00:00Z",
+      "basis": {
+        "protocol": {
+          "version": "1",
+          "method": "pull",
+          "unit": "MPa"
+        },
+        "mandatory": true,
+        "nodes": [
+          {
+            "id": "bond",
+            "kind": "property",
+            "dependsOn": ["cure"],
+            "config": {
+              "minimumMpa": 12
+            }
+          },
+          {
+            "id": "cure",
+            "kind": "operation",
+            "dependsOn": ["deposit"],
+            "config": {
+              "temperatureC": 120,
+              "durationS": 60
+            }
+          },
+          {
+            "id": "deposit",
+            "kind": "operation",
+            "dependsOn": ["resin"],
+            "config": {
+              "thicknessUm": 40
+            }
+          },
+          {
+            "id": "resin",
+            "kind": "material",
+            "dependsOn": [],
+            "config": {
+              "supplier": "synthetic-A",
+              "grade": "R1"
+            }
+          }
+        ],
+        "targets": ["bond"]
+      }
+    },
+    {
+      "id": "evidence-contact-resistance",
+      "testId": "contact-resistance",
+      "result": "pass",
+      "measuredAt": "2026-10-01T12:00:00Z",
+      "basis": {
+        "protocol": {
+          "version": "1",
+          "method": "four-wire",
+          "unit": "ohm"
+        },
+        "mandatory": true,
+        "nodes": [
+          {
+            "id": "conductor",
+            "kind": "material",
+            "dependsOn": [],
+            "config": {
+              "grade": "Cu-demo"
+            }
+          },
+          {
+            "id": "resistance",
+            "kind": "property",
+            "dependsOn": ["conductor"],
+            "config": {
+              "maximumOhm": 0.1
+            }
+          }
+        ],
+        "targets": ["resistance"]
+      }
+    }
+  ]
+}

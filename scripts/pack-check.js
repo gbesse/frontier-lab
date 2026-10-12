@@ -29,6 +29,17 @@ for (const name of [
   'water-witness',
   'cee-proof-graph',
   'pics-stress-lab',
+  'space-mission-lab',
+  'fabreplay',
+  'switchbench',
+  'microfabgym',
+  'coolantforge',
+  'qualifydiff',
+  'fabport',
+  'fabresume',
+  'measureplan',
+  'microblocks',
+  'fabtrace',
 ]) {
   const { stdout } = await exec('npm', ['pack', '--json', '--pack-destination', temp], {
     cwd: resolve('packages', name),
@@ -119,4 +130,50 @@ assert.ok(cee.findings.some((item) => item.code === 'EVIDENCE_REUSED'));
 const pics = JSON.parse((await run('pics-stress-lab', ['demo', '--locale=es'])).stdout);
 assert.equal(pics.runs[0].unmetUnitMinutes, 0);
 assert.ok(pics.runs[1].findings.some((item) => item.code === 'CAPACITY_CONFLICT'));
-console.log(`All twenty packages installed and CLIs executed outside the monorepo: ${consumer}`);
+for (const locale of ['fr', 'en', 'es']) {
+  const expedition = JSON.parse(
+    (await run('space-mission-lab', ['frontier', `--locale=${locale}`])).stdout,
+  );
+  assert.equal(expedition.locale, locale);
+  assert.equal(expedition.network.delivered, 3);
+  assert.equal(expedition.economy.after.conservedUnits, 1000);
+}
+for (const name of [
+  'fabreplay',
+  'switchbench',
+  'microfabgym',
+  'coolantforge',
+  'qualifydiff',
+  'fabport',
+  'fabresume',
+  'measureplan',
+  'microblocks',
+  'fabtrace',
+]) {
+  for (const locale of ['fr', 'en', 'es']) {
+    const report = JSON.parse((await run(name, ['demo', `--locale=${locale}`])).stdout);
+    assert.equal(report.locale, locale);
+    assert.match(report.evidence[0].sha256, /^[a-f0-9]{64}$/);
+    const { createDemoServer } = await import(
+      join(consumer, 'node_modules/@gbesse', name, 'bin/serve.js')
+    );
+    const server = createDemoServer();
+    await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+    try {
+      const origin = `http://127.0.0.1:${server.address().port}`;
+      for (const path of [
+        '/',
+        '/public/app.js',
+        '/public/ui.js',
+        '/src/index.js',
+        '/fixtures/demo.json',
+      ])
+        assert.equal((await fetch(origin + path)).status, 200);
+    } finally {
+      await new Promise((resolve) => server.close(resolve));
+    }
+  }
+}
+console.log(
+  `FR : trente et un packages installés et exécutés hors du dépôt. EN: thirty-one packages installed and executed outside the repository. ES: treinta y un paquetes instalados y ejecutados fuera del repositorio. ${consumer}`,
+);

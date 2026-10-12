@@ -2,7 +2,7 @@
 
 [English](README.en.md) · Español · [Français](README.md)
 
-Veinte proyectos de código abierto en **alfa local**: cuatro en el taller interactivo y dieciséis laboratorios de línea de comandos. Los nombres y el alcance son provisionales. Este repositorio no es un servicio alojado y sus paquetes no están publicados en npm.
+Treinta y un proyectos de código abierto en **alfa local**: cuatro en el taller principal, dieciséis laboratorios de línea de comandos, Space Mission Lab y diez herramientas y laboratorios de fabricación en Matter Lab. Los nombres y el alcance son provisionales. Este repositorio no es un servicio alojado y sus paquetes no están publicados en npm.
 
 Las extensiones para agentes tienen sus propios repositorios: [Agent Commerce Ledger para OpenClaw y Hermes](https://github.com/gbesse/agent-commerce-ledger) registra recibos de mensajes y aprobaciones de herramientas configuradas; [Caller Context para OpenClaw](https://github.com/gbesse/openclaw-caller-context) busca contexto local del llamante. No crean contactos CRM ni envían seguimientos.
 
@@ -55,7 +55,7 @@ node packages/pics-stress-lab/bin/cli.js demo --locale=es
 
 ## Probar
 
-Se necesitan Node.js 22+ y npm. En macOS, Teachpack usa Apple Vision para reconocer texto en pantalla localmente. Elige la ventana o pantalla en el diálogo del navegador; prueba Chrome si el navegador integrado no ofrece compartir pantalla. No se necesita cuenta ni clave API.
+Se necesitan Node.js 22+ y npm. Python 3 es necesario para la prueba de la extensión Hermes. En macOS, Teachpack usa Apple Vision para reconocer texto en pantalla localmente. Elige la ventana o pantalla en el diálogo del navegador; prueba Chrome si el navegador integrado no ofrece compartir pantalla. No se necesita cuenta ni clave API.
 
 ```sh
 npm ci
@@ -80,6 +80,12 @@ Recorrido recomendado de cinco minutos:
 
 Las capturas de Teachpack y las exportaciones de Exit permanecen en tu disco dentro de `.local/`; pueden contener información sensible visible. No publiques `.local/` ni `output/`. Los presupuestos del sitio de prueba están en memoria; los informes de prueba se conservan.
 
+### Bases de datos sintéticas con Jev
+
+`npm run synthetic:databases -- --locale=es --seed=20261001` crea tres bases SQLite locales en `output/synthetic-databases/20261001/`: mantenimiento, facturación y verificación simulada de beneficiarios. Las tablas están relacionadas, se comprueban los importes y las secuencias temporales, y la semilla permite repetir la generación. Los nombres, direcciones y cuentas son ficticios. Usa `--output=ruta` para otro directorio; no se sobrescribe un directorio existente.
+
+Este comando necesita `TYPESAFE_API_KEY` en el entorno o en el archivo `.env` ignorado por Git. Hace una llamada de pago a Jev por base y guarda su opinión, las comprobaciones locales, muestras y huellas SHA-256 en `validation.json`. Un veredicto «creíble» evalúa solo las muestras y distribuciones proporcionadas; no demuestra que cada fila sea realista. `--offline` genera las mismas bases solo con comprobaciones locales y marca la opinión de Jev como no disponible. `--locale=fr` o `--locale=en` genera los textos y el informe en el idioma elegido.
+
 ## Verificar
 
 ```sh
@@ -93,7 +99,7 @@ npm audit --audit-level=moderate
 
 En CI con Linux, instala las bibliotecas del sistema con `npx playwright install --with-deps chromium`. `pack:check` usa npm para instalar Playwright en un directorio temporal; los paquetes tar de este proyecto siguen siendo locales. El flujo de GitHub prueba Node 22 y 24 en Linux; la comprobación de los puentes Swift en macOS se puede ejecutar manualmente. Ninguna de estas pruebas concede el permiso del sistema para supervisar clics.
 
-## Veinte paquetes, cuatro en el taller compartido
+## Treinta y un paquetes, cuatro en el taller principal
 
 ```text
 packages/teachpack/         → aprendizaje simbólico + CLI
@@ -135,3 +141,34 @@ Esta iteración añade [Last Signal](packages/last-signal/README.md), [Recall-to
 Son implementaciones alfa, no productos validados comercialmente. La validación local no ha usado un proveedor LLM real. El controlador de modelo opcional exige configuración explícita y puede generar costes del proveedor. La detección de clics se ha probado con un evento simulado; todavía falta comprobar el permiso del sistema y un clic real en un Mac con consentimiento antes de afirmar que está validada de extremo a extremo.
 
 MIT — consulta [LICENSE](LICENSE).
+
+## Space Mission Lab
+
+La expedición añade Light Cone, Relay Rescue, Space Credits y Signal Hunter: demoras luminosas hasta Proxima, mensajes reenviados, presupuestos ficticios y búsqueda de derivas sintéticas. Atlas SOTA con fuentes en `/space/explore?lang=es`, reto diario, enlaces reproducibles, tarjeta PNG y pasaporte JSON. Los enlaces comparten ajustes, nunca JSON de misión. `node packages/space-mission-lab/bin/cli.js frontier --locale=es --destination=proxima` ejecuta la ampliación. Integraciones físicas y datos SETI reales siguen siendo propuestas; sin tráfico público medido.
+
+[Space Mission Lab](packages/space-mission-lab/README.md) reúne cuatro módulos: asignación de varios vehículos, simulación de recursos, asistente de reglas basado en trazas y pruebas de fallos de autonomía. Tras `npm start`, abre **http://127.0.0.1:4317/space**; interfaz e informes en FR / EN / ES. `node packages/space-mission-lab/bin/cli.js demo --locale=es` ejecuta los cuatro módulos. Modelo sintético local, sin dinámica orbital ni conexión con una nave real; las integraciones GMAT/Basilisk/cFS siguen pendientes.
+
+### SOTA+++ — motores y desafíos espaciales
+
+Las tres pistas son ejecutables: **Mission Benchmark Commons** (Basilisk/Orekit, ISS y JPL DE440s), **Contact Market** (SGP4, OR-Tools CP-SAT, manifiesto ION BPv7/UDP y recibo local Ed25519) y **Citizen Mission** (observación real Voyager 1/GBT, blimpy y turboSETI en CPU). Rutas `/space/commons/benchmark`, `/space/commons/market`, `/space/commons/citizen`, en FR/EN/ES con desafíos diarios, predicciones, enlaces compartibles, JSON y PNG. Se indican explícitamente créditos ficticios, antenas del escenario y portadora humana conocida.
+
+`npm run space:setup` instala motores en `.local/space-runtime`. `npm run space:test:engines` verifica cálculos reales. `npm run space:fixtures` guarda pruebas; `npm run space:public` genera `output/space-public`, un sitio estático publicable que reproduce casos guardados sin exponer API locales. Instalación y límites: [documentación FR/EN/ES](packages/space-mission-lab/README.md). No se presupone despliegue público ni tráfico medido.
+
+## Matter Lab — diez repositorios autónomos
+
+Tras `npm start`, abrir **http://127.0.0.1:4317/matter?lang=es**. Las diez demos, interfaces, errores e informes admiten FR/EN/ES. Cada paquete funciona también de forma independiente con `npm start` en su directorio, en el puerto 4321.
+
+| Proyecto                                           | Primera prueba ejecutable                                                          | Límite                                                                      |
+| -------------------------------------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| [FabReplay](packages/fabreplay/README.es.md)       | Comparación de rigidez, IC entre probetas, condiciones de ensayo e importación CSV | Mediciones de demo sintéticas; sensor no verificado                         |
+| [SwitchBench](packages/switchbench/README.es.md)   | Fallo RL, extinción y energía de limitador; exportación y ejecución ngspice        | Interruptores genéricos, sin modelo validado de arco ni conmutación híbrida |
+| [MicroFabGym](packages/microfabgym/README.es.md)   | Estrategias con episodios comunes, API reset/step y adaptador Gymnasium            | Película escalar simulada; sin entrenamiento RL ni fábrica conectada        |
+| [CoolantForge](packages/coolantforge/README.es.md) | Búsqueda limitada, frente de Pareto y esquema SVG de microcanales                  | Modelo reducido; sin CFD 3D ni CAD fabricable                               |
+| [QualifyDiff](packages/qualifydiff/README.es.md)   | Propagación de cambios, pruebas por alcance y plan de recualificación              | Cobertura declarada; sin certificación                                      |
+| [FabPort](packages/fabport/README.es.md)           | Compatibilidad de capacidades, sustituciones y pruebas fechadas                    | Perfiles declarados; sin conector de máquina                                |
+| [FabResume](packages/fabresume/README.es.md)       | Registro de intentos y reanudación condicionada al estado físico                   | Solo plan; contrato de idempotencia declarado                               |
+| [MeasurePlan](packages/measureplan/README.es.md)   | Búsqueda exacta de controles con presupuesto y obligaciones                        | Sensibilidades declaradas e independencia supuesta                          |
+| [MicroBlocks](packages/microblocks/README.es.md)   | Cinco bloques con contratos, geometría OpenSCAD ilustrativa y pruebas              | Mediciones sintéticas; funciones no validadas                               |
+| [FabTrace](packages/fabtrace/README.es.md)         | Trazas por pieza, límites y asociaciones estadísticas                              | Asociaciones descriptivas; sin causalidad establecida                       |
+
+`npm run matter:test:engines` verifica ngspice y Gymnasium. Instalar siguiendo los README; `SWITCHBENCH_NGSPICE` y `MICROFABGYM_PYTHON` pueden seleccionar ejecutables. Los diez proyectos son independientes de Atomic Machines y no tienen acceso al Matter Compiler.

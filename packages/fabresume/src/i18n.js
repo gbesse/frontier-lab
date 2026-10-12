@@ -1,0 +1,227 @@
+export const translations = {
+  selectFile: ['Choisir un fichier', 'Choose a file', 'Elegir un archivo'],
+  language: ['Langue', 'Language', 'Idioma'],
+  settings: ['Votre expérience', 'Your experiment', 'Tu experimento'],
+  run: ['Calculer', 'Calculate', 'Calcular'],
+  reset: ['Reprendre la démo', 'Reset demo', 'Restablecer demo'],
+  results: ['Résultats reproductibles', 'Reproducible results', 'Resultados reproducibles'],
+  inputData: ['Utiliser ses données', 'Use your own data', 'Usar tus datos'],
+  jsonInput: ['Données JSON', 'JSON data', 'Datos JSON'],
+  apply: ['Appliquer le JSON', 'Apply JSON', 'Aplicar JSON'],
+  upload: ['Importer un fichier JSON', 'Import a JSON file', 'Importar un archivo JSON'],
+  download: ['Exporter le rapport JSON', 'Export JSON report', 'Exportar informe JSON'],
+  downloadSvg: ['Exporter le graphique SVG', 'Export SVG chart', 'Exportar gráfico SVG'],
+  reportData: [
+    'Voir les calculs et les traces',
+    'Inspect calculations and traces',
+    'Ver cálculos y trazas',
+  ],
+  footer: [
+    'Alpha MIT · calculs locaux · aucun équipement connecté',
+    'MIT alpha · local calculations · no connected equipment',
+    'Alfa MIT · cálculos locales · ningún equipo conectado',
+  ],
+  invalidInput: [
+    'Entrée invalide : vérifiez le schéma, les unités et les plages indiquées.',
+    'Invalid input: check the schema, units and documented ranges.',
+    'Entrada no válida: comprueba el esquema, las unidades y los rangos indicados.',
+  ],
+  invalidLocale: [
+    'Langue non prise en charge : fr, en, es. / Unsupported language: fr, en, es. / Idioma no admitido: fr, en, es.',
+    'Langue non prise en charge : fr, en, es. / Unsupported language: fr, en, es. / Idioma no admitido: fr, en, es.',
+    'Langue non prise en charge : fr, en, es. / Unsupported language: fr, en, es. / Idioma no admitido: fr, en, es.',
+  ],
+  invalidJson: [
+    'JSON invalide : le résultat précédent est conservé.',
+    'Invalid JSON: the previous result is retained.',
+    'JSON no válido: se conserva el resultado anterior.',
+  ],
+  notFound: ['Ressource introuvable.', 'Resource not found.', 'Recurso no encontrado.'],
+  serverError: [
+    'Serveur indisponible : vérifiez le port.',
+    'Server unavailable: check the port.',
+    'Servidor no disponible: comprueba el puerto.',
+  ],
+  listening: [
+    'Démo locale / Local demo / Demo local : {url}',
+    'Démo locale / Local demo / Demo local : {url}',
+    'Démo locale / Local demo / Demo local : {url}',
+  ],
+  ready: ['Calcul terminé.', 'Calculation complete.', 'Cálculo terminado.'],
+  failure: [
+    'Commande impossible : vérifiez les arguments et le fichier.',
+    'Command failed: check the arguments and file.',
+    'La orden falló: comprueba los argumentos y el archivo.',
+  ],
+  cliUsage: [
+    'Usage : {name} demo | run fichier.json [--locale=fr|en|es] [--output=nouveau.json]',
+    'Usage: {name} demo | run file.json [--locale=fr|en|es] [--output=new.json]',
+    'Uso: {name} demo | run archivo.json [--locale=fr|en|es] [--output=nuevo.json]',
+  ],
+  noOverwrite: [
+    'Le fichier existe déjà ; choisissez un nouveau chemin.',
+    'The file already exists; choose a new path.',
+    'El archivo ya existe; elige una ruta nueva.',
+  ],
+  sourceSynthetic: ['Données synthétiques', 'Synthetic data', 'Datos sintéticos'],
+  sourceUser: [
+    'Données fournies par l’utilisateur',
+    'User-supplied data',
+    'Datos proporcionados por el usuario',
+  ],
+  eyebrow: [
+    'Open source · outils de fabrication',
+    'Open source · fabrication tools',
+    'Código abierto · herramientas de fabricación',
+  ],
+  method: ['Méthode et limites', 'Method and limits', 'Método y límites'],
+  checkUsage: [
+    'check fichier.json : 0 conforme aux règles, 1 échec, 3 examen requis, 2 entrée invalide.',
+    'check file.json: 0 meets rules, 1 failure, 3 review required, 2 invalid input.',
+    'check archivo.json: 0 cumple reglas, 1 fallo, 3 revisión necesaria, 2 entrada no válida.',
+  ],
+  item: ['Élément', 'Item', 'Elemento'],
+  decision: ['Décision', 'Decision', 'Decisión'],
+  detail: ['Explication', 'Explanation', 'Explicación'],
+  items: ['Éléments examinés', 'Items examined', 'Elementos examinados'],
+  status: ['État du dossier', 'Dossier status', 'Estado del expediente'],
+  pass: ['Conforme aux règles déclarées', 'Meets declared rules', 'Cumple las reglas declaradas'],
+  fail: ['Échec constaté', 'Observed failure', 'Fallo observado'],
+  inconclusive: ['Examen requis', 'Review required', 'Revisión necesaria'],
+  retained: ['Preuve conservée', 'Evidence retained', 'Prueba conservada'],
+  retest: ['À retester', 'Retest', 'Volver a ensayar'],
+  failed: ['Essai en échec', 'Failed test', 'Ensayo fallido'],
+  review: ['À examiner', 'Review', 'Revisar'],
+  compatible: [
+    'Compatible selon le profil',
+    'Compatible per profile',
+    'Compatible según el perfil',
+  ],
+  incompatible: ['Incompatible', 'Incompatible', 'Incompatible'],
+  adaptation: [
+    'Adaptation à qualifier',
+    'Adaptation needs qualification',
+    'Adaptación por cualificar',
+  ],
+  unknown: ['Preuve insuffisante', 'Insufficient evidence', 'Prueba insuficiente'],
+  done: ['Terminé', 'Completed', 'Completado'],
+  readyOperation: ['Prêt à démarrer', 'Ready to start', 'Listo para iniciar'],
+  inspect: ['Inspecter avant reprise', 'Inspect before resuming', 'Inspeccionar antes de reanudar'],
+  retry: [
+    'Reprise autorisée par la règle',
+    'Retry permitted by rule',
+    'Reintento permitido por la regla',
+  ],
+  blocked: ['Bloqué', 'Blocked', 'Bloqueado'],
+  running: ['En cours', 'Running', 'En curso'],
+  selected: ['Mesure sélectionnée', 'Selected measurement', 'Medición seleccionada'],
+  deferred: ['Mesure différée', 'Deferred measurement', 'Medición aplazada'],
+  qualified: ['Dossier couvert', 'Dossier covered', 'Expediente cubierto'],
+  incomplete: ['Dossier incomplet', 'Incomplete dossier', 'Expediente incompleto'],
+  conforming: ['Pièce conforme', 'Conforming part', 'Pieza conforme'],
+  defective: ['Pièce en échec', 'Failed part', 'Pieza fallida'],
+  summary: [
+    '{count} éléments examinés ; {status}.',
+    '{count} items examined; {status}.',
+    '{count} elementos examinados; {status}.',
+  ],
+  cycle: [
+    'Dépendance cyclique : le graphe doit être acyclique.',
+    'Cyclic dependency: the graph must be acyclic.',
+    'Dependencia cíclica: el grafo debe ser acíclico.',
+  ],
+  reference: [
+    'Référence inconnue ou identifiant dupliqué.',
+    'Unknown reference or duplicate identifier.',
+    'Referencia desconocida o identificador duplicado.',
+  ],
+  title: [
+    'Reprendre sans répéter le dépôt.',
+    'Resume without repeating the deposit.',
+    'Reanudar sin repetir el depósito.',
+  ],
+  intro: [
+    'Rejouez le journal d’une pièce interrompue. Distinguez les opérations terminées, les reprises possibles et les inspections nécessaires.',
+    'Replay an interrupted part’s journal. Distinguish completed operations, possible retries and necessary inspections.',
+    'Reproduce el registro de una pieza interrumpida. Distingue operaciones terminadas, reintentos posibles e inspecciones necesarias.',
+  ],
+  methodText: [
+    'Une intention ou un échec ne prouve pas l’absence d’effet physique. Une reprise nécessite une absence confirmée, ou un contrat d’idempotence déclaré avec la même clé. Ce moteur produit un plan ; il ne commande aucun équipement.',
+    'An intent or failure does not prove absence of physical effect. A retry needs confirmed absence, or a declared idempotency contract with the same key. This engine produces a plan; it controls no equipment.',
+    'Una intención o fallo no demuestra ausencia de efecto físico. Un reintento requiere ausencia confirmada, o contrato de idempotencia declarado con la misma clave. El motor genera un plan; no controla equipos.',
+  ],
+  next: [
+    'Enregistrez une inspection après interruption, puis comparez le plan de reprise.',
+    'Record an inspection after interruption, then compare the resume plan.',
+    'Registra una inspección tras la interrupción y compara el plan de reanudación.',
+  ],
+  yAxis: ['Tentatives enregistrées', 'Recorded attempts', 'Intentos registrados'],
+  control: [
+    'Inspection : dépôt absent confirmé',
+    'Inspection: deposit confirmed absent',
+    'Inspección: depósito ausente confirmado',
+  ],
+  invalidTransition: [
+    'Journal incohérent : ordre, tentative, dépendance ou transition invalide.',
+    'Inconsistent journal: invalid ordering, attempt, dependency or transition.',
+    'Registro incoherente: orden, intento, dependencia o transición no válida.',
+  ],
+  operationComplete: [
+    'Effet confirmé ; aucune répétition proposée.',
+    'Effect confirmed; no repetition proposed.',
+    'Efecto confirmado; no se propone repetición.',
+  ],
+  dependencyPending: [
+    'Attendre les opérations : {ids}.',
+    'Wait for operations: {ids}.',
+    'Esperar operaciones: {ids}.',
+  ],
+  operationReady: [
+    'Aucune tentative ; dépendances terminées.',
+    'No attempt; dependencies completed.',
+    'Sin intentos; dependencias completadas.',
+  ],
+  operationRunning: [
+    'Opération active ; enregistrer son résultat ou son interruption.',
+    'Active operation; record its result or interruption.',
+    'Operación activa; registrar resultado o interrupción.',
+  ],
+  idempotentReplay: [
+    'Rejouer avec la même clé selon le contrat déclaré.',
+    'Replay with the same key under the declared contract.',
+    'Repetir con la misma clave según el contrato declarado.',
+  ],
+  outcomeUnknown: [
+    'Effet physique inconnu : inspection avant toute reprise.',
+    'Unknown physical effect: inspect before any retry.',
+    'Efecto físico desconocido: inspeccionar antes de reintentar.',
+  ],
+  retryForbidden: [
+    'Reprise automatique interdite ou budget de tentatives épuisé.',
+    'Automatic retry forbidden or attempt budget exhausted.',
+    'Reintento automático prohibido o presupuesto de intentos agotado.',
+  ],
+  absenceConfirmed: [
+    'Absence d’effet confirmée ; nouvelle tentative possible.',
+    'Absence of effect confirmed; a new attempt is possible.',
+    'Ausencia de efecto confirmada; posible nuevo intento.',
+  ],
+  xAxis: ['Élément (index)', 'Item (index)', 'Elemento (índice)'],
+  notice: [
+    'Démo synthétique locale ; aucun équipement connecté ni preuve industrielle.',
+    'Local synthetic demo; no connected equipment or industrial evidence.',
+    'Demo sintética local; sin equipos conectados ni pruebas industriales.',
+  ],
+  userNotice: [
+    'Dossier fourni par l’utilisateur. Provenance et paramètres déclarés, non authentifiés.',
+    'User-supplied dossier. Declared provenance and parameters, not authenticated.',
+    'Expediente del usuario. Procedencia y parámetros declarados, no autenticados.',
+  ],
+};
+export function message(key, locale = 'fr', values = {}) {
+  const index = ['fr', 'en', 'es'].indexOf(locale);
+  if (index < 0) throw Error(translations.invalidLocale[0]);
+  if (!Object.hasOwn(translations, key))
+    throw Error('Traduction inconnue / Unknown translation / Traducción desconocida: ' + key);
+  return translations[key][index].replace(/\{(\w+)\}/g, (_, k) => values[k] ?? '{' + k + '}');
+}

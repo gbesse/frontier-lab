@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "FR : vingt expériences locales vérifiables. EN: twenty inspectable local experiments. ES: veinte experimentos locales verificables.",
+  "description": "FR : trente et un projets locaux vérifiables. EN: thirty-one inspectable local projects. ES: treinta y un proyectos locales verificables.",
   "workspaces": [
     "packages/*"
   ],
@@ -13,12 +13,19 @@
   "scripts": {
     "start": "node studio/server.js",
     "test": "node --test test/*.test.js",
-    "test:browser": "node test/browser.mjs && node test/visual-browser.mjs && node test/wave-three-browser.mjs",
+    "test:browser": "node test/browser.mjs && node test/visual-browser.mjs && node test/wave-three-browser.mjs && node test/space-browser.mjs && node test/space-frontier-browser.mjs && node test/space-commons-browser.mjs && npm run space:public && node test/space-public-browser.mjs && node test/atomic-browser.mjs",
     "demo": "node scripts/demo.js",
+    "synthetic:databases": "node --env-file-if-exists=.env scripts/synthetic-databases.mjs",
     "check": "npm test && npm run demo",
     "pack:check": "node scripts/pack-check.js",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "space:setup": "node scripts/space-setup.mjs",
+    "space:fixtures": "node scripts/space-fixtures.mjs",
+    "space:public": "node scripts/space-public.mjs",
+    "space:test:engines": "node test/space-engines.mjs",
+    "space:preview": "node scripts/space-public-preview.mjs",
+    "matter:test:engines": "node scripts/matter-engines.mjs"
   },
   "devDependencies": {
     "playwright": "^1.55.0",

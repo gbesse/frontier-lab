@@ -1,0 +1,8 @@
+bsk==2.12.0
+blimpy==2.1.4
+turbo-seti==2.3.2
+sgp4==2.25
+ortools==9.15.6755
+spiceypy==8.2.0
+numpy==2.3.5
+matplotlib==3.10.6

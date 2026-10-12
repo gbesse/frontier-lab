@@ -1,0 +1,40 @@
+{
+  "name": "@gbesse/fabreplay",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./i18n": "./src/i18n.js"
+  },
+  "bin": {
+    "fabreplay": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "public",
+    "fixtures",
+    "README.md",
+    "README.en.md",
+    "README.es.md",
+    "LICENSE",
+    "docs"
+  ],
+  "scripts": {
+    "start": "node bin/serve.js",
+    "demo": "node bin/cli.js demo",
+    "test": "node --test test/*.test.js",
+    "test:browser": "node test/browser.mjs",
+    "format:check": "prettier --check ."
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "playwright": "1.55.1",
+    "prettier": "3.9.9"
+  },
+  "description": "FR: Le diff mesurable entre deux révisions de micro-flexures : prédiction, essais, incertitude et seuil d’acceptation. EN: The measurable diff between two micro-flexure revisions: prediction, tests, uncertainty and acceptance threshold. ES: Las diferencias medibles entre dos revisiones de microflexuras: predicción, ensayos, incertidumbre y umbral de aceptación."
+}

@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "origin": "synthetic",
+  "partId": "part-001",
+  "operations": [
+    {
+      "id": "clean",
+      "kind": "clean",
+      "dependsOn": [],
+      "retryMode": "inspect",
+      "maxAttempts": 2,
+      "parameters": {
+        "durationS": 5
+      }
+    },
+    {
+      "id": "deposit",
+      "kind": "deposit",
+      "dependsOn": ["clean"],
+      "retryMode": "inspect",
+      "maxAttempts": 2,
+      "parameters": {
+        "thicknessUm": 40
+      }
+    },
+    {
+      "id": "cure",
+      "kind": "cure",
+      "dependsOn": ["deposit"],
+      "retryMode": "never",
+      "maxAttempts": 1,
+      "parameters": {
+        "temperatureC": 120,
+        "durationS": 60
+      }
+    }
+  ],
+  "journal": [
+    {
+      "id": "e1",
+      "seq": 1,
+      "operationId": "clean",
+      "attemptId": "clean-1",
+      "type": "intent",
+      "idempotencyKey": "part-001-clean-1",
+      "commandBasis": {
+        "kind": "clean",
+        "parameters": {
+          "durationS": 5
+        }
+      }
+    },
+    {
+      "id": "e2",
+      "seq": 2,
+      "operationId": "clean",
+      "attemptId": "clean-1",
+      "type": "started"
+    },
+    {
+      "id": "e3",
+      "seq": 3,
+      "operationId": "clean",
+      "attemptId": "clean-1",
+      "type": "completed"
+    },
+    {
+      "id": "e4",
+      "seq": 4,
+      "operationId": "deposit",
+      "attemptId": "deposit-1",
+      "type": "intent",
+      "idempotencyKey": "part-001-deposit-1",
+      "commandBasis": {
+        "kind": "deposit",
+        "parameters": {
+          "thicknessUm": 40
+        }
+      }
+    },
+    {
+      "id": "e5",
+      "seq": 5,
+      "operationId": "deposit",
+      "attemptId": "deposit-1",
+      "type": "started"
+    },
+    {
+      "id": "e6",
+      "seq": 6,
+      "operationId": "deposit",
+      "attemptId": "deposit-1",
+      "type": "interrupted"
+    }
+  ]
+}

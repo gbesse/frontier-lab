@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { staticTranslationRows, messageTranslations } from '../studio/i18n.js';
+import { staticTranslationRows, messageTranslations, matterTranslations } from '../studio/i18n.js';
 
 const placeholders = (value) =>
   [...value.matchAll(/\{([a-zA-Z][a-zA-Z0-9]*)\}/g)].map((match) => match[1]).sort();
@@ -23,4 +23,5 @@ test('static UI copy has unique source strings and complete FR/EN/ES translation
 
 test('dynamic UI copy has complete FR/EN/ES translations and matching placeholders', () => {
   assertTrilingual(Object.entries(messageTranslations));
+  assertTrilingual(Object.entries(matterTranslations));
 });
