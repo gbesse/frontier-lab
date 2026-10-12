@@ -1,6 +1,10 @@
 # Contributing
 
-Node.js 22+, npm, Chromium for browser tests. `npm ci`, then `npx playwright install chromium`.
+FR : Node.js 22+, npm et Chromium pour les tests navigateur. `npm ci`, puis `npm run browsers:install` installe les versions Chromium utilisées par le studio et les paquets autonomes.
+
+EN: Node.js 22+, npm and Chromium for browser tests. `npm ci`, then `npm run browsers:install` installs the Chromium versions used by the studio and standalone packages.
+
+ES: Node.js 22+, npm y Chromium para los tests de navegador. `npm ci` y después `npm run browsers:install` instala las versiones de Chromium utilizadas por el estudio y los paquetes independientes.
 
 Before proposing a change:
 

@@ -63,7 +63,7 @@ Se necesitan Node.js 22+ y npm. Python 3 es necesario para la prueba de la exten
 
 ```sh
 npm ci
-npx playwright install chromium
+npm run browsers:install
 npm start
 ```
 
@@ -101,7 +101,7 @@ npm run format:check
 npm audit --audit-level=moderate
 ```
 
-En CI con Linux, instala las bibliotecas del sistema con `npx playwright install --with-deps chromium`. `pack:check` usa npm para instalar Playwright en un directorio temporal; los paquetes tar de este proyecto siguen siendo locales. El flujo de GitHub prueba Node 22 y 24 en Linux; la comprobación de los puentes Swift en macOS se puede ejecutar manualmente. Ninguna de estas pruebas concede el permiso del sistema para supervisar clics.
+En CI con Linux, instala las bibliotecas del sistema con `npm run browsers:install -- --with-deps`. `pack:check` usa npm para instalar Playwright en un directorio temporal; los paquetes tar de este proyecto siguen siendo locales. El flujo de GitHub prueba Node 22 y 24 en Linux; la comprobación de los puentes Swift en macOS se puede ejecutar manualmente. Ninguna de estas pruebas concede el permiso del sistema para supervisar clics.
 
 ## Treinta y un paquetes, cuatro en el taller principal
 

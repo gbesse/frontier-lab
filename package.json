@@ -27,7 +27,8 @@
     "space:preview": "node scripts/space-public-preview.mjs",
     "matter:test:engines": "node scripts/matter-engines.mjs",
     "demo:labs": "node scripts/lab-tour.mjs",
-    "demo:branch-failure": "node packages/branch/bin/cli.js run examples/branch-failure.json"
+    "demo:branch-failure": "node packages/branch/bin/cli.js run examples/branch-failure.json",
+    "browsers:install": "node scripts/install-browsers.mjs"
   },
   "devDependencies": {
     "playwright": "^1.55.0",

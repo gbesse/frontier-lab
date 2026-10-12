@@ -63,7 +63,7 @@ Use Node.js 22+ and npm. Python 3 is required for the Hermes extension test. On 
 
 ```sh
 npm ci
-npx playwright install chromium
+npm run browsers:install
 npm start
 ```
 
@@ -101,7 +101,7 @@ npm run format:check
 npm audit --audit-level=moderate
 ```
 
-On Linux CI, install system libraries with `npx playwright install --with-deps chromium`. `pack:check` uses npm to install Playwright in a temporary directory; our package tarballs remain local. The GitHub workflow tests Node 22 and 24 on Linux; a macOS check of the Swift bridges can be run manually. None of these tests grants the system click-monitoring permission.
+On Linux CI, install system libraries with `npm run browsers:install -- --with-deps`. `pack:check` uses npm to install Playwright in a temporary directory; our package tarballs remain local. The GitHub workflow tests Node 22 and 24 on Linux; a macOS check of the Swift bridges can be run manually. None of these tests grants the system click-monitoring permission.
 
 ## Thirty-one packages, four in the main studio
 
