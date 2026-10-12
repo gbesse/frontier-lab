@@ -298,6 +298,7 @@ export const atlasIdeas = [
     name: 'Mission Benchmark Commons',
     state: 'built',
     href: '/space/commons/benchmark',
+    repository: 'https://github.com/gbesse/mission-benchmark-commons',
     text: [
       'Basilisk 2.12 et Orekit 13.1.9 exécutés sur les mêmes états ISS/SGP4 ou Lune/JPL DE440s. Écarts numériques, résidus du modèle, énergie, versions et SHA-256. Défis de précision partageables.',
       'Basilisk 2.12 and Orekit 13.1.9 executed on shared ISS/SGP4 or Moon/JPL DE440s states. Numerical differences, model residuals, energy, versions and SHA-256. Shareable accuracy challenges.',
@@ -308,6 +309,7 @@ export const atlasIdeas = [
     name: 'Contact Market / Science Bounties',
     state: 'built',
     href: '/space/commons/market',
+    repository: 'https://github.com/gbesse/contact-market',
     text: [
       'Contacts ISS calculés par SGP4, calendrier optimisé par OR-Tools CP-SAT et comparé à une stratégie premier arrivé, premier servi. ION BPv7/UDP transporte un manifeste sur localhost ; reçu Ed25519 local. Crédits fictifs.',
       'ISS contacts computed with SGP4, schedule optimized with OR-Tools CP-SAT and compared to first-come-first-served. ION BPv7/UDP transports a manifest on localhost; local Ed25519 receipt. Fictional credits.',
@@ -318,6 +320,7 @@ export const atlasIdeas = [
     name: 'Citizen Mission / SETI Replay',
     state: 'built',
     href: '/space/commons/citizen',
+    repository: 'https://github.com/gbesse/citizen-mission',
     text: [
       'Observation réelle publique Voyager 1/GBT : blimpy lit le fichier et turboSETI cherche la dérive Doppler sur CPU. Spectrogramme, porteuse, provenance et défi de prédiction. Sonde humaine connue ; aucune observation OFF disponible.',
       'Real public Voyager 1/GBT observation: blimpy reads the file and turboSETI searches Doppler drift on CPU. Waterfall, carrier, provenance and prediction challenge. Known human spacecraft; no OFF observation available.',

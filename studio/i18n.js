@@ -1135,6 +1135,16 @@ Object.assign(messageTranslations, {
     'Compare an orbit, optimize ISS contacts, recover Voyager from a real observation.',
     'Compara una órbita, optimiza contactos de la ISS y recupera Voyager en una observación real.',
   ],
+  commonsRepository: [
+    'Dépôt GitHub autonome',
+    'Standalone GitHub repository',
+    'Repositorio GitHub autónomo',
+  ],
+  commonsRepositories: [
+    'Trois dépôts spatiaux autonomes',
+    'Three standalone space repositories',
+    'Tres repositorios espaciales autónomos',
+  ],
   commonsRun: ['Exécuter les moteurs', 'Run the engines', 'Ejecutar los motores'],
   commonsReplay: [
     'Rejouer la preuve publiée',
