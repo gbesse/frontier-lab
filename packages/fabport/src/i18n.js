@@ -1,0 +1,231 @@
+export const translations = {
+  selectFile: ['Choisir un fichier', 'Choose a file', 'Elegir un archivo'],
+  language: ['Langue', 'Language', 'Idioma'],
+  settings: ['Votre expérience', 'Your experiment', 'Tu experimento'],
+  run: ['Calculer', 'Calculate', 'Calcular'],
+  reset: ['Reprendre la démo', 'Reset demo', 'Restablecer demo'],
+  results: ['Résultats reproductibles', 'Reproducible results', 'Resultados reproducibles'],
+  inputData: ['Utiliser ses données', 'Use your own data', 'Usar tus datos'],
+  jsonInput: ['Données JSON', 'JSON data', 'Datos JSON'],
+  apply: ['Appliquer le JSON', 'Apply JSON', 'Aplicar JSON'],
+  upload: ['Importer un fichier JSON', 'Import a JSON file', 'Importar un archivo JSON'],
+  download: ['Exporter le rapport JSON', 'Export JSON report', 'Exportar informe JSON'],
+  downloadSvg: ['Exporter le graphique SVG', 'Export SVG chart', 'Exportar gráfico SVG'],
+  reportData: [
+    'Voir les calculs et les traces',
+    'Inspect calculations and traces',
+    'Ver cálculos y trazas',
+  ],
+  footer: [
+    'Alpha MIT · calculs locaux · aucun équipement connecté',
+    'MIT alpha · local calculations · no connected equipment',
+    'Alfa MIT · cálculos locales · ningún equipo conectado',
+  ],
+  invalidInput: [
+    'Entrée invalide : vérifiez le schéma, les unités et les plages indiquées.',
+    'Invalid input: check the schema, units and documented ranges.',
+    'Entrada no válida: comprueba el esquema, las unidades y los rangos indicados.',
+  ],
+  invalidLocale: [
+    'Langue non prise en charge : fr, en, es. / Unsupported language: fr, en, es. / Idioma no admitido: fr, en, es.',
+    'Langue non prise en charge : fr, en, es. / Unsupported language: fr, en, es. / Idioma no admitido: fr, en, es.',
+    'Langue non prise en charge : fr, en, es. / Unsupported language: fr, en, es. / Idioma no admitido: fr, en, es.',
+  ],
+  invalidJson: [
+    'JSON invalide : le résultat précédent est conservé.',
+    'Invalid JSON: the previous result is retained.',
+    'JSON no válido: se conserva el resultado anterior.',
+  ],
+  notFound: ['Ressource introuvable.', 'Resource not found.', 'Recurso no encontrado.'],
+  serverError: [
+    'Serveur indisponible : vérifiez le port.',
+    'Server unavailable: check the port.',
+    'Servidor no disponible: comprueba el puerto.',
+  ],
+  listening: [
+    'Démo locale / Local demo / Demo local : {url}',
+    'Démo locale / Local demo / Demo local : {url}',
+    'Démo locale / Local demo / Demo local : {url}',
+  ],
+  ready: ['Calcul terminé.', 'Calculation complete.', 'Cálculo terminado.'],
+  failure: [
+    'Commande impossible : vérifiez les arguments et le fichier.',
+    'Command failed: check the arguments and file.',
+    'La orden falló: comprueba los argumentos y el archivo.',
+  ],
+  cliUsage: [
+    'Usage : {name} demo | run fichier.json [--locale=fr|en|es] [--output=nouveau.json]',
+    'Usage: {name} demo | run file.json [--locale=fr|en|es] [--output=new.json]',
+    'Uso: {name} demo | run archivo.json [--locale=fr|en|es] [--output=nuevo.json]',
+  ],
+  noOverwrite: [
+    'Le fichier existe déjà ; choisissez un nouveau chemin.',
+    'The file already exists; choose a new path.',
+    'El archivo ya existe; elige una ruta nueva.',
+  ],
+  sourceSynthetic: ['Données synthétiques', 'Synthetic data', 'Datos sintéticos'],
+  sourceUser: [
+    'Données fournies par l’utilisateur',
+    'User-supplied data',
+    'Datos proporcionados por el usuario',
+  ],
+  eyebrow: [
+    'Open source · outils de fabrication',
+    'Open source · fabrication tools',
+    'Código abierto · herramientas de fabricación',
+  ],
+  method: ['Méthode et limites', 'Method and limits', 'Método y límites'],
+  checkUsage: [
+    'check fichier.json : 0 conforme aux règles, 1 échec, 3 examen requis, 2 entrée invalide.',
+    'check file.json: 0 meets rules, 1 failure, 3 review required, 2 invalid input.',
+    'check archivo.json: 0 cumple reglas, 1 fallo, 3 revisión necesaria, 2 entrada no válida.',
+  ],
+  item: ['Élément', 'Item', 'Elemento'],
+  decision: ['Décision', 'Decision', 'Decisión'],
+  detail: ['Explication', 'Explanation', 'Explicación'],
+  items: ['Éléments examinés', 'Items examined', 'Elementos examinados'],
+  status: ['État du dossier', 'Dossier status', 'Estado del expediente'],
+  pass: ['Conforme aux règles déclarées', 'Meets declared rules', 'Cumple las reglas declaradas'],
+  fail: ['Échec constaté', 'Observed failure', 'Fallo observado'],
+  inconclusive: ['Examen requis', 'Review required', 'Revisión necesaria'],
+  retained: ['Preuve conservée', 'Evidence retained', 'Prueba conservada'],
+  retest: ['À retester', 'Retest', 'Volver a ensayar'],
+  failed: ['Essai en échec', 'Failed test', 'Ensayo fallido'],
+  review: ['À examiner', 'Review', 'Revisar'],
+  compatible: [
+    'Compatible selon le profil',
+    'Compatible per profile',
+    'Compatible según el perfil',
+  ],
+  incompatible: ['Incompatible', 'Incompatible', 'Incompatible'],
+  adaptation: [
+    'Adaptation à qualifier',
+    'Adaptation needs qualification',
+    'Adaptación por cualificar',
+  ],
+  unknown: ['Preuve insuffisante', 'Insufficient evidence', 'Prueba insuficiente'],
+  done: ['Terminé', 'Completed', 'Completado'],
+  readyOperation: ['Prêt à démarrer', 'Ready to start', 'Listo para iniciar'],
+  inspect: ['Inspecter avant reprise', 'Inspect before resuming', 'Inspeccionar antes de reanudar'],
+  retry: [
+    'Reprise autorisée par la règle',
+    'Retry permitted by rule',
+    'Reintento permitido por la regla',
+  ],
+  blocked: ['Bloqué', 'Blocked', 'Bloqueado'],
+  running: ['En cours', 'Running', 'En curso'],
+  selected: ['Mesure sélectionnée', 'Selected measurement', 'Medición seleccionada'],
+  deferred: ['Mesure différée', 'Deferred measurement', 'Medición aplazada'],
+  qualified: ['Dossier couvert', 'Dossier covered', 'Expediente cubierto'],
+  incomplete: ['Dossier incomplet', 'Incomplete dossier', 'Expediente incompleto'],
+  conforming: ['Pièce conforme', 'Conforming part', 'Pieza conforme'],
+  defective: ['Pièce en échec', 'Failed part', 'Pieza fallida'],
+  summary: [
+    '{count} éléments examinés ; {status}.',
+    '{count} items examined; {status}.',
+    '{count} elementos examinados; {status}.',
+  ],
+  cycle: [
+    'Dépendance cyclique : le graphe doit être acyclique.',
+    'Cyclic dependency: the graph must be acyclic.',
+    'Dependencia cíclica: el grafo debe ser acíclico.',
+  ],
+  reference: [
+    'Référence inconnue ou identifiant dupliqué.',
+    'Unknown reference or duplicate identifier.',
+    'Referencia desconocida o identificador duplicado.',
+  ],
+  title: [
+    'Dans quelle usine fabriquer ?',
+    'Which fab can build it?',
+    '¿Qué fábrica puede fabricarlo?',
+  ],
+  intro: [
+    'Confrontez chaque étape aux profils de capacité, aux substitutions déclarées et aux preuves de calibration datées.',
+    'Match each step against capability profiles, declared substitutions and dated calibration evidence.',
+    'Contrasta cada paso con perfiles de capacidad, sustituciones declaradas y pruebas de calibración fechadas.',
+  ],
+  methodText: [
+    'Chaque étape doit être couverte par une seule capacité satisfaisant toutes ses contraintes. Unités identiques requises. Une substitution reste à qualifier ; un profil incomplet ou une preuve expirée ne justifie pas la compatibilité.',
+    'Each step needs one capability satisfying all its constraints. Identical units required. A substitution still needs qualification; an incomplete profile or expired evidence cannot establish compatibility.',
+    'Cada paso requiere una sola capacidad que cumpla todas sus restricciones. Unidades idénticas requeridas. Una sustitución aún necesita cualificación; un perfil incompleto o prueba caducada no establece compatibilidad.',
+  ],
+  next: [
+    'Remplacez un profil synthétique par des capacités accompagnées de preuves mesurées.',
+    'Replace a synthetic profile with capabilities backed by measured evidence.',
+    'Sustituye un perfil sintético por capacidades respaldadas por pruebas medidas.',
+  ],
+  yAxis: [
+    'Étapes couvertes sans adaptation',
+    'Steps covered without adaptation',
+    'Pasos cubiertos sin adaptación',
+  ],
+  control: [
+    'Erreur maximale admissible (µm)',
+    'Maximum permitted error (µm)',
+    'Error máximo admisible (µm)',
+  ],
+  profileResult: [
+    '{compatible}/{total} étapes couvertes directement.',
+    '{compatible}/{total} steps directly covered.',
+    '{compatible}/{total} pasos cubiertos directamente.',
+  ],
+  precisionUnknown: [
+    '{fab} / {step} : précision non documentée.',
+    '{fab} / {step}: undocumented precision.',
+    '{fab} / {step}: precisión no documentada.',
+  ],
+  precisionExceeded: [
+    '{fab} / {step} : erreur supérieure à la limite.',
+    '{fab} / {step}: error exceeds limit.',
+    '{fab} / {step}: error superior al límite.',
+  ],
+  rangeUnknown: [
+    '{fab} / {step} : plage ou unité non comparable.',
+    '{fab} / {step}: range or unit not comparable.',
+    '{fab} / {step}: rango o unidad no comparable.',
+  ],
+  rangeExceeded: [
+    '{fab} / {step} : plage insuffisante.',
+    '{fab} / {step}: insufficient range.',
+    '{fab} / {step}: rango insuficiente.',
+  ],
+  evidenceExpired: [
+    '{fab} / {step} : preuve absente, non qualifiée ou hors période.',
+    '{fab} / {step}: evidence absent, unqualified or outside validity period.',
+    '{fab} / {step}: prueba ausente, sin cualificar o fuera de vigencia.',
+  ],
+  substitutionNeedsQualification: [
+    '{fab} / {step} : substitution proposée, recette à requalifier.',
+    '{fab} / {step}: proposed substitution, recipe needs requalification.',
+    '{fab} / {step}: sustitución propuesta, receta por recualificar.',
+  ],
+  operationMissing: [
+    '{fab} / {step} : opération absente du profil complet.',
+    '{fab} / {step}: operation absent from complete profile.',
+    '{fab} / {step}: operación ausente del perfil completo.',
+  ],
+  profileIncomplete: [
+    '{fab} / {step} : profil incomplet, compatibilité indéterminée.',
+    '{fab} / {step}: incomplete profile, compatibility unknown.',
+    '{fab} / {step}: perfil incompleto, compatibilidad indeterminada.',
+  ],
+  xAxis: ['Élément (index)', 'Item (index)', 'Elemento (índice)'],
+  notice: [
+    'Démo synthétique locale ; aucun équipement connecté ni preuve industrielle.',
+    'Local synthetic demo; no connected equipment or industrial evidence.',
+    'Demo sintética local; sin equipos conectados ni pruebas industriales.',
+  ],
+  userNotice: [
+    'Dossier fourni par l’utilisateur. Provenance et paramètres déclarés, non authentifiés.',
+    'User-supplied dossier. Declared provenance and parameters, not authenticated.',
+    'Expediente del usuario. Procedencia y parámetros declarados, no autenticados.',
+  ],
+};
+export function message(key, locale = 'fr', values = {}) {
+  const index = ['fr', 'en', 'es'].indexOf(locale);
+  if (index < 0) throw Error(translations.invalidLocale[0]);
+  if (!Object.hasOwn(translations, key))
+    throw Error('Traduction inconnue / Unknown translation / Traducción desconocida: ' + key);
+  return translations[key][index].replace(/\{(\w+)\}/g, (_, k) => values[k] ?? '{' + k + '}');
+}

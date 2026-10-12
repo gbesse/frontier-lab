@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "origin": "synthetic",
+  "budget": 80,
+  "costUnit": "demo-credit",
+  "risks": [
+    {
+      "id": "adhesion",
+      "probability": 0.12,
+      "loss": 1000
+    },
+    {
+      "id": "geometry",
+      "probability": 0.08,
+      "loss": 600
+    },
+    {
+      "id": "conductivity",
+      "probability": 0.05,
+      "loss": 1200
+    }
+  ],
+  "measurements": [
+    {
+      "id": "visual",
+      "cost": 10,
+      "mandatory": true,
+      "detection": [
+        {
+          "riskId": "geometry",
+          "sensitivity": 0.4
+        }
+      ]
+    },
+    {
+      "id": "pull-test",
+      "cost": 45,
+      "mandatory": false,
+      "detection": [
+        {
+          "riskId": "adhesion",
+          "sensitivity": 0.9
+        }
+      ]
+    },
+    {
+      "id": "optical-scan",
+      "cost": 35,
+      "mandatory": false,
+      "detection": [
+        {
+          "riskId": "geometry",
+          "sensitivity": 0.95
+        }
+      ]
+    },
+    {
+      "id": "electrical",
+      "cost": 20,
+      "mandatory": false,
+      "detection": [
+        {
+          "riskId": "conductivity",
+          "sensitivity": 0.98
+        }
+      ]
+    },
+    {
+      "id": "duplicate-pull",
+      "cost": 40,
+      "mandatory": false,
+      "detection": [
+        {
+          "riskId": "adhesion",
+          "sensitivity": 0.8
+        }
+      ]
+    }
+  ]
+}

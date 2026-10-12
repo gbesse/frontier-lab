@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "origin": "synthetic",
+  "plateWidthMm": 30,
+  "plateLengthMm": 30,
+  "channelDepthMm": 0.6,
+  "baseThicknessMm": 0.5,
+  "flowMlMin": 300,
+  "maxPumpW": 0.3,
+  "minFeatureMm": 0.2,
+  "conductivityWmK": 200,
+  "inletC": 20,
+  "zones": [
+    {
+      "id": "left",
+      "powerW": 30
+    },
+    {
+      "id": "center",
+      "powerW": 80
+    },
+    {
+      "id": "right",
+      "powerW": 30
+    }
+  ]
+}

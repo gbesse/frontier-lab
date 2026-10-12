@@ -1,0 +1,40 @@
+{
+  "name": "@gbesse/qualifydiff",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./i18n": "./src/i18n.js"
+  },
+  "bin": {
+    "qualifydiff": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "public",
+    "fixtures",
+    "README.md",
+    "README.en.md",
+    "README.es.md",
+    "LICENSE",
+    "docs"
+  ],
+  "scripts": {
+    "start": "node bin/serve.js",
+    "demo": "node bin/cli.js demo",
+    "test": "node --test test/*.test.js",
+    "test:browser": "node test/browser.mjs",
+    "format:check": "prettier --config .prettierrc.json --ignore-path .prettierignore --check ."
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "playwright": "1.55.1",
+    "prettier": "3.9.9"
+  },
+  "description": "FR: Comparez deux recettes et retrouvez les preuves encore valables, les dépendances affectées et les essais à refaire. EN: Compare two recipes and find retained evidence, affected dependencies and tests to rerun. ES: Compara dos recetas y encuentra pruebas vigentes, dependencias afectadas y ensayos que repetir."
+}

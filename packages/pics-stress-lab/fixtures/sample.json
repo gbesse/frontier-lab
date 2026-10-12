@@ -1,0 +1,216 @@
+{
+  "communes": [
+    { "id": "SYNTHETIC-A" },
+    { "id": "SYNTHETIC-B" },
+    { "id": "SYNTHETIC-C" },
+    { "id": "SYNTHETIC-D" },
+    { "id": "SYNTHETIC-E" },
+    { "id": "SYNTHETIC-F" }
+  ],
+  "resources": [
+    {
+      "id": "pump-pool",
+      "ownerCommuneId": "SYNTHETIC-A",
+      "kind": "pump-team",
+      "capacity": 2,
+      "from": "2026-10-09T08:00:00Z",
+      "to": "2026-10-09T12:00:00Z"
+    },
+    {
+      "id": "bus-pool",
+      "ownerCommuneId": "SYNTHETIC-D",
+      "kind": "evacuation-bus",
+      "capacity": 2,
+      "from": "2026-10-09T08:00:00Z",
+      "to": "2026-10-09T12:00:00Z"
+    }
+  ],
+  "demands": [
+    {
+      "id": "d-a",
+      "communeId": "SYNTHETIC-A",
+      "kind": "pump-team",
+      "quantity": 1,
+      "from": "2026-10-09T08:00:00Z",
+      "to": "2026-10-09T10:00:00Z"
+    },
+    {
+      "id": "d-b",
+      "communeId": "SYNTHETIC-B",
+      "kind": "pump-team",
+      "quantity": 1,
+      "from": "2026-10-09T08:00:00Z",
+      "to": "2026-10-09T10:00:00Z"
+    },
+    {
+      "id": "d-c",
+      "communeId": "SYNTHETIC-C",
+      "kind": "pump-team",
+      "quantity": 1,
+      "from": "2026-10-09T10:00:00Z",
+      "to": "2026-10-09T12:00:00Z"
+    },
+    {
+      "id": "d-d",
+      "communeId": "SYNTHETIC-D",
+      "kind": "evacuation-bus",
+      "quantity": 1,
+      "from": "2026-10-09T08:00:00Z",
+      "to": "2026-10-09T10:00:00Z"
+    },
+    {
+      "id": "d-e",
+      "communeId": "SYNTHETIC-E",
+      "kind": "evacuation-bus",
+      "quantity": 1,
+      "from": "2026-10-09T08:00:00Z",
+      "to": "2026-10-09T10:00:00Z"
+    },
+    {
+      "id": "d-f",
+      "communeId": "SYNTHETIC-F",
+      "kind": "evacuation-bus",
+      "quantity": 1,
+      "from": "2026-10-09T10:00:00Z",
+      "to": "2026-10-09T12:00:00Z"
+    }
+  ],
+  "baselineRunId": "baseline",
+  "runs": [
+    {
+      "id": "baseline",
+      "failures": [],
+      "assignments": [
+        {
+          "id": "a-a",
+          "demandId": "d-a",
+          "resourceId": "pump-pool",
+          "quantity": 1,
+          "from": "2026-10-09T08:00:00Z",
+          "to": "2026-10-09T10:00:00Z"
+        },
+        {
+          "id": "a-b",
+          "demandId": "d-b",
+          "resourceId": "pump-pool",
+          "quantity": 1,
+          "from": "2026-10-09T08:00:00Z",
+          "to": "2026-10-09T10:00:00Z",
+          "authorizedBy": "SYNTHETIC-A",
+          "authorizationRef": "EXERCISE-APPROVAL-1"
+        },
+        {
+          "id": "a-c",
+          "demandId": "d-c",
+          "resourceId": "pump-pool",
+          "quantity": 1,
+          "from": "2026-10-09T10:00:00Z",
+          "to": "2026-10-09T12:00:00Z",
+          "authorizedBy": "SYNTHETIC-A",
+          "authorizationRef": "EXERCISE-APPROVAL-2"
+        },
+        {
+          "id": "a-d",
+          "demandId": "d-d",
+          "resourceId": "bus-pool",
+          "quantity": 1,
+          "from": "2026-10-09T08:00:00Z",
+          "to": "2026-10-09T10:00:00Z"
+        },
+        {
+          "id": "a-e",
+          "demandId": "d-e",
+          "resourceId": "bus-pool",
+          "quantity": 1,
+          "from": "2026-10-09T08:00:00Z",
+          "to": "2026-10-09T10:00:00Z",
+          "authorizedBy": "SYNTHETIC-D",
+          "authorizationRef": "EXERCISE-APPROVAL-3"
+        },
+        {
+          "id": "a-f",
+          "demandId": "d-f",
+          "resourceId": "bus-pool",
+          "quantity": 1,
+          "from": "2026-10-09T10:00:00Z",
+          "to": "2026-10-09T12:00:00Z",
+          "authorizedBy": "SYNTHETIC-D",
+          "authorizationRef": "EXERCISE-APPROVAL-4"
+        }
+      ]
+    },
+    {
+      "id": "stress",
+      "failures": [
+        {
+          "resourceId": "pump-pool",
+          "lostCapacity": 1,
+          "from": "2026-10-09T09:00:00Z",
+          "to": "2026-10-09T10:00:00Z"
+        },
+        {
+          "resourceId": "bus-pool",
+          "lostCapacity": 2,
+          "from": "2026-10-09T10:00:00Z",
+          "to": "2026-10-09T12:00:00Z"
+        }
+      ],
+      "assignments": [
+        {
+          "id": "a-a",
+          "demandId": "d-a",
+          "resourceId": "pump-pool",
+          "quantity": 1,
+          "from": "2026-10-09T08:00:00Z",
+          "to": "2026-10-09T10:00:00Z"
+        },
+        {
+          "id": "a-b",
+          "demandId": "d-b",
+          "resourceId": "pump-pool",
+          "quantity": 1,
+          "from": "2026-10-09T08:00:00Z",
+          "to": "2026-10-09T10:00:00Z",
+          "authorizedBy": "SYNTHETIC-A",
+          "authorizationRef": "EXERCISE-APPROVAL-1"
+        },
+        {
+          "id": "a-c",
+          "demandId": "d-c",
+          "resourceId": "pump-pool",
+          "quantity": 1,
+          "from": "2026-10-09T10:00:00Z",
+          "to": "2026-10-09T12:00:00Z",
+          "authorizedBy": "SYNTHETIC-A",
+          "authorizationRef": "EXERCISE-APPROVAL-2"
+        },
+        {
+          "id": "a-d",
+          "demandId": "d-d",
+          "resourceId": "bus-pool",
+          "quantity": 1,
+          "from": "2026-10-09T08:00:00Z",
+          "to": "2026-10-09T10:00:00Z"
+        },
+        {
+          "id": "a-e",
+          "demandId": "d-e",
+          "resourceId": "bus-pool",
+          "quantity": 1,
+          "from": "2026-10-09T08:00:00Z",
+          "to": "2026-10-09T10:00:00Z"
+        },
+        {
+          "id": "a-f",
+          "demandId": "d-f",
+          "resourceId": "bus-pool",
+          "quantity": 1,
+          "from": "2026-10-09T10:00:00Z",
+          "to": "2026-10-09T12:00:00Z",
+          "authorizedBy": "SYNTHETIC-D",
+          "authorizationRef": "EXERCISE-APPROVAL-4"
+        }
+      ]
+    }
+  ]
+}

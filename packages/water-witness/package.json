@@ -1,0 +1,22 @@
+{
+  "name": "@gbesse/water-witness",
+  "version": "0.1.0",
+  "description": "Provenance-aware reading of French drinking-water measurements.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "water-witness": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

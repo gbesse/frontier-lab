@@ -14,6 +14,20 @@ import { runJourney, defaultTask } from '@gbesse/agent-checkout-lab';
 import { demonstrations, heldOut, exitSource } from './fixtures.js';
 import { createVisualRecognizer } from './visual-recognizer.js';
 import { createClickMonitor } from './click-monitor.js';
+import { runMission, runFrontier, dailyFrontier } from '../packages/space-mission-lab/src/index.js';
+import { spaceAtlas } from '../packages/space-mission-lab/src/atlas.js';
+import { renderSpaceAtlas } from './space-atlas.js';
+import { renderCommons, renderCommonsMethod } from './space-commons-page.js';
+import { commonsKinds, commonsConfig } from '../packages/space-mission-lab/src/commons.js';
+import {
+  runCommons,
+  saveCommons,
+  readCommonsEvidence,
+} from '../packages/space-mission-lab/src/commons-engine.js';
+import { messageTranslations } from './i18n.js';
+const commonsEvidenceDir = fileURLToPath(
+  new URL('../packages/space-mission-lab/fixtures/commons/', import.meta.url),
+);
 const root = dirname(fileURLToPath(import.meta.url));
 const fail = (status, message) => {
   throw Object.assign(new Error(message), { status });
@@ -75,6 +89,101 @@ export async function createStudio({
         path = url.pathname;
       if (req.method === 'GET') {
         if (path === '/health') return json(200, { ok: true });
+        const matter = path.match(
+          /^\/matter\/(fabreplay|switchbench|microfabgym|coolantforge|qualifydiff|fabport|fabresume|measureplan|microblocks|fabtrace)(?:\/(.*))?$/,
+        );
+        if (matter) {
+          if (!path.includes(`/${matter[1]}/`)) {
+            res.writeHead(302, { Location: `/matter/${matter[1]}/${url.search}` });
+            return res.end();
+          }
+          const relative = matter[2] || 'public/index.html';
+          if (!/^(public|src|fixtures)\/[a-zA-Z0-9_.-]+$/.test(relative)) fail(404, 'Not found');
+          const type = relative.endsWith('.js')
+            ? 'text/javascript'
+            : relative.endsWith('.css')
+              ? 'text/css'
+              : relative.endsWith('.json')
+                ? 'application/json'
+                : relative.endsWith('.html')
+                  ? 'text/html'
+                  : null;
+          if (!type) fail(404, 'Not found');
+          const file = join(root, '../packages', matter[1], relative);
+          if (!existsSync(file)) fail(404, 'Not found');
+          res.writeHead(200, {
+            'Content-Type': `${type}; charset=utf-8`,
+            'Cache-Control': 'no-store',
+            'X-Content-Type-Options': 'nosniff',
+            'Content-Security-Policy':
+              "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; connect-src 'self'; frame-ancestors 'none'",
+          });
+          return res.end(readFileSync(file));
+        }
+        if (path === '/api/space/commons') {
+          try {
+            const kind = url.searchParams.get('kind');
+            const values = Object.fromEntries(
+              [...url.searchParams]
+                .filter(([k]) => !['kind', 'lang'].includes(k))
+                .map(([k, v]) => [k, ['profile', 'outage'].includes(k) ? v : Number(v)]),
+            );
+            const config = commonsConfig(kind, values);
+            let report;
+            try {
+              report = await readCommonsEvidence(kind, config, join(storageDir, 'commons'));
+            } catch (error) {
+              if (error.code !== 'ENOENT') throw error;
+              report = await readCommonsEvidence(kind, config, commonsEvidenceDir);
+            }
+            return json(200, report);
+          } catch (error) {
+            return json(error.code === 'ENOENT' ? 404 : 400, {
+              code: error.code === 'ENOENT' ? 'COMMONS_MISSING' : 'COMMONS_CONFIG',
+            });
+          }
+        }
+        if (path.startsWith('/space/commons/') || path === '/space-method') {
+          const kind = path.split('/').at(-1),
+            locale = url.searchParams.get('lang') ?? 'fr';
+          if (path !== '/space-method' && !commonsKinds.includes(kind))
+            return json(404, { code: 'COMMONS_CONFIG' });
+          res.writeHead(200, {
+            'Content-Type': 'text/html; charset=utf-8',
+            'X-Content-Type-Options': 'nosniff',
+            'Content-Security-Policy':
+              "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; frame-ancestors 'none'",
+          });
+          return res.end(
+            path === '/space-method' ? renderCommonsMethod(locale) : renderCommons(kind, locale),
+          );
+        }
+        if (path === '/api/space/atlas')
+          return json(200, {
+            ...spaceAtlas(url.searchParams.get('lang') ?? 'fr'),
+            daily: dailyFrontier(
+              new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Paris' }),
+            ),
+          });
+        if (path === '/space/explore') {
+          res.writeHead(200, {
+            'Content-Type': 'text/html; charset=utf-8',
+            'X-Content-Type-Options': 'nosniff',
+            'Content-Security-Policy':
+              "default-src 'self'; style-src 'self'; frame-ancestors 'none'",
+          });
+          return res.end(renderSpaceAtlas(url.searchParams.get('lang') ?? 'fr'));
+        }
+        if (path === '/api/space/scenario')
+          return json(200, {
+            mission: JSON.parse(
+              readFileSync(
+                new URL('../packages/space-mission-lab/fixtures/sample.json', import.meta.url),
+                'utf8',
+              ),
+            ),
+            token,
+          });
         if (path === '/api/state')
           return json(200, {
             ...state,
@@ -132,6 +241,18 @@ export async function createStudio({
         }
         const files = {
           '/': 'index.html',
+          '/matter': 'matter.html',
+          '/matter.js': 'matter.js',
+          '/space': 'space.html',
+          '/space.js': 'space.js',
+          '/space.css': 'space.css',
+          '/space-frontier.js': 'space-frontier.js',
+          '/space-commons.js': 'space-commons.js',
+          '/space-commons.css': 'space-commons.css',
+          '/space-lib/commons.js': '../packages/space-mission-lab/src/commons.js',
+          '/space-lib/frontier-config.js': '../packages/space-mission-lab/src/frontier-config.js',
+          '/space-lib/frontier-checks.js': '../packages/space-mission-lab/src/frontier-checks.js',
+          '/space-lib/i18n.js': '../packages/space-mission-lab/src/i18n.js',
           '/app.js': 'app.js',
           '/i18n.js': 'i18n.js',
           '/visual.js': 'visual.js',
@@ -168,6 +289,37 @@ export async function createStudio({
       }
       const input = JSON.parse(body || '{}');
       if (!input || typeof input !== 'object' || Array.isArray(input)) fail(400, 'Object required');
+      if (path === '/api/space/commons') {
+        try {
+          const report = await runCommons(input.kind, input.config);
+          await saveCommons(report, join(storageDir, 'commons'));
+          return json(200, report);
+        } catch (error) {
+          const code = error.message;
+          const lang = ['fr', 'en', 'es'].includes(input.locale) ? input.locale : 'fr';
+          const key =
+            code === 'COMMONS_BUSY'
+              ? 'commonsBusy'
+              : code === 'COMMONS_CONFIG'
+                ? 'commonsInvalid'
+                : 'commonsUnavailable';
+          return json(code === 'COMMONS_BUSY' ? 409 : code === 'COMMONS_CONFIG' ? 400 : 503, {
+            code,
+            message: messageTranslations[key][{ fr: 0, en: 1, es: 2 }[lang]],
+          });
+        }
+      }
+      if (path === '/api/space/frontier')
+        return json(200, runFrontier(input.mission, input.config));
+      if (path === '/api/space/run')
+        return json(
+          200,
+          runMission(input.mission, {
+            locale: input.locale ?? 'fr',
+            policy: input.policy ?? 'guarded',
+            fault: input.fault ?? { kind: 'nominal' },
+          }),
+        );
       if (path === '/api/teach/visual/start') {
         if (visualSession) fail(409, 'Une capture est déjà en cours');
         const id = randomUUID();

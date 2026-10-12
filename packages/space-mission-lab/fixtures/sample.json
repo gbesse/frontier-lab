@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "lunar-relay-demo",
+  "horizonSlots": 12,
+  "slotMinutes": 5,
+  "vehicles": [
+    {
+      "id": "LUNA-A",
+      "batteryWh": 55,
+      "batteryCapacityWh": 80,
+      "reserveWh": 15,
+      "baseLoadWh": 0.5,
+      "rechargeWh": 2,
+      "storageMb": 15,
+      "storageCapacityMb": 60,
+      "contacts": [
+        { "start": 4, "end": 7 },
+        { "start": 10, "end": 12 }
+      ],
+      "sunlight": [
+        { "start": 0, "end": 4 },
+        { "start": 8, "end": 12 }
+      ]
+    },
+    {
+      "id": "LUNA-B",
+      "batteryWh": 45,
+      "batteryCapacityWh": 70,
+      "reserveWh": 12,
+      "baseLoadWh": 0.5,
+      "rechargeWh": 1.5,
+      "storageMb": 10,
+      "storageCapacityMb": 50,
+      "contacts": [{ "start": 6, "end": 10 }],
+      "sunlight": [{ "start": 2, "end": 8 }]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "observe-pole",
+      "type": "observe",
+      "start": 0,
+      "end": 5,
+      "duration": 2,
+      "priority": 90,
+      "energyWh": 8,
+      "dataMb": 20,
+      "vehicleIds": ["LUNA-A", "LUNA-B"]
+    },
+    {
+      "id": "observe-crater",
+      "type": "observe",
+      "start": 1,
+      "end": 6,
+      "duration": 2,
+      "priority": 80,
+      "energyWh": 7,
+      "dataMb": 20,
+      "vehicleIds": ["LUNA-A", "LUNA-B"]
+    },
+    {
+      "id": "downlink-a",
+      "type": "downlink",
+      "start": 4,
+      "end": 12,
+      "duration": 2,
+      "priority": 60,
+      "energyWh": 4,
+      "dataMb": 25,
+      "vehicleIds": ["LUNA-A"]
+    },
+    {
+      "id": "downlink-b",
+      "type": "downlink",
+      "start": 6,
+      "end": 10,
+      "duration": 2,
+      "priority": 60,
+      "energyWh": 4,
+      "dataMb": 20,
+      "vehicleIds": ["LUNA-B"]
+    },
+    {
+      "id": "observe-ridge",
+      "type": "observe",
+      "start": 8,
+      "end": 12,
+      "duration": 1,
+      "priority": 40,
+      "energyWh": 6,
+      "dataMb": 15,
+      "vehicleIds": ["LUNA-A", "LUNA-B"]
+    }
+  ]
+}

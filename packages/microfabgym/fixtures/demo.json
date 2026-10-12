@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "origin": "synthetic",
+  "seed": 20261011,
+  "episodes": 100,
+  "targetUm": 20,
+  "toleranceUm": 0.5,
+  "sensorSigmaUm": 0.08,
+  "driftSigma": 0.12,
+  "budget": 14,
+  "measureCost": 1,
+  "processCost": 2,
+  "maxSteps": 12
+}

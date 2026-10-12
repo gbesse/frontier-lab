@@ -1,0 +1,25 @@
+{
+  "name": "@gbesse/garan-witness",
+  "version": "0.1.0",
+  "description": "Independent browser observations of EU guarantee notices across a purchase journey.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "garan-witness": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "playwright": "^1.55.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

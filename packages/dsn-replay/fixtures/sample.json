@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "employeeRef": "SYNTHETIC-EMPLOYEE-1",
+      "month": "2026-02",
+      "declaredBaseCents": "200000",
+      "payrollBaseCents": "210000",
+      "appliedCorrections": [
+        { "id": "correction-1", "deltaCents": "10000", "sourceRef": "payroll-correction-1" }
+      ],
+      "proposedDeltaCents": "10000",
+      "proposalOrigin": "payroll_review",
+      "crmKind": "monthly",
+      "evidenceRef": "synthetic-crm-1"
+    },
+    {
+      "employeeRef": "SYNTHETIC-EMPLOYEE-2",
+      "month": "2026-03",
+      "declaredBaseCents": "150000",
+      "payrollBaseCents": "155000",
+      "appliedCorrections": [],
+      "proposedDeltaCents": "5000",
+      "proposalOrigin": "payroll_review",
+      "crmKind": "monthly",
+      "evidenceRef": "synthetic-crm-2"
+    },
+    {
+      "employeeRef": "SYNTHETIC-EMPLOYEE-3",
+      "month": "2026-01",
+      "declaredBaseCents": "180000",
+      "payrollBaseCents": "180000",
+      "appliedCorrections": [],
+      "proposedDeltaCents": "2000",
+      "proposalOrigin": "crm_post_substitution",
+      "crmKind": "post_substitution",
+      "evidenceRef": "synthetic-crm-3"
+    }
+  ]
+}

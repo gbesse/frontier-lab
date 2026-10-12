@@ -1,0 +1,233 @@
+export const translations = {
+  selectFile: ['Choisir un fichier', 'Choose a file', 'Elegir un archivo'],
+  language: ['Langue', 'Language', 'Idioma'],
+  settings: ['Votre expérience', 'Your experiment', 'Tu experimento'],
+  run: ['Calculer', 'Calculate', 'Calcular'],
+  reset: ['Reprendre la démo', 'Reset demo', 'Restablecer demo'],
+  results: ['Résultats reproductibles', 'Reproducible results', 'Resultados reproducibles'],
+  inputData: ['Utiliser ses données', 'Use your own data', 'Usar tus datos'],
+  jsonInput: ['Données JSON', 'JSON data', 'Datos JSON'],
+  apply: ['Appliquer le JSON', 'Apply JSON', 'Aplicar JSON'],
+  upload: ['Importer un fichier JSON', 'Import a JSON file', 'Importar un archivo JSON'],
+  download: ['Exporter le rapport JSON', 'Export JSON report', 'Exportar informe JSON'],
+  downloadSvg: ['Exporter le graphique SVG', 'Export SVG chart', 'Exportar gráfico SVG'],
+  reportData: [
+    'Voir les calculs et les traces',
+    'Inspect calculations and traces',
+    'Ver cálculos y trazas',
+  ],
+  footer: [
+    'Alpha MIT · calculs locaux · aucun équipement connecté',
+    'MIT alpha · local calculations · no connected equipment',
+    'Alfa MIT · cálculos locales · ningún equipo conectado',
+  ],
+  invalidInput: [
+    'Entrée invalide : vérifiez le schéma, les unités et les plages indiquées.',
+    'Invalid input: check the schema, units and documented ranges.',
+    'Entrada no válida: comprueba el esquema, las unidades y los rangos indicados.',
+  ],
+  invalidLocale: [
+    'Langue non prise en charge : fr, en, es. / Unsupported language: fr, en, es. / Idioma no admitido: fr, en, es.',
+    'Langue non prise en charge : fr, en, es. / Unsupported language: fr, en, es. / Idioma no admitido: fr, en, es.',
+    'Langue non prise en charge : fr, en, es. / Unsupported language: fr, en, es. / Idioma no admitido: fr, en, es.',
+  ],
+  invalidJson: [
+    'JSON invalide : le résultat précédent est conservé.',
+    'Invalid JSON: the previous result is retained.',
+    'JSON no válido: se conserva el resultado anterior.',
+  ],
+  notFound: ['Ressource introuvable.', 'Resource not found.', 'Recurso no encontrado.'],
+  serverError: [
+    'Serveur indisponible : vérifiez le port.',
+    'Server unavailable: check the port.',
+    'Servidor no disponible: comprueba el puerto.',
+  ],
+  listening: [
+    'Démo locale / Local demo / Demo local : {url}',
+    'Démo locale / Local demo / Demo local : {url}',
+    'Démo locale / Local demo / Demo local : {url}',
+  ],
+  ready: ['Calcul terminé.', 'Calculation complete.', 'Cálculo terminado.'],
+  failure: [
+    'Commande impossible : vérifiez les arguments et le fichier.',
+    'Command failed: check the arguments and file.',
+    'La orden falló: comprueba los argumentos y el archivo.',
+  ],
+  cliUsage: [
+    'Usage : {name} demo | run fichier.json [--locale=fr|en|es] [--output=nouveau.json]',
+    'Usage: {name} demo | run file.json [--locale=fr|en|es] [--output=new.json]',
+    'Uso: {name} demo | run archivo.json [--locale=fr|en|es] [--output=nuevo.json]',
+  ],
+  noOverwrite: [
+    'Le fichier existe déjà ; choisissez un nouveau chemin.',
+    'The file already exists; choose a new path.',
+    'El archivo ya existe; elige una ruta nueva.',
+  ],
+  sourceSynthetic: ['Données synthétiques', 'Synthetic data', 'Datos sintéticos'],
+  sourceUser: [
+    'Données fournies par l’utilisateur',
+    'User-supplied data',
+    'Datos proporcionados por el usuario',
+  ],
+  eyebrow: [
+    'Open source · outils de fabrication',
+    'Open source · fabrication tools',
+    'Código abierto · herramientas de fabricación',
+  ],
+  method: ['Méthode et limites', 'Method and limits', 'Método y límites'],
+  checkUsage: [
+    'check fichier.json : 0 conforme aux règles, 1 échec, 3 examen requis, 2 entrée invalide.',
+    'check file.json: 0 meets rules, 1 failure, 3 review required, 2 invalid input.',
+    'check archivo.json: 0 cumple reglas, 1 fallo, 3 revisión necesaria, 2 entrada no válida.',
+  ],
+  item: ['Élément', 'Item', 'Elemento'],
+  decision: ['Décision', 'Decision', 'Decisión'],
+  detail: ['Explication', 'Explanation', 'Explicación'],
+  items: ['Éléments examinés', 'Items examined', 'Elementos examinados'],
+  status: ['État du dossier', 'Dossier status', 'Estado del expediente'],
+  pass: ['Conforme aux règles déclarées', 'Meets declared rules', 'Cumple las reglas declaradas'],
+  fail: ['Échec constaté', 'Observed failure', 'Fallo observado'],
+  inconclusive: ['Examen requis', 'Review required', 'Revisión necesaria'],
+  retained: ['Preuve conservée', 'Evidence retained', 'Prueba conservada'],
+  retest: ['À retester', 'Retest', 'Volver a ensayar'],
+  failed: ['Essai en échec', 'Failed test', 'Ensayo fallido'],
+  review: ['À examiner', 'Review', 'Revisar'],
+  compatible: [
+    'Compatible selon le profil',
+    'Compatible per profile',
+    'Compatible según el perfil',
+  ],
+  incompatible: ['Incompatible', 'Incompatible', 'Incompatible'],
+  adaptation: [
+    'Adaptation à qualifier',
+    'Adaptation needs qualification',
+    'Adaptación por cualificar',
+  ],
+  unknown: ['Preuve insuffisante', 'Insufficient evidence', 'Prueba insuficiente'],
+  done: ['Terminé', 'Completed', 'Completado'],
+  readyOperation: ['Prêt à démarrer', 'Ready to start', 'Listo para iniciar'],
+  inspect: ['Inspecter avant reprise', 'Inspect before resuming', 'Inspeccionar antes de reanudar'],
+  retry: [
+    'Reprise autorisée par la règle',
+    'Retry permitted by rule',
+    'Reintento permitido por la regla',
+  ],
+  blocked: ['Bloqué', 'Blocked', 'Bloqueado'],
+  running: ['En cours', 'Running', 'En curso'],
+  selected: ['Mesure sélectionnée', 'Selected measurement', 'Medición seleccionada'],
+  deferred: ['Mesure différée', 'Deferred measurement', 'Medición aplazada'],
+  qualified: ['Dossier couvert', 'Dossier covered', 'Expediente cubierto'],
+  incomplete: ['Dossier incomplet', 'Incomplete dossier', 'Expediente incompleto'],
+  conforming: ['Pièce conforme', 'Conforming part', 'Pieza conforme'],
+  defective: ['Pièce en échec', 'Failed part', 'Pieza fallida'],
+  summary: [
+    '{count} éléments examinés ; {status}.',
+    '{count} items examined; {status}.',
+    '{count} elementos examinados; {status}.',
+  ],
+  cycle: [
+    'Dépendance cyclique : le graphe doit être acyclique.',
+    'Cyclic dependency: the graph must be acyclic.',
+    'Dependencia cíclica: el grafo debe ser acíclico.',
+  ],
+  reference: [
+    'Référence inconnue ou identifiant dupliqué.',
+    'Unknown reference or duplicate identifier.',
+    'Referencia desconocida o identificador duplicado.',
+  ],
+  title: [
+    'Retrouver l’histoire de chaque pièce.',
+    'Recover every part’s history.',
+    'Recuperar la historia de cada pieza.',
+  ],
+  intro: [
+    'Reconstituez les étapes et les mesures, puis comparez les facteurs observés entre pièces conformes et défectueuses.',
+    'Reconstruct steps and measurements, then compare observed factors between conforming and failed parts.',
+    'Reconstruye pasos y mediciones, después compara factores observados entre piezas conformes y fallidas.',
+  ],
+  methodText: [
+    'Contrôle de chronologie et de dépendances ; acceptation des intervalles de mesure. Associations par tableaux 2×2, test exact de Fisher bilatéral, correction de Bonferroni et rapport de cotes corrigé de 0,5. Une association ne démontre pas une cause.',
+    'Timeline and dependency checks; acceptance of measurement intervals. Associations use 2×2 tables, two-sided Fisher exact tests, Bonferroni correction and odds ratios with a 0.5 correction. Association does not establish causation.',
+    'Verificación de cronología y dependencias; aceptación de intervalos de medición. Asociaciones con tablas 2×2, prueba exacta de Fisher bilateral, corrección de Bonferroni y razón de momios corregida con 0,5. Una asociación no demuestra causalidad.',
+  ],
+  next: [
+    'Importez des journaux complets et des mesures avec unités, incertitudes et limites communes.',
+    'Import complete journals and measurements with units, uncertainties and shared limits.',
+    'Importa registros completos y mediciones con unidades, incertidumbres y límites comunes.',
+  ],
+  yAxis: [
+    'Durée cumulée des opérations (ms)',
+    'Total operation duration (ms)',
+    'Duración total de operaciones (ms)',
+  ],
+  control: [
+    'Inclure une trace incomplète',
+    'Include an incomplete trace',
+    'Incluir una traza incompleta',
+  ],
+  traceResult: [
+    '{count} anomalies de traçabilité ; décision issue des mesures.',
+    '{count} traceability issues; decision from measurements.',
+    '{count} anomalías de trazabilidad; decisión basada en mediciones.',
+  ],
+  eventOrder: [
+    '{id} : ordre des événements ou des horodatages incohérent.',
+    '{id}: inconsistent event or timestamp order.',
+    '{id}: orden de eventos o marcas de tiempo incoherente.',
+  ],
+  repeatedOperation: [
+    '{id} : opération répétée ; utiliser un journal de tentatives explicite.',
+    '{id}: repeated operation; use an explicit attempt journal.',
+    '{id}: operación repetida; usar un registro explícito de intentos.',
+  ],
+  dependencyMissing: [
+    '{id} : opération commencée avant ses dépendances.',
+    '{id}: operation started before its dependencies.',
+    '{id}: operación iniciada antes de sus dependencias.',
+  ],
+  startMissing: [
+    '{id} : fin d’opération sans début enregistré.',
+    '{id}: operation finish without a recorded start.',
+    '{id}: fin de operación sin inicio registrado.',
+  ],
+  operationMissing: [
+    '{id} : opération non terminée ou absente.',
+    '{id}: incomplete or missing operation.',
+    '{id}: operación incompleta o ausente.',
+  ],
+  associationOnly: [
+    'Pistes d’enquête : associations descriptives, facteurs potentiellement confondus ; aucune cause établie.',
+    'Investigation leads: descriptive associations, potentially confounded factors; no established cause.',
+    'Pistas de investigación: asociaciones descriptivas, factores posiblemente confundidos; ninguna causa establecida.',
+  ],
+  cohortExcluded: [
+    '{count} pièces exclues des associations : trace incomplète ou mesure indéterminée.',
+    '{count} parts excluded from associations: incomplete trace or inconclusive measurement.',
+    '{count} piezas excluidas de asociaciones: traza incompleta o medición indeterminada.',
+  ],
+  association: ['Facteur / valeur', 'Factor / value', 'Factor / valor'],
+  riskDifference: [
+    'Écart de taux de défaut',
+    'Failure-rate difference',
+    'Diferencia de tasa de fallos',
+  ],
+  adjustedP: ['p ajustée', 'Adjusted p', 'p ajustada'],
+  xAxis: ['Élément (index)', 'Item (index)', 'Elemento (índice)'],
+  notice: [
+    'Démo synthétique locale ; aucun équipement connecté ni preuve industrielle.',
+    'Local synthetic demo; no connected equipment or industrial evidence.',
+    'Demo sintética local; sin equipos conectados ni pruebas industriales.',
+  ],
+  userNotice: [
+    'Dossier fourni par l’utilisateur. Provenance et paramètres déclarés, non authentifiés.',
+    'User-supplied dossier. Declared provenance and parameters, not authenticated.',
+    'Expediente del usuario. Procedencia y parámetros declarados, no autenticados.',
+  ],
+};
+export function message(key, locale = 'fr', values = {}) {
+  const index = ['fr', 'en', 'es'].indexOf(locale);
+  if (index < 0) throw Error(translations.invalidLocale[0]);
+  if (!Object.hasOwn(translations, key))
+    throw Error('Traduction inconnue / Unknown translation / Traducción desconocida: ' + key);
+  return translations[key][index].replace(/\{(\w+)\}/g, (_, k) => values[k] ?? '{' + k + '}');
+}

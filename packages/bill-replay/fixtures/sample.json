@@ -1,0 +1,25 @@
+{
+  "period": { "from": "2026-09-01T00:00:00Z", "to": "2026-09-02T00:00:00Z" },
+  "meter": [
+    { "at": "2026-09-01T10:00:00Z", "kWh": "1.000000", "source": "synthetic-meter-1" },
+    { "at": "2026-09-01T20:00:00Z", "kWh": "2.000000", "source": "synthetic-meter-2" }
+  ],
+  "tariffs": [
+    {
+      "id": "day",
+      "from": "2026-09-01T00:00:00Z",
+      "to": "2026-09-01T18:00:00Z",
+      "euroPerKWh": "0.250000",
+      "source": "synthetic-contract-v1"
+    },
+    {
+      "id": "night",
+      "from": "2026-09-01T18:00:00Z",
+      "to": "2026-09-02T00:00:00Z",
+      "euroPerKWh": "0.150000",
+      "source": "synthetic-contract-v1"
+    }
+  ],
+  "charges": [{ "id": "subscription", "expectedCents": "20", "source": "synthetic-contract-v1" }],
+  "invoice": { "energyCents": "56", "charges": [{ "id": "subscription", "cents": "20" }] }
+}

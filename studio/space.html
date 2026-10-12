@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Space Mission Lab · Frontier</title>
+    <link rel="stylesheet" href="/space.css" />
+    <script type="module" src="/space.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="/" class="brand">f↗ <span>frontier / Space Mission Lab</span></a>
+      <div class="header-links">
+        <a href="/" data-copy="spaceBack"></a
+        ><select id="language-select" aria-label="Langue / Language / Idioma">
+          <option value="fr">FR</option>
+          <option value="en">EN</option>
+          <option value="es">ES</option>
+        </select>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">SPACE MISSION LAB / 0.1</p>
+        <h1 data-copy="spaceSubtitle"></h1>
+        <p data-copy="spaceIntro"></p>
+        <p class="notice" data-copy="spaceLimit"></p>
+        <a id="atlas-link" href="/space/explore?lang=fr" data-copy="frontierAtlas"></a>
+      </section>
+      <section class="panel" id="commons-discovery">
+        <h2 data-copy="commonsTitle"></h2>
+        <p data-copy="commonsIntro"></p>
+        <nav class="commons-tabs">
+          <a href="/space/commons/benchmark?lang=fr" class="commons-entry"
+            >Mission Benchmark Commons ↗</a
+          >
+          · <a href="/space/commons/market?lang=fr" class="commons-entry">Contact Market ↗</a> ·
+          <a href="/space/commons/citizen?lang=fr" class="commons-entry">Citizen Mission ↗</a>
+        </nav>
+      </section>
+      <section id="frontier" class="frontier-expedition">
+        <div class="hero">
+          <h2 data-copy="frontierTitle"></h2>
+          <p data-copy="frontierIntro"></p>
+        </div>
+        <div class="controls">
+          <label
+            ><span data-copy="frontierDestination"></span
+            ><select id="frontier-destination">
+              <option value="moon" data-copy="frontierMoon"></option>
+              <option value="mars" data-copy="frontierMars"></option>
+              <option value="proxima">Proxima Centauri</option>
+            </select></label
+          >
+          <label
+            ><span data-copy="frontierRelay"></span
+            ><select id="frontier-policy">
+              <option value="store-forward" data-copy="frontierStore"></option>
+              <option value="immediate-direct" data-copy="frontierDirect"></option></select
+          ></label>
+          <label
+            ><span data-copy="frontierSeed"></span
+            ><input
+              id="frontier-seed"
+              type="number"
+              min="0"
+              max="4294967295"
+              step="1"
+              value="20261010"
+          /></label>
+          <label class="check"
+            ><input id="frontier-outage" type="checkbox" /><span data-copy="frontierOutage"></span
+          ></label>
+          <label class="check"
+            ><input id="frontier-conflict" type="checkbox" /><span
+              data-copy="frontierConflict"
+            ></span
+          ></label>
+          <label class="check"
+            ><input id="frontier-inject" type="checkbox" checked /><span
+              data-copy="frontierInject"
+            ></span
+          ></label>
+          <button id="frontier-run" data-copy="frontierRun" disabled></button
+          ><button
+            id="frontier-daily"
+            class="secondary"
+            data-copy="frontierDaily"
+            disabled
+          ></button>
+          <p id="frontier-status" class="scope" role="status"></p>
+        </div>
+        <div class="panels frontier-panels">
+          <section class="panel">
+            <h2 data-copy="frontierLight"></h2>
+            <div id="frontier-light"></div>
+          </section>
+          <section class="panel">
+            <h2 data-copy="frontierNetwork"></h2>
+            <p id="frontier-score"></p>
+            <div id="frontier-network" class="table-scroll"></div>
+            <p id="frontier-network-note"></p>
+          </section>
+          <section class="panel">
+            <h2 data-copy="frontierCredits"></h2>
+            <p id="frontier-payment"></p>
+            <p id="frontier-conserved"></p>
+            <div id="frontier-credits" class="table-scroll"></div>
+            <p id="frontier-credits-note"></p>
+          </section>
+          <section class="panel">
+            <h2 data-copy="frontierSignals"></h2>
+            <p id="frontier-candidates"></p>
+            <div id="frontier-spectrum"></div>
+            <div id="frontier-signals" class="table-scroll"></div>
+            <p id="frontier-signals-note"></p>
+          </section>
+        </div>
+        <section class="panel evidence">
+          <h2 data-copy="frontierPassport"></h2>
+          <p id="frontier-passport"></p>
+          <div class="frontier-actions">
+            <button id="frontier-card" class="secondary" data-copy="frontierCard" disabled></button>
+            <button
+              id="frontier-share"
+              class="secondary"
+              data-copy="frontierShare"
+              disabled
+            ></button
+            ><button
+              id="frontier-export"
+              class="secondary"
+              data-copy="frontierExport"
+              disabled
+            ></button
+            ><button id="frontier-ion" class="secondary" data-copy="frontierIon" disabled></button>
+          </div>
+          <label for="frontier-url" data-copy="frontierLink"></label
+          ><input id="frontier-url" type="url" readonly />
+          <p data-copy="frontierShareNote"></p>
+          <p id="frontier-ion-note"></p>
+        </section>
+      </section>
+      <section class="controls">
+        <label
+          ><span data-copy="spaceFault"></span
+          ><select id="fault">
+            <option value="nominal" data-copy="spaceNominal"></option>
+            <option value="link-outage" data-copy="spaceLink"></option>
+            <option value="low-power" data-copy="spacePower"></option>
+            <option value="sensor-stale" data-copy="spaceSensor"></option></select
+        ></label>
+        <label
+          ><span data-copy="spacePolicy"></span
+          ><select id="policy">
+            <option value="guarded" data-copy="spaceGuarded"></option>
+            <option value="unguarded" data-copy="spaceUnguarded"></option></select
+        ></label>
+        <button id="run" data-copy="spaceRun" disabled></button
+        ><button id="export" class="secondary" data-copy="spaceExport" disabled></button>
+        <p class="scope" data-copy="spaceFaultScope"></p>
+        <p id="status" role="status"></p>
+      </section>
+      <div id="metrics" class="metrics"></div>
+      <div class="panels">
+        <section class="panel">
+          <h2 data-copy="spacePlan"></h2>
+          <p data-copy="spacePlanNote"></p>
+          <div id="timeline"></div>
+          <div id="unassigned"></div>
+        </section>
+        <section class="panel">
+          <h2 data-copy="spaceTelemetry"></h2>
+          <p data-copy="spaceEnergy"></p>
+          <div id="energy"></div>
+          <div class="table-scroll" id="events"></div>
+          <details id="samples-details">
+            <summary data-copy="spaceSamples"></summary>
+            <div class="table-scroll" id="samples"></div>
+          </details>
+        </section>
+        <section class="panel">
+          <h2 data-copy="spaceAssistant"></h2>
+          <p id="assistant-summary"></p>
+          <div id="alerts"></div>
+          <details>
+            <summary data-copy="spacePreview"></summary>
+            <p id="preview-summary"></p>
+            <div id="preview"></div>
+          </details>
+        </section>
+        <section class="panel">
+          <h2 data-copy="spaceValidation"></h2>
+          <p id="validation-summary"></p>
+          <div class="table-scroll" id="cases"></div>
+        </section>
+      </div>
+      <section class="panel evidence">
+        <h2 data-copy="spaceEvidence"></h2>
+        <p id="hashes"></p>
+        <details>
+          <summary data-copy="spaceScenario"></summary>
+          <label for="mission" data-copy="spaceMissionJson"></label
+          ><textarea id="mission" spellcheck="false" rows="18"></textarea>
+        </details>
+        <details>
+          <summary data-copy="spaceReportJson"></summary>
+          <pre id="report"></pre>
+        </details>
+      </section>
+    </main>
+  </body>
+</html>

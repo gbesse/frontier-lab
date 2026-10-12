@@ -1,0 +1,28 @@
+{
+  "name": "@gbesse/space-mission-lab",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./commons-engine": "./src/commons-engine.js"
+  },
+  "bin": {
+    "space-mission-lab": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "README.md",
+    "LICENSE",
+    "engines"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@gbesse/branch-lab": "0.1.0"
+  }
+}

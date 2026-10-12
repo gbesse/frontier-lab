@@ -1,0 +1,186 @@
+{
+  "rpOrigin": "https://relying-party.example.test",
+  "formats": ["mdoc", "zkp"],
+  "attempts": [
+    {
+      "id": "m-valid",
+      "format": "mdoc",
+      "scenario": "valid",
+      "decision": "allow",
+      "evidenceRef": "synthetic/m-valid",
+      "disclosedClaims": ["age_over_18"],
+      "presentationTag": "synthetic-m-1",
+      "checks": {
+        "signature": true,
+        "issuerTrusted": true,
+        "nonce": true,
+        "audience": true,
+        "validity": true,
+        "ageClaim": true
+      }
+    },
+    {
+      "id": "m-valid-second",
+      "format": "mdoc",
+      "scenario": "valid_second_session",
+      "decision": "allow",
+      "evidenceRef": "synthetic/m-valid-second",
+      "disclosedClaims": ["age_over_18"],
+      "presentationTag": "synthetic-m-2",
+      "checks": {
+        "signature": true,
+        "issuerTrusted": true,
+        "nonce": true,
+        "audience": true,
+        "validity": true,
+        "ageClaim": true
+      }
+    },
+    {
+      "id": "m-tampered",
+      "format": "mdoc",
+      "scenario": "tampered",
+      "decision": "deny",
+      "evidenceRef": "synthetic/m-tampered",
+      "disclosedClaims": []
+    },
+    {
+      "id": "m-expired",
+      "format": "mdoc",
+      "scenario": "expired",
+      "decision": "deny",
+      "evidenceRef": "synthetic/m-expired",
+      "disclosedClaims": []
+    },
+    {
+      "id": "m-nonce",
+      "format": "mdoc",
+      "scenario": "wrong_nonce",
+      "decision": "deny",
+      "evidenceRef": "synthetic/m-nonce",
+      "disclosedClaims": []
+    },
+    {
+      "id": "m-audience",
+      "format": "mdoc",
+      "scenario": "wrong_audience",
+      "decision": "deny",
+      "evidenceRef": "synthetic/m-audience",
+      "disclosedClaims": []
+    },
+    {
+      "id": "m-issuer",
+      "format": "mdoc",
+      "scenario": "untrusted_issuer",
+      "decision": "deny",
+      "evidenceRef": "synthetic/m-issuer",
+      "disclosedClaims": []
+    },
+    {
+      "id": "m-claim",
+      "format": "mdoc",
+      "scenario": "missing_age_claim",
+      "decision": "deny",
+      "evidenceRef": "synthetic/m-claim",
+      "disclosedClaims": []
+    },
+    {
+      "id": "m-replay",
+      "format": "mdoc",
+      "scenario": "replay_presentation",
+      "decision": "deny",
+      "evidenceRef": "synthetic/m-replay",
+      "disclosedClaims": []
+    },
+    {
+      "id": "z-valid",
+      "format": "zkp",
+      "scenario": "valid",
+      "decision": "allow",
+      "evidenceRef": "synthetic/z-valid",
+      "disclosedClaims": ["age_over_18"],
+      "presentationTag": "synthetic-z-1",
+      "checks": {
+        "signature": true,
+        "issuerTrusted": true,
+        "nonce": true,
+        "audience": true,
+        "validity": true,
+        "ageClaim": true
+      }
+    },
+    {
+      "id": "z-valid-second",
+      "format": "zkp",
+      "scenario": "valid_second_session",
+      "decision": "allow",
+      "evidenceRef": "synthetic/z-valid-second",
+      "disclosedClaims": ["age_over_18"],
+      "presentationTag": "synthetic-z-2",
+      "checks": {
+        "signature": true,
+        "issuerTrusted": true,
+        "nonce": true,
+        "audience": true,
+        "validity": true,
+        "ageClaim": true
+      }
+    },
+    {
+      "id": "z-tampered",
+      "format": "zkp",
+      "scenario": "tampered",
+      "decision": "deny",
+      "evidenceRef": "synthetic/z-tampered",
+      "disclosedClaims": []
+    },
+    {
+      "id": "z-expired",
+      "format": "zkp",
+      "scenario": "expired",
+      "decision": "deny",
+      "evidenceRef": "synthetic/z-expired",
+      "disclosedClaims": []
+    },
+    {
+      "id": "z-nonce",
+      "format": "zkp",
+      "scenario": "wrong_nonce",
+      "decision": "deny",
+      "evidenceRef": "synthetic/z-nonce",
+      "disclosedClaims": []
+    },
+    {
+      "id": "z-audience",
+      "format": "zkp",
+      "scenario": "wrong_audience",
+      "decision": "deny",
+      "evidenceRef": "synthetic/z-audience",
+      "disclosedClaims": []
+    },
+    {
+      "id": "z-issuer",
+      "format": "zkp",
+      "scenario": "untrusted_issuer",
+      "decision": "deny",
+      "evidenceRef": "synthetic/z-issuer",
+      "disclosedClaims": []
+    },
+    {
+      "id": "z-claim",
+      "format": "zkp",
+      "scenario": "missing_age_claim",
+      "decision": "deny",
+      "evidenceRef": "synthetic/z-claim",
+      "disclosedClaims": []
+    },
+    {
+      "id": "z-replay",
+      "format": "zkp",
+      "scenario": "replay_presentation",
+      "decision": "deny",
+      "evidenceRef": "synthetic/z-replay",
+      "disclosedClaims": []
+    }
+  ]
+}

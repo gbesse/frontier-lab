@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "origin": "synthetic",
+  "asOf": "2026-10-11T12:00:00Z",
+  "requirements": [
+    {
+      "id": "pattern",
+      "operation": "deposit",
+      "material": "resin-R1",
+      "maxErrorUm": 5,
+      "range": {
+        "unit": "C",
+        "min": 20,
+        "max": 120
+      }
+    },
+    {
+      "id": "finish",
+      "operation": "laser",
+      "material": "copper",
+      "maxErrorUm": 5,
+      "range": {
+        "unit": "C",
+        "min": 20,
+        "max": 40
+      }
+    }
+  ],
+  "substitutions": [
+    {
+      "id": "resin-R2-route",
+      "fromOperation": "deposit",
+      "fromMaterial": "resin-R1",
+      "toOperation": "deposit",
+      "toMaterial": "resin-R2"
+    }
+  ],
+  "fabs": [
+    {
+      "id": "fab-A",
+      "complete": true,
+      "capabilities": [
+        {
+          "id": "A-deposit",
+          "operation": "deposit",
+          "material": "resin-R1",
+          "maxErrorUm": 3,
+          "range": {
+            "unit": "C",
+            "min": 20,
+            "max": 180
+          },
+          "evidence": {
+            "id": "proof-A-deposit",
+            "calibrationId": "cal-A-deposit",
+            "qualified": true,
+            "validFrom": "2026-01-01T00:00:00Z",
+            "validUntil": "2027-01-01T00:00:00Z"
+          }
+        },
+        {
+          "id": "A-laser",
+          "operation": "laser",
+          "material": "copper",
+          "maxErrorUm": 4,
+          "range": {
+            "unit": "C",
+            "min": 20,
+            "max": 180
+          },
+          "evidence": {
+            "id": "proof-A-laser",
+            "calibrationId": "cal-A-laser",
+            "qualified": true,
+            "validFrom": "2026-01-01T00:00:00Z",
+            "validUntil": "2027-01-01T00:00:00Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fab-B",
+      "complete": true,
+      "capabilities": [
+        {
+          "id": "B-deposit",
+          "operation": "deposit",
+          "material": "resin-R2",
+          "maxErrorUm": 2,
+          "range": {
+            "unit": "C",
+            "min": 20,
+            "max": 180
+          },
+          "evidence": {
+            "id": "proof-B-deposit",
+            "calibrationId": "cal-B-deposit",
+            "qualified": true,
+            "validFrom": "2026-01-01T00:00:00Z",
+            "validUntil": "2027-01-01T00:00:00Z"
+          }
+        },
+        {
+          "id": "B-laser",
+          "operation": "laser",
+          "material": "copper",
+          "maxErrorUm": 3,
+          "range": {
+            "unit": "C",
+            "min": 20,
+            "max": 180
+          },
+          "evidence": {
+            "id": "proof-B-laser",
+            "calibrationId": "cal-B-laser",
+            "qualified": true,
+            "validFrom": "2026-01-01T00:00:00Z",
+            "validUntil": "2027-01-01T00:00:00Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fab-C",
+      "complete": true,
+      "capabilities": [
+        {
+          "id": "C-deposit",
+          "operation": "deposit",
+          "material": "resin-R1",
+          "maxErrorUm": 2,
+          "range": {
+            "unit": "C",
+            "min": 20,
+            "max": 180
+          },
+          "evidence": {
+            "id": "proof-C",
+            "calibrationId": "cal-C",
+            "qualified": true,
+            "validFrom": "2026-01-01T00:00:00Z",
+            "validUntil": "2026-09-01T00:00:00Z"
+          }
+        },
+        {
+          "id": "C-laser",
+          "operation": "laser",
+          "material": "copper",
+          "maxErrorUm": 2,
+          "range": {
+            "unit": "C",
+            "min": 20,
+            "max": 180
+          },
+          "evidence": {
+            "id": "proof-C-laser",
+            "calibrationId": "cal-C-laser",
+            "qualified": true,
+            "validFrom": "2026-01-01T00:00:00Z",
+            "validUntil": "2027-01-01T00:00:00Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fab-D",
+      "complete": true,
+      "capabilities": [
+        {
+          "id": "D-deposit",
+          "operation": "deposit",
+          "material": "resin-R1",
+          "maxErrorUm": 10,
+          "range": {
+            "unit": "C",
+            "min": 20,
+            "max": 180
+          },
+          "evidence": {
+            "id": "proof-D-deposit",
+            "calibrationId": "cal-D-deposit",
+            "qualified": true,
+            "validFrom": "2026-01-01T00:00:00Z",
+            "validUntil": "2027-01-01T00:00:00Z"
+          }
+        }
+      ]
+    }
+  ]
+}

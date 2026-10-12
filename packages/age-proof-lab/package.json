@@ -1,0 +1,25 @@
+{
+  "name": "@gbesse/age-proof-lab",
+  "version": "0.1.0",
+  "description": "Privacy and negative-test evidence for EU age-proof relying-party integrations.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "age-proof-lab": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "playwright": "^1.55.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

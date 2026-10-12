@@ -1,0 +1,22 @@
+{
+  "name": "@gbesse/dsn-replay",
+  "version": "0.1.0",
+  "description": "Local replay of structured DSN corrections and CRM proposals.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "bin": {
+    "dsn-replay": "bin/cli.js"
+  },
+  "files": [
+    "src",
+    "bin",
+    "fixtures",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}
