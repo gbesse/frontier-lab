@@ -1,0 +1,38 @@
+{
+  "steps": [
+    {
+      "tool": "create_order",
+      "args": {
+        "customerId": "c-alice",
+        "sku": "lamp",
+        "quantity": 2
+      }
+    },
+    {
+      "tool": "reserve_order",
+      "args": {
+        "orderId": "o-1"
+      }
+    },
+    {
+      "tool": "confirm_order",
+      "args": {
+        "orderId": "o-1"
+      }
+    },
+    {
+      "tool": "queue_email",
+      "args": {
+        "orderId": "o-1"
+      }
+    }
+  ],
+  "faults": {
+    "queue_email": 1
+  },
+  "expected": {
+    "errorCode": "INJECTED_FAILURE",
+    "confirmedOrders": 1,
+    "outboxCount": 0
+  }
+}

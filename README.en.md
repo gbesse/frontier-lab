@@ -53,6 +53,10 @@ node packages/cee-proof-graph/bin/cli.js demo --locale=en
 node packages/pics-stress-lab/bin/cli.js demo --locale=en
 ```
 
+## Quick tour of the seven labs
+
+`npm run demo:labs -- --locale=en` runs all seven offline demonstrations and collects their summaries and limits in one JSON report. Data is synthetic; no account or external service is required. Choose `fr` or `es` for the other languages.
+
 ## Try it
 
 Use Node.js 22+ and npm. Python 3 is required for the Hermes extension test. On macOS, Teachpack uses Apple Vision for local screen-text recognition. Choose the window or display in the browser's sharing dialog; try Chrome if the in-app browser has no screen-sharing option. No account or API key is required.
@@ -144,9 +148,9 @@ MIT — see [LICENSE](LICENSE).
 
 ## Space Mission Lab
 
-The expedition adds Light Cone, Relay Rescue, Space Credits and Signal Hunter: light delays to Proxima, relayed messages, fictional budgets and synthetic drift searches. Sourced SOTA atlas at `/space/explore?lang=en`, daily challenge, replayable links, PNG card and JSON passport. Links share settings, never mission JSON. `node packages/space-mission-lab/bin/cli.js frontier --locale=en --destination=proxima` runs the extension. Physical integrations and real SETI data remain proposals; no measured public traffic.
+The expedition adds Light Cone, Relay Rescue, Space Credits and Signal Hunter: light delays to Proxima, relayed messages, fictional budgets and synthetic drift searches. Sourced SOTA atlas at `/space/explore?lang=en`, daily challenge, replayable links, PNG card and JSON passport. Links share settings, never mission JSON. `node packages/space-mission-lab/bin/cli.js frontier --locale=en --destination=proxima` runs the extension. The three commons below now execute Basilisk/Orekit, SGP4/OR-Tools/ION and blimpy/turboSETI on archived public data; the expedition keeps its synthetic models. No measured public traffic.
 
-[Space Mission Lab](packages/space-mission-lab/README.md) combines four modules: multi-vehicle allocation, resource simulation, a trace-based rule assistant and autonomy fault trials. After `npm start`, open **http://127.0.0.1:4317/space**; UI and reports in FR / EN / ES. `node packages/space-mission-lab/bin/cli.js demo --locale=en` runs all four modules. Local synthetic model, without orbital dynamics or a real spacecraft connection; GMAT/Basilisk/cFS integrations remain to be built.
+[Space Mission Lab](packages/space-mission-lab/README.md) combines four modules: multi-vehicle allocation, resource simulation, a trace-based rule assistant and autonomy fault trials. After `npm start`, open **http://127.0.0.1:4317/space**; UI and reports in FR / EN / ES. `node packages/space-mission-lab/bin/cli.js demo --locale=en` runs all four modules. These four modules use a local synthetic model without a real spacecraft connection. The commons add Basilisk/Orekit orbital dynamics separately; GMAT and cFS integrations remain to be built.
 
 ### SOTA+++ — space engines and challenges
 
@@ -172,3 +176,13 @@ After `npm start`, open **http://127.0.0.1:4317/matter?lang=en**. All ten demos,
 | [FabTrace](packages/fabtrace/README.en.md)         | Part histories, limits and statistical associations                     | Descriptive associations; no established causality             |
 
 `npm run matter:test:engines` verifies ngspice and Gymnasium. Install these tools following package READMEs; `SWITCHBENCH_NGSPICE` and `MICROFABGYM_PYTHON` can select their executables. All ten projects are independent of Atomic Machines and have no Matter Compiler access.
+
+## Tour one lab
+
+`npm run demo:labs -- --locale=en --project=payee-exceptions` runs only the chosen offline demonstration. The seven valid names are listed above; an unknown name is rejected.
+
+## Contrôle d’adoption · Adoption check · Comprobación de adopción
+
+[Try a synthetic adoption case](examples/adoption-check.md).
+
+Run `npm run demo:branch-failure` to see a synthetic notification failure after confirmation: the command checks that the order stays confirmed and no message is queued. This does not simulate an ERP transaction or send real mail.

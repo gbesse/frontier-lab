@@ -1,9 +1,9 @@
 {
   "name": "frontier-lab",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "private": true,
   "type": "module",
-  "description": "FR : trente et un projets locaux vérifiables. EN: thirty-one inspectable local projects. ES: treinta y un proyectos locales verificables.",
+  "description": "FR : trente et un projets locaux v\u00e9rifiables. EN: thirty-one inspectable local projects. ES: treinta y un proyectos locales verificables.",
   "workspaces": [
     "packages/*"
   ],
@@ -25,7 +25,9 @@
     "space:public": "node scripts/space-public.mjs",
     "space:test:engines": "node test/space-engines.mjs",
     "space:preview": "node scripts/space-public-preview.mjs",
-    "matter:test:engines": "node scripts/matter-engines.mjs"
+    "matter:test:engines": "node scripts/matter-engines.mjs",
+    "demo:labs": "node scripts/lab-tour.mjs",
+    "demo:branch-failure": "node packages/branch/bin/cli.js run examples/branch-failure.json"
   },
   "devDependencies": {
     "playwright": "^1.55.0",

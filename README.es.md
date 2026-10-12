@@ -53,6 +53,10 @@ node packages/cee-proof-graph/bin/cli.js demo --locale=es
 node packages/pics-stress-lab/bin/cli.js demo --locale=es
 ```
 
+## Recorrido rápido por los siete laboratorios
+
+`npm run demo:labs -- --locale=es` ejecuta las siete demostraciones sin conexión y reúne sus resúmenes y límites en un solo informe JSON. Los datos son sintéticos; no se necesita cuenta ni servicio externo. Elige `fr` o `en` para los otros idiomas.
+
 ## Probar
 
 Se necesitan Node.js 22+ y npm. Python 3 es necesario para la prueba de la extensión Hermes. En macOS, Teachpack usa Apple Vision para reconocer texto en pantalla localmente. Elige la ventana o pantalla en el diálogo del navegador; prueba Chrome si el navegador integrado no ofrece compartir pantalla. No se necesita cuenta ni clave API.
@@ -144,9 +148,9 @@ MIT — consulta [LICENSE](LICENSE).
 
 ## Space Mission Lab
 
-La expedición añade Light Cone, Relay Rescue, Space Credits y Signal Hunter: demoras luminosas hasta Proxima, mensajes reenviados, presupuestos ficticios y búsqueda de derivas sintéticas. Atlas SOTA con fuentes en `/space/explore?lang=es`, reto diario, enlaces reproducibles, tarjeta PNG y pasaporte JSON. Los enlaces comparten ajustes, nunca JSON de misión. `node packages/space-mission-lab/bin/cli.js frontier --locale=es --destination=proxima` ejecuta la ampliación. Integraciones físicas y datos SETI reales siguen siendo propuestas; sin tráfico público medido.
+La expedición añade Light Cone, Relay Rescue, Space Credits y Signal Hunter: demoras luminosas hasta Proxima, mensajes reenviados, presupuestos ficticios y búsqueda de derivas sintéticas. Atlas SOTA con fuentes en `/space/explore?lang=es`, reto diario, enlaces reproducibles, tarjeta PNG y pasaporte JSON. Los enlaces comparten ajustes, nunca JSON de misión. `node packages/space-mission-lab/bin/cli.js frontier --locale=es --destination=proxima` ejecuta la ampliación. Los tres commons siguientes ya ejecutan Basilisk/Orekit, SGP4/OR-Tools/ION y blimpy/turboSETI con datos públicos archivados; la expedición mantiene sus modelos sintéticos. Sin tráfico público medido.
 
-[Space Mission Lab](packages/space-mission-lab/README.md) reúne cuatro módulos: asignación de varios vehículos, simulación de recursos, asistente de reglas basado en trazas y pruebas de fallos de autonomía. Tras `npm start`, abre **http://127.0.0.1:4317/space**; interfaz e informes en FR / EN / ES. `node packages/space-mission-lab/bin/cli.js demo --locale=es` ejecuta los cuatro módulos. Modelo sintético local, sin dinámica orbital ni conexión con una nave real; las integraciones GMAT/Basilisk/cFS siguen pendientes.
+[Space Mission Lab](packages/space-mission-lab/README.md) reúne cuatro módulos: asignación de varios vehículos, simulación de recursos, asistente de reglas basado en trazas y pruebas de fallos de autonomía. Tras `npm start`, abre **http://127.0.0.1:4317/space**; interfaz e informes en FR / EN / ES. `node packages/space-mission-lab/bin/cli.js demo --locale=es` ejecuta los cuatro módulos. Estos cuatro módulos usan un modelo sintético local sin conexión con una nave real. Los commons añaden dinámica orbital Basilisk/Orekit por separado; siguen pendientes las integraciones GMAT y cFS.
 
 ### SOTA+++ — motores y desafíos espaciales
 
@@ -172,3 +176,13 @@ Tras `npm start`, abrir **http://127.0.0.1:4317/matter?lang=es**. Las diez demos
 | [FabTrace](packages/fabtrace/README.es.md)         | Trazas por pieza, límites y asociaciones estadísticas                              | Asociaciones descriptivas; sin causalidad establecida                       |
 
 `npm run matter:test:engines` verifica ngspice y Gymnasium. Instalar siguiendo los README; `SWITCHBENCH_NGSPICE` y `MICROFABGYM_PYTHON` pueden seleccionar ejecutables. Los diez proyectos son independientes de Atomic Machines y no tienen acceso al Matter Compiler.
+
+## Recorrer un laboratorio
+
+`npm run demo:labs -- --locale=es --project=payee-exceptions` ejecuta solo la demostración sin conexión elegida. Los siete nombres válidos aparecen arriba; se rechaza un nombre desconocido.
+
+## Contrôle d’adoption · Adoption check · Comprobación de adopción
+
+[Pruebe un caso sintético de adopción](examples/adoption-check.md).
+
+Ejecute `npm run demo:branch-failure` para ver un fallo sintético de notificación tras la confirmación: la orden sigue confirmada y no se encola ningún mensaje. Esto no simula una transacción ERP ni envía correo real.
