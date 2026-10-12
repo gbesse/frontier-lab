@@ -26,6 +26,18 @@ try {
     await page.locator('#space-discovery').click();
     await page.locator('#frontier-export:not([disabled])').waitFor();
     assert.equal(await page.locator('#language-select').inputValue(), locale);
+    assert.equal(
+      await page.locator('[data-copy=commonsRepositories]').textContent(),
+      messageTranslations.commonsRepositories[index],
+    );
+    assert.deepEqual(
+      await page
+        .locator('#space-repositories a')
+        .evaluateAll((links) => links.map((link) => link.href)),
+      ['mission-benchmark-commons', 'contact-market', 'citizen-mission'].map(
+        (slug) => 'https://github.com/gbesse/' + slug,
+      ),
+    );
   }
   await page.goto(origin + '/space');
   await page.locator('#frontier-export:not([disabled])').waitFor();

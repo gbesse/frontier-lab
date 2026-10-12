@@ -2,6 +2,8 @@
 
 English · [Español](README.es.md) · [Français](README.md)
 
+Frontier Lab is the general software catalogue. Matter Lab groups fabrication and hardware tools; the space projects now have three standalone repositories: [Mission Benchmark Commons](https://github.com/gbesse/mission-benchmark-commons), [Contact Market](https://github.com/gbesse/contact-market), [Citizen Mission](https://github.com/gbesse/citizen-mission). Each repository can be cloned and run separately, with FR/EN/ES UI and documentation, an MIT license, specialized engines, archived evidence and shareable challenges.
+
 Thirty-one open-source projects in a **local alpha**: four in the main studio, sixteen command-line labs, Space Mission Lab and ten fabrication tools and labs in Matter Lab. Names and scope are provisional. This repository is not a hosted service, and its packages are not published on npm.
 
 The agent extensions have their own repositories: [Agent Commerce Ledger for OpenClaw and Hermes](https://github.com/gbesse/agent-commerce-ledger) records message receipts and approvals for configured tools; [Caller Context for OpenClaw](https://github.com/gbesse/openclaw-caller-context) looks up local caller context. They do not create CRM contacts or send follow-ups.
@@ -157,6 +159,8 @@ The expedition adds Light Cone, Relay Rescue, Space Credits and Signal Hunter: l
 All three tracks are executable: **Mission Benchmark Commons** (Basilisk/Orekit, ISS and JPL DE440s), **Contact Market** (SGP4, OR-Tools CP-SAT, ION BPv7/UDP manifest and local Ed25519 receipt), and **Citizen Mission** (real Voyager 1/GBT observation, blimpy and turboSETI on CPU). Routes `/space/commons/benchmark`, `/space/commons/market`, `/space/commons/citizen` ship in FR/EN/ES with daily challenges, predictions, share links, JSON and PNG. Fictional credits, scenario antennas and a known human carrier are explicitly identified.
 
 `npm run space:setup` installs engines in `.local/space-runtime`. `npm run space:test:engines` checks actual computations. `npm run space:fixtures` records evidence; `npm run space:public` creates `output/space-public`, a publishable static site that replays recorded cases without exposing local APIs. Setup and limitations: [FR/EN/ES documentation](packages/space-mission-lab/README.md). No public deployment or measured traffic is presumed.
+
+`npm run space:repositories -- /path/new-directory` extracts the three standalone applications from Git-tracked sources, with a provenance manifest. The destination directory must be new; local runtimes and untracked files are excluded. The GitHub repositories above have their own versions and tests.
 
 ## Matter Lab — ten standalone repositories
 
