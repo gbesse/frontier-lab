@@ -1,6 +1,6 @@
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { mkdtemp, mkdir, writeFile } from 'node:fs/promises';
+import { mkdtemp, mkdir, writeFile, readFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { resolve, join } from 'node:path';
 import assert from 'node:assert/strict';
@@ -77,6 +77,9 @@ for (const [name, value] of Object.entries({
   'demonstrations.json': demonstrations(),
   'inputs.json': heldOut,
   'source.json': exitSource,
+  'branch-scenario.json': JSON.parse(
+    await readFile(new URL('../examples/branch-failure.json', import.meta.url)),
+  ),
 }))
   await writeFile(join(consumer, name), JSON.stringify(value));
 const run = async (bin, args = []) =>
@@ -85,6 +88,10 @@ const run = async (bin, args = []) =>
     timeout: 20000,
   });
 await run('branch-lab', ['seed']);
+await run('branch-lab', ['record', 'branch-scenario.json', 'branch-bundle.json']);
+const replay = JSON.parse((await run('branch-lab', ['replay', 'branch-bundle.json'])).stdout);
+assert.equal(replay.verified, true);
+assert.equal(replay.scenarioPassed, true);
 await run('teachpack', ['learn', 'demonstrations.json', 'skill.json']);
 await run('teachpack', ['validate', 'skill.json']);
 const rehearsal = JSON.parse(

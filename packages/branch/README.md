@@ -54,3 +54,17 @@ Idempotency keys deduplicate a successful operation; changing its arguments with
 ## Boundaries
 
 Only the declared commerce model is simulated. No real email, payments, ERP calls, automatic production snapshot or network interception. Do not execute arbitrary untrusted code inside the simulator and assume isolation. State/events are inspectable JavaScript objects, not tamper-proof audit records. Use integer cents. Event logs may contain input data; redact before sharing.
+
+## Répétition Branch portable
+
+`mkdir -p .local && npx branch-lab record examples/branch-failure.json .local/branch-bundle.json`, puis `npx branch-lab replay .local/branch-bundle.json` enregistre le scénario complet et vérifie par réexécution son état, ses événements et ses assertions. `verified` prouve la concordance de répétition ; `scenarioPassed` indique séparément le résultat des assertions. Le bundle peut contenir des données utilisateur : gardez-le privé. Les hashes ne sont ni signatures ni preuves de comportement en production.
+
+## Portable Branch replay
+
+`mkdir -p .local && npx branch-lab record examples/branch-failure.json .local/branch-bundle.json`, then `npx branch-lab replay .local/branch-bundle.json` records the complete scenario and re-executes its state, events and assertions. `verified` reports replay agreement; `scenarioPassed` separately reports assertion success. The bundle can contain user data: keep it private. Hashes are neither signatures nor proof of production behavior.
+
+## Repetición Branch portátil
+
+`mkdir -p .local && npx branch-lab record examples/branch-failure.json .local/branch-bundle.json` y después `npx branch-lab replay .local/branch-bundle.json` registra el escenario completo y vuelve a ejecutar estado, eventos y aserciones. `verified` informa concordancia; `scenarioPassed` informa por separado el éxito de las aserciones. El paquete puede contener datos de usuario: manténgalo privado. Los hashes no son firmas ni pruebas del comportamiento en producción.
+
+API: `recordScenario(scenario)`, `replayScenario(bundle)`. JSON only / JSON uniquement / Solo JSON.

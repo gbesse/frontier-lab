@@ -190,3 +190,7 @@ Tras `npm start`, abrir **http://127.0.0.1:4317/matter?lang=es**. Las diez demos
 [Pruebe un caso sintético de adopción](examples/adoption-check.md).
 
 Ejecute `npm run demo:branch-failure` para ver un fallo sintético de notificación tras la confirmación: la orden sigue confirmada y no se encola ningún mensaje. Esto no simula una transacción ERP ni envía correo real.
+
+## Repetición Branch portátil
+
+`mkdir -p .local && npx branch-lab record examples/branch-failure.json .local/branch-bundle.json` y después `npx branch-lab replay .local/branch-bundle.json` registra el escenario completo y vuelve a ejecutar estado, eventos y aserciones. `verified` informa concordancia; `scenarioPassed` informa por separado el éxito de las aserciones. El paquete puede contener datos de usuario: manténgalo privado. Los hashes no son firmas ni pruebas del comportamiento en producción. [Guía FR/EN/ES](packages/branch/README.md).

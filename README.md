@@ -194,3 +194,7 @@ Après `npm start`, ouvrir **http://127.0.0.1:4317/matter?lang=fr**. Les dix dé
 [Français : essayer un cas synthétique](examples/adoption-check.md) · [English: try a synthetic case](examples/adoption-check.md) · [Español: pruebe un caso sintético](examples/adoption-check.md).
 
 Exécutez `npm run demo:branch-failure` pour voir une panne synthétique de notification après confirmation : la commande vérifie que la commande reste confirmée et qu’aucun message n’est mis en file. Ce parcours ne simule ni transaction ERP ni envoi réel.
+
+## Répétition Branch portable
+
+`mkdir -p .local && npx branch-lab record examples/branch-failure.json .local/branch-bundle.json`, puis `npx branch-lab replay .local/branch-bundle.json` enregistre le scénario complet et vérifie par réexécution son état, ses événements et ses assertions. `verified` prouve la concordance de répétition ; `scenarioPassed` indique séparément le résultat des assertions. Le bundle peut contenir des données utilisateur : gardez-le privé. Les hashes ne sont ni signatures ni preuves de comportement en production. [Guide FR/EN/ES](packages/branch/README.md).
