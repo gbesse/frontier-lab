@@ -190,3 +190,7 @@ After `npm start`, open **http://127.0.0.1:4317/matter?lang=en**. All ten demos,
 [Try a synthetic adoption case](examples/adoption-check.md).
 
 Run `npm run demo:branch-failure` to see a synthetic notification failure after confirmation: the command checks that the order stays confirmed and no message is queued. This does not simulate an ERP transaction or send real mail.
+
+## Portable Branch replay
+
+`mkdir -p .local && npx branch-lab record examples/branch-failure.json .local/branch-bundle.json`, then `npx branch-lab replay .local/branch-bundle.json` records the complete scenario and re-executes its state, events and assertions. `verified` reports replay agreement; `scenarioPassed` separately reports assertion success. The bundle can contain user data: keep it private. Hashes are neither signatures nor proof of production behavior. [FR/EN/ES guide](packages/branch/README.md).

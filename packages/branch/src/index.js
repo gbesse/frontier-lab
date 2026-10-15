@@ -382,3 +382,65 @@ export function runScenario({ seed = defaultSeed(), steps, faults = {}, expected
     changes: diff(before, world.state),
   };
 }
+
+function jsonSnapshot(value) {
+  const seen = new Set();
+  const visit = (item) => {
+    if (item === null || typeof item === 'string' || typeof item === 'boolean') return;
+    if (typeof item === 'number' && Number.isFinite(item)) return;
+    if (
+      !item ||
+      typeof item !== 'object' ||
+      seen.has(item) ||
+      (!Array.isArray(item) && Object.getPrototypeOf(item) !== Object.prototype)
+    )
+      fail(
+        'INVALID_REPLAY',
+        'FR : données JSON finies et sans cycle requises. EN: finite acyclic JSON data required. ES: se requieren datos JSON finitos sin ciclos.',
+      );
+    seen.add(item);
+    if (Array.isArray(item) && Object.keys(item).length !== item.length)
+      fail(
+        'INVALID_REPLAY',
+        'FR : tableau JSON dense requis. EN: dense JSON array required. ES: se requiere una matriz JSON densa.',
+      );
+    for (const child of Object.values(item)) visit(child);
+    seen.delete(item);
+  };
+  visit(value);
+  return JSON.parse(JSON.stringify(value));
+}
+
+export function recordScenario(scenario) {
+  const snapshot = jsonSnapshot(scenario);
+  const report = runScenario(snapshot);
+  return {
+    schemaVersion: 1,
+    scenario: snapshot,
+    report,
+    receipt: { scenarioSha256: fingerprint(snapshot), reportSha256: fingerprint(report) },
+  };
+}
+
+export function replayScenario(bundle) {
+  bundle = jsonSnapshot(bundle);
+  if (bundle.schemaVersion !== 1 || !bundle.scenario || !bundle.report || !bundle.receipt)
+    fail(
+      'INVALID_REPLAY',
+      'FR : bundle de répétition invalide. EN: invalid replay bundle. ES: paquete de repetición no válido.',
+    );
+  const replayed = runScenario(bundle.scenario);
+  const scenarioMatches = fingerprint(bundle.scenario) === bundle.receipt.scenarioSha256;
+  const reportMatches = fingerprint(bundle.report) === bundle.receipt.reportSha256;
+  const differences = diff(bundle.report, replayed);
+  return {
+    schemaVersion: 1,
+    simulation: true,
+    verified: scenarioMatches && reportMatches && differences.length === 0,
+    scenarioMatches,
+    reportMatches,
+    scenarioPassed: replayed.passed,
+    differences,
+    replayedReportSha256: fingerprint(replayed),
+  };
+}

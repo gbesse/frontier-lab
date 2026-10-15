@@ -1,6 +1,6 @@
 {
   "name": "frontier-lab",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": true,
   "type": "module",
   "description": "FR : trente et un projets locaux vérifiables. EN: thirty-one inspectable local projects. ES: treinta y un proyectos locales verificables.",
