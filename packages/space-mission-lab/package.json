@@ -1,6 +1,6 @@
 {
   "name": "@gbesse/space-mission-lab",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "main": "src/index.js",
   "exports": {
@@ -23,6 +23,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@gbesse/branch-lab": "0.2.0"
+    "@gbesse/branch-lab": "0.2.1"
   }
 }

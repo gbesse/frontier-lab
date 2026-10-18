@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { recordScenario, replayScenario } from '@gbesse/branch-lab';
+import { recordScenario, replayScenario, diffPresence, diff } from '@gbesse/branch-lab';
 const scenario = JSON.parse(
   await readFile(new URL('../examples/branch-failure.json', import.meta.url)),
 );
@@ -41,4 +41,30 @@ test('nonportable values are refused instead of hashed with lossy JSON', () => {
   const cycle = { steps: [] };
   cycle.self = cycle;
   assert.throws(() => recordScenario(cycle), { code: 'INVALID_REPLAY' });
+});
+
+test('presence-aware diffs distinguish absent and null without inherited prototype fields', () => {
+  assert.deepEqual(diffPresence({}, { value: null }), [
+    { path: '/value', before: null, after: null, beforeExists: false, afterExists: true },
+  ]);
+  assert.deepEqual(diffPresence({ value: null }, {}), [
+    { path: '/value', before: null, after: null, beforeExists: true, afterExists: false },
+  ]);
+  const value = JSON.parse('{"__proto__":null,"constructor":null,"toString":null}');
+  const changes = diffPresence({}, value);
+  assert.equal(changes.length, 3);
+  assert.ok(changes.every((c) => c.beforeExists === false && c.before === null));
+  assert.equal(JSON.parse(JSON.stringify(changes)).length, 3);
+  assert.equal(diffPresence({}, { 'a/b~c': 1 })[0].path, '/a~1b~0c');
+});
+test('legacy diffs keep their shape and replay exposes an unambiguous first mismatch', () => {
+  assert.deepEqual(diff({}, { value: 1 }), [{ path: '/value', before: null, after: 1 }]);
+  const bundle = recordScenario({ steps: [], expected: { confirmedOrders: 0 } });
+  assert.equal(replayScenario(bundle).firstDifference, null);
+  delete bundle.report.error;
+  const result = replayScenario(bundle);
+  assert.equal(result.verified, false);
+  assert.equal(result.firstDifference.path, '/error');
+  assert.equal(result.firstDifference.beforeExists, false);
+  assert.equal(result.firstDifference.afterExists, true);
 });

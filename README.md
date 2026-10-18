@@ -198,3 +198,5 @@ Exécutez `npm run demo:branch-failure` pour voir une panne synthétique de noti
 ## Répétition Branch portable
 
 `mkdir -p .local && npx branch-lab record examples/branch-failure.json .local/branch-bundle.json`, puis `npx branch-lab replay .local/branch-bundle.json` enregistre le scénario complet et vérifie par réexécution son état, ses événements et ses assertions. `verified` prouve la concordance de répétition ; `scenarioPassed` indique séparément le résultat des assertions. Le bundle peut contenir des données utilisateur : gardez-le privé. Les hashes ne sont ni signatures ni preuves de comportement en production. [Guide FR/EN/ES](packages/branch/README.md).
+
+Branch expose un diff distinguant les propriétés absentes de `null` et le premier chemin divergent d’une répétition ; voir [son API](packages/branch/README.md).
