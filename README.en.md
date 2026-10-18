@@ -194,3 +194,5 @@ Run `npm run demo:branch-failure` to see a synthetic notification failure after 
 ## Portable Branch replay
 
 `mkdir -p .local && npx branch-lab record examples/branch-failure.json .local/branch-bundle.json`, then `npx branch-lab replay .local/branch-bundle.json` records the complete scenario and re-executes its state, events and assertions. `verified` reports replay agreement; `scenarioPassed` separately reports assertion success. The bundle can contain user data: keep it private. Hashes are neither signatures nor proof of production behavior. [FR/EN/ES guide](packages/branch/README.md).
+
+Branch exposes a diff distinguishing absent properties from `null` and the first divergent replay path; see [its API](packages/branch/README.md).

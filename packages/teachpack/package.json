@@ -1,6 +1,6 @@
 {
   "name": "@gbesse/teachpack",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Compile explicit workflow demonstrations into inspectable, permissioned skills.",
   "type": "module",
   "main": "src/index.js",
@@ -18,7 +18,7 @@
     "LICENSE"
   ],
   "dependencies": {
-    "@gbesse/branch-lab": "0.2.0"
+    "@gbesse/branch-lab": "0.2.1"
   },
   "engines": {
     "node": ">=22"

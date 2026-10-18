@@ -310,9 +310,11 @@ export class World {
     return { orderId: order.id, status: order.status };
   }
 }
-export function diff(before, after, path = '') {
-  if (canonical(before) === canonical(after)) return [];
+export function diffPresence(before, after, path = '', beforeExists = true, afterExists = true) {
+  if (beforeExists === afterExists && canonical(before) === canonical(after)) return [];
   if (
+    beforeExists &&
+    afterExists &&
     before &&
     after &&
     typeof before === 'object' &&
@@ -322,11 +324,28 @@ export function diff(before, after, path = '') {
     return [...new Set([...Object.keys(before), ...Object.keys(after)])]
       .sort()
       .flatMap((key) =>
-        diff(before[key], after[key], `${path}/${key.replaceAll('~', '~0').replaceAll('/', '~1')}`),
+        diffPresence(
+          own(before, key) ? before[key] : undefined,
+          own(after, key) ? after[key] : undefined,
+          `${path}/${key.replaceAll('~', '~0').replaceAll('/', '~1')}`,
+          own(before, key),
+          own(after, key),
+        ),
       );
   }
-  return [{ path: path || '/', before: before ?? null, after: after ?? null }];
+  return [
+    { path: path || '/', before: before ?? null, after: after ?? null, beforeExists, afterExists },
+  ];
 }
+export function diff(before, after, path = '') {
+  // Keep the original diff result shape for existing scenario reports and receipts.
+  return diffPresence(before, after, path).map(({ path, before, after }) => ({
+    path,
+    before,
+    after,
+  }));
+}
+
 export function runScenario({ seed = defaultSeed(), steps, faults = {}, expected = {} }) {
   if (!Array.isArray(steps)) fail('INVALID_SCENARIO', 'steps array required');
   const world = new World(seed, { faults }),
@@ -441,6 +460,7 @@ export function replayScenario(bundle) {
     reportMatches,
     scenarioPassed: replayed.passed,
     differences,
+    firstDifference: diffPresence(bundle.report, replayed)[0] ?? null,
     replayedReportSha256: fingerprint(replayed),
   };
 }
